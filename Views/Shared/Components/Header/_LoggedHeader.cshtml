@@ -1,0 +1,66 @@
+@model EscolaDeVoce.Frontend.User
+
+@{
+    string fullname = Model.name + " " + Model.lastname;
+    string[] names = fullname.Split(' ');
+    string name = names[0];
+    string lastname = names[names.Count() - 1];
+
+    var cover = "/images/header.jpg";
+    var profilePhoto = "/images/no-image.png";
+    if(!string.IsNullOrEmpty(Model.cover)) {
+        cover = "/images/" + Model.cover;
+    }
+
+    if(!string.IsNullOrEmpty(Model.image)) {
+        profilePhoto = "/images/" + Model.image;
+    }
+
+    ViewBag.name = name;
+    ViewBag.fullname = fullname;
+}
+
+<section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="@cover">
+	<div class="container">
+		<div class="row parallax-content">
+            <div class="col-md-6">
+                <div id="profile-photos">
+                    <div class="profile-photo circled-div">
+                        <img src="@profilePhoto" />
+                        <input type="file" onchange="escoladevoce.uploadPhoto(this)">
+                    </div>
+                    <div class="embaixadora-photo circled-div">
+                        <img src="~/images/no-embaixadora.png" />
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-name">@fullname</div>
+                    <div class="profile-options">
+                        <a href="/mensagens"><label> <span class="icon icon-message"><img src="~/images/icons/message-white.png"/></span> <span class="profile-option-title">Mensagens</span></label></a>
+                        <a href="/Account/Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-white.png"/></span> <span class="profile-option-title">Sair</span></label></a>
+                    </div>
+                    <div class="embaixadora-info">
+                        <p>
+                            Embaixadora<br />
+                            
+                            <a href="" data-toggle="modal" data-target="#embaixadoraModal"><strong>Clique aqui</strong></a> para descobrir
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                
+                <div class="profile-right-info">
+                    <a><img src="~/images/icons/camera-white.png"/> Alterar Capa</a>
+                    <input type="file" onchange="escoladevoce.uploadCover(this)" />
+                </div>
+                
+            </div>
+        </div>
+	</div>
+</section><!-- /bannerSection -->
+
+@Html.Partial("_BuscarEmbaixadora")
+@Html.Partial("_BuscandoEmbaixadora")

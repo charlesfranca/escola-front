@@ -1,0 +1,15 @@
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <form class="navbar-form navbar-right">
+            <button type="button" class="escola-btn unlogged-button" onclick="escoladevoce.auth.openSignupForm()">Quero Participar</button>
+            <button type="button" class="escola-btn unlogged-button escola-btn-primary" onclick="escoladevoce.auth.openLoginForm()">Logar</button>
+            <!--<a type="submit" class="btn btn-default logged-button btn-primary" asp-action="Logout" asp-controller="Account">Logout</a>-->
+    </form>
+    @Html.Partial("_SignupForm")
+    @Html.Partial("_LoginForm")
+    <ul class="nav navbar-nav navbar-right hidden-when-shrink">
+        <li class="active"><a href="#">Quem Somos <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Dúvidas Frequentes</a></li>
+        <li><a href="#">Fale Conosco</a></li>
+    </ul>
+</div><!-- /.navbar-collapse -->

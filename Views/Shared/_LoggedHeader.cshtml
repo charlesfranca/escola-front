@@ -1,0 +1,47 @@
+@model EscolaDeVoce.Frontend.User
+
+@{
+    string fullname = Model.name + " " + Model.lastname;
+    string[] names = fullname.Split(' ');
+    string name = names[0];
+    string lastname = names[names.Count() - 1];
+}
+
+<section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="/images/header.jpg">
+	<div class="container">
+		<div class="row parallax-content">
+            <div class="col-md-6">
+                <div id="profile-photos">
+                    <div class="profile-photo circled-div">
+                        <img src="~/images/site/profile-photo.jpg" />
+                    </div>
+                    <div class="embaixadora-photo circled-div">
+                        <img src="~/images/site/embaixadora-photo.jpg" />
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-name">@fullname</div>
+                    <div class="profile-options">
+                        <a href="#"><label> <span class="icon icon-message"><img src="~/images/icons/message-white.png"/></span> <span class="profile-option-title">Mensagens</span></label></a>
+                        <a asp-controller="Account" asp-action="Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-white.png"/></span> <span class="profile-option-title">Sair</span></label></a>
+                    </div>
+                    <div class="embaixadora-info">
+                        <p>
+                            Embaixadora<br />
+                            Marina dos Santos - São Paulo/SP
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                
+                <div class="profile-right-info">
+                    <a><img src="~/images/icons/camera-white.png"/> Alterar Capa</a>
+                </div>
+
+            </div>
+        </div>
+	</div>
+</section><!-- /bannerSection -->

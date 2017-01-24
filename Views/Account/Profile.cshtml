@@ -1,0 +1,341 @@
+@{ 
+    ViewData["Title"] = "Home Page"; 
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function(){
+            $('#courses').slick({
+                infinite: false,
+                speed: 300,
+                slidesToShow: 3,
+                prevArrow: $("#prev-arrow"),
+                nextArrow: $("#next-arrow"),
+                adaptiveHeight: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    ],
+                arrows: true
+            });
+
+            $('#embaixadoras').slick({
+                infinite: false,
+                speed: 300,
+                slidesToShow: 3,
+                prevArrow: $("#emb-prev-arrow"),
+                nextArrow: $("#emb-next-arrow"),
+                adaptiveHeight: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    ],
+                arrows: true
+            });
+
+            $( "#slider" ).slider({
+                value:50,
+                min: 0,
+                max: 100,
+                step: 10,
+                slide: function( event, ui ) {
+                    //$( "#amount" ).val( "$" + ui.value );
+                }
+            });
+        });
+    </script> 
+}
+
+<section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="/images/site/cover1.jpg">
+	<div class="container">
+		<div class="row parallax-content">
+            <div class="col-md-6">
+                <div id="profile-photos">
+                    <div class="profile-photo circled-div">
+                        <img src="~/images/site/profile-photo.jpg" />
+                    </div>
+                    <div class="embaixadora-photo circled-div">
+                        <img src="~/images/site/embaixadora-photo.jpg" />
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-name">Natália Leite</div>
+                    <div class="profile-options">
+                        <a href="#"><label> <span class="icon icon-message"><img src="~/images/icons/message-white.png"/></span> <span class="profile-option-title">Mensagens</span></label></a>
+                        <a asp-controller="Account" asp-action="Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-white.png"/></span> <span class="profile-option-title">Sair</span></label></a>
+                    </div>
+                    <div class="embaixadora-info">
+                        <p>
+                            Embaixadora<br />
+                            Marina dos Santos - São Paulo/SP
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                
+                <div class="profile-right-info">
+                    <a><img src="~/images/icons/camera-white.png"/> Alterar Capa</a>
+                </div>
+
+            </div>
+        </div>
+	</div>
+</section><!-- /bannerSection -->
+
+<section id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("_NavLogged")
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="question-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 question-left-text">
+                <h1 class="title">Queremos te conhecer melhor Natália</h2>
+                <p>
+                    Com algumas perguntinhas todos os dias, vamos conhecer mais sobre você e personalizar sua jornada de crescimento.
+                    Para responder é só clicar na bolinha e arrastar para a direita ou esquerda em direção à sua resposta. Quanto mais certeza você tiver, arraste a bolinha mais longe do centro.
+                </p>
+            </div>
+            <div class="col-md-5 col-md-offset-3">
+                <div class="question">
+                    <h1 class="title">1 - Um apocalipse zumbi começou! O que você faz?</h2>
+                    <div class="answers">
+                        <div class="left-answer">
+                            Me escondo em um sótão
+                        </div>
+                        <div class="right-answer">
+                            Saio pelas ruas e vou à luta
+                        </div>
+                    </div>
+                    <div class="answer-slider">
+                        <div id="slider"></div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="escola-btn">fazer o quis completo</button>
+                        <button class="escola-btn escola-btn-primary right-item right-button">enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /question-section -->
+
+
+<section class="container">
+
+    <div class="course-content">
+        <div class="courses-control">
+            <img id="prev-arrow" src="~/images/site/previous-active.png" />
+            <img id="next-arrow" src="~/images/site/next-active.png" />
+        </div>
+
+        <h2 class="sub-title">Cursos em destaque</h2>
+        
+        <div class="courses" id="courses">
+            <div class="course">
+                <div class="course-image">
+                    <img src="~/images/site/curso1.jpg" />
+                </div>
+                <div class="course-info">
+                    <div class="course-title">
+                        <p>
+                            Bem vinda ao seu melhor
+                        </p> <!-- /course-title -->
+                    </div>
+                    
+                    <div class="course-stars">
+                        <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
+                    </div><!-- /course-stars -->
+                </div><!-- /course-info -->
+            </div><!-- /course -->
+
+            <div class="course">
+                <div class="course-image">
+                    <img src="~/images/site/curso2.jpg" />
+                </div>
+                <div class="course-info">
+                    <p class="course-title">
+                        Bem vinda ao seu melhor
+                    </p> <!-- /course-title -->
+                    <div class="course-stars">
+                        <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
+                    </div><!-- /course-stars -->
+                </div><!-- /course-info -->
+            </div><!-- /course -->
+
+            <div class="course">
+                <div class="course-image">
+                    <img src="~/images/site/curso3.jpg" />
+                </div>
+                <div class="course-info">
+                    <p class="course-title">
+                        Bem vinda ao seu melhor
+                    </p> <!-- /course-title -->
+                    <div class="course-stars">
+                        <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
+                    </div><!-- /course-stars -->
+                </div><!-- /course-info -->
+            </div><!-- /course -->
+
+            <div class="course">
+                <div class="course-image">
+                    <img src="~/images/site/curso1.jpg" />
+                </div>
+                <div class="course-info">
+                    <p class="course-title">
+                        Bem vinda ao seu melhor
+                    </p> <!-- /course-title -->
+                    <div class="course-stars">
+                        <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
+                    </div><!-- /course-stars -->
+                </div><!-- /course-info -->
+            </div><!-- /course -->
+
+        </div><!-- /courses -->
+
+        <br/>
+        <br/>
+        
+        <p class="text-right">
+            <a class="escola-btn">veja mais cursos</a>
+        </p>
+    </div><!-- /course-content -->
+
+</section><!-- /#destak-courses -->
+
+<section id="embaixadoras-section" class="container">
+    <div class="embaixadora-content">
+        <div class="embaixadoras-control">
+            <img id="emb-prev-arrow" src="~/images/site/previous-active.png" />
+            <img id="emb-next-arrow" src="~/images/site/next-active.png" />
+        </div>
+        
+        <h2 class="sub-title">Nossas especialistas</h2>
+
+        <div class="embaixadoras" id="embaixadoras">
+
+            <div class="embaixadora">
+                <div class="embaixadora-image">
+                    <img src="~/images/site/embaixadora1.jpg" />
+                </div>
+                <div class="embaixadora-info">
+                    <div class="embaixadora-desc">
+                        <h3 class="title">Ana Fontes</h3>
+                        <p class="job">Negócios e Marketing</p>
+                    </div> <!-- /embaixadora-title -->
+                    <div class="embaixadora-social">
+                        <img src="~/images/site/facebook.png" /> <img src="~/images/site/instagram.png" /> <img src="~/images/site/youtube.png" />
+                    </div><!-- /embaixadora-stars -->
+                </div><!-- /embaixadora-info -->
+            </div><!-- /embaixadora -->
+
+            <div class="embaixadora">
+                <div class="embaixadora-image">
+                    <img src="~/images/site/embaixadora2.jpg" />
+                </div>
+                <div class="embaixadora-info">
+                    <div class="embaixadora-desc">
+                        <h3 class="title">Ana Fontes</h3>
+                        <p class="job">Negócios e Marketing</p>
+                    </div> <!-- /embaixadora-title -->
+                    <div class="embaixadora-social">
+                        <img src="~/images/site/facebook.png" /> <img src="~/images/site/instagram.png" /> <img src="~/images/site/youtube.png" />
+                    </div><!-- /embaixadora-stars -->
+                </div><!-- /embaixadora-info -->
+            </div><!-- /embaixadora -->
+
+            <div class="embaixadora">
+                <div class="embaixadora-image">
+                    <img src="~/images/site/embaixadora3.jpg" />
+                </div>
+                <div class="embaixadora-info">
+                    <div class="embaixadora-desc">
+                        <h3 class="title">Ana Fontes</h3>
+                        <p class="job">Negócios e Marketing</p>
+                    </div> <!-- /embaixadora-title -->
+                    <div class="embaixadora-social">
+                        <img src="~/images/site/facebook.png" /> <img src="~/images/site/instagram.png" /> <img src="~/images/site/youtube.png" />
+                    </div><!-- /embaixadora-stars -->
+                </div><!-- /embaixadora-info -->
+            </div><!-- /embaixadora -->
+
+            <div class="embaixadora">
+                <div class="embaixadora-image">
+                    <img src="~/images/site/embaixadora3.jpg" />
+                </div>
+                <div class="embaixadora-info">
+                    <div class="embaixadora-desc">
+                        <h3 class="title">Ana Fontes</h3>
+                        <p class="job">Negócios e Marketing</p>
+                    </div> <!-- /embaixadora-title -->
+                    <div class="embaixadora-social">
+                        <img src="~/images/site/facebook.png" /> <img src="~/images/site/instagram.png" /> <img src="~/images/site/youtube.png" />
+                    </div><!-- /embaixadora-stars -->
+                </div><!-- /embaixadora-info -->
+            </div><!-- /embaixadora -->
+
+        </div><!-- /embaixadoras -->
+
+        <br/>
+        <br/>
+        
+        <p class="text-right">
+            <a class="escola-btn">CONHEÇA NOSSAS EMBAIXADORAS</a>
+        </p>
+    </div><!-- /embaixadora-content -->
+</section><!-- /embaixadoras -->
+
+<section id="section-partners">
+    <div class="container">
+        <h2 class="sub-title">Parceiros</h2>
+
+        <div class="partners-list">
+            <div>
+                <img src="~/images/site/parceiro1.png" />
+            </div>
+            <div>
+                <img src="~/images/site/parceiro2.png" />
+            </div>
+            <div>
+                <img src="~/images/site/parceiro3.png" />
+            </div>
+            <div>
+                <img src="~/images/site/parceiro4.png" />
+            </div>
+        </div>
+    </div>
+    
+</section>

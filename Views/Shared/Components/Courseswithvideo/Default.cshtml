@@ -1,0 +1,74 @@
+@model List<EscolaDeVoce.Services.ViewModel.CourseViewModel>
+
+@{
+    var windowName = ViewBag.windowName;
+    var buttonName = ViewBag.buttonName;
+}
+
+<section id="" class="container">
+
+    <div class="course-content slick-slider-container">
+        <div class="courses-control slide-control">
+            <img class="prev-arrow" src="~/images/site/previous-active.png" />
+            <img class="next-arrow" src="~/images/site/next-active.png" />
+        </div>
+
+        @if(!string.IsNullOrEmpty(windowName)){
+            <h2 class="sub-title">@windowName</h2>
+        }
+        
+        <div class="courses is-slick-slider" id="courses">
+
+            @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
+                <a href="/cursos/detalhes/@c.Id">
+                    <div class="course">
+                        <div class="course-image">
+                            <div id="@(c.Id)player"></div>
+                            <script samba-player-api="player" type="text/javascript" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>
+                            <script>
+                                var player = new SambaPlayer("@(c.Id)player", { //player é o ID do elemento html que ele vai inserir o iframe
+                                    height: 232,
+                                    width: 360,
+                                    ph: "3b8e50510d562d8d8b101c66f59bf625",//Player Hash do projeto
+                                    m: "8b9be24b4e8b02667c34761231695865",//MidiaID
+                                    playerParams: { //Veja a lista de Parâmetros suportados
+                                        enableShare: true,
+                                        wideScreen: true
+                                    },
+                                    events: { //Funcoes que escutam os eventos do player
+                                        "onLoad": function(){}, //Sendo que eventListener deve ser uma função já presente na página
+                                        "onStart": function(){},
+                                        "onFinish": function(){}
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="course-info">
+                            <p class="course-title">
+                                @c.name
+                            </p> <!-- /course-title -->
+                            <div class="course-stars">
+                                <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
+                            </div><!-- /course-stars -->
+                        </div><!-- /course-info -->
+                    </div><!-- /course -->
+                </a>
+            }
+
+        </div><!-- /courses -->
+
+        <br/>
+        <br/>
+        
+        @if(!string.IsNullOrEmpty(buttonName)){
+            <p class="text-right">
+                @if(User.Identity.IsAuthenticated){
+                    <a class="escola-btn" href="/cursos">@buttonName</a>
+                }else{
+                    <a class="escola-btn" onclick="escoladevoce.auth.openSignupForm()">@buttonName</a>
+                }
+            </p>
+        }
+    </div><!-- /course-content -->
+
+</section><!-- /#destak-courses -->

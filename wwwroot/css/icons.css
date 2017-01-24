@@ -1,0 +1,238 @@
+.icons-sprite, .icons-back-arrow, .icons-camera-white, .icons-check-active, .icons-check-unactive, .icons-done, .icons-download-button, .icons-empoderamento, .icons-facebook, .icons-heart-gray-little, .icons-heart-gray, .icons-heart-pink, .icons-heart-white, .icons-instagram, .icons-little-facebook, .icons-little-share, .icons-little-star, .icons-lock-open, .icons-lock, .icons-logout-white, .icons-logout, .icons-mail, .icons-message-white, .icons-message, .icons-next-active, .icons-previews-unactive, .icons-previous-active, .icons-previous-unactive, .icons-profile, .icons-return, .icons-share, .icons-signup-facebook, .icons-signup-twitter, .icons-small-lock, .icons-star-active, .icons-star-unactive, .icons-trofeu, .icons-twitter, .icons-undone, .icons-youtube {
+  background-image: url('../images/icons-s227c6405b4.png');
+  background-repeat: no-repeat;
+}
+
+.icons-back-arrow {
+  background-position: 0 0;
+  height: 13px;
+  width: 19px;
+}
+
+.icons-camera-white {
+  background-position: 0 -13px;
+  height: 22px;
+  width: 27px;
+}
+
+.icons-check-active {
+  background-position: 0 -35px;
+  height: 17px;
+  width: 26px;
+}
+
+.icons-check-unactive {
+  background-position: 0 -52px;
+  height: 17px;
+  width: 26px;
+}
+
+.icons-done {
+  background-position: 0 -69px;
+  height: 46px;
+  width: 46px;
+}
+
+.icons-download-button {
+  background-position: 0 -115px;
+  height: 15px;
+  width: 72px;
+}
+
+.icons-empoderamento {
+  background-position: 0 -130px;
+  height: 106px;
+  width: 106px;
+}
+
+.icons-facebook {
+  background-position: 0 -236px;
+  height: 53px;
+  width: 25px;
+}
+
+.icons-heart-gray-little {
+  background-position: 0 -289px;
+  height: 22px;
+  width: 23px;
+}
+
+.icons-heart-gray {
+  background-position: 0 -311px;
+  height: 43px;
+  width: 46px;
+}
+
+.icons-heart-pink {
+  background-position: 0 -354px;
+  height: 46px;
+  width: 50px;
+}
+
+.icons-heart-white {
+  background-position: 0 -400px;
+  height: 43px;
+  width: 46px;
+}
+
+.icons-instagram {
+  background-position: 0 -443px;
+  height: 53px;
+  width: 53px;
+}
+
+.icons-little-facebook {
+  background-position: 0 -496px;
+  height: 21px;
+  width: 11px;
+}
+
+.icons-little-share {
+  background-position: 0 -517px;
+  height: 20px;
+  width: 20px;
+}
+
+.icons-little-star {
+  background-position: 0 -537px;
+  height: 16px;
+  width: 16px;
+}
+
+.icons-lock-open {
+  background-position: 0 -553px;
+  height: 48px;
+  width: 37px;
+}
+
+.icons-lock {
+  background-position: 0 -601px;
+  height: 46px;
+  width: 37px;
+}
+
+.icons-logout-white {
+  background-position: 0 -647px;
+  height: 20px;
+  width: 25px;
+}
+
+.icons-logout {
+  background-position: 0 -667px;
+  height: 38px;
+  width: 48px;
+}
+
+.icons-mail {
+  background-position: 0 -705px;
+  height: 16px;
+  width: 22px;
+}
+
+.icons-message-white {
+  background-position: 0 -721px;
+  height: 18px;
+  width: 22px;
+}
+
+.icons-message {
+  background-position: 0 -739px;
+  height: 38px;
+  width: 46px;
+}
+
+.icons-next-active {
+  background-position: 0 -777px;
+  height: 49px;
+  width: 49px;
+}
+
+.icons-previews-unactive {
+  background-position: 0 -826px;
+  height: 49px;
+  width: 49px;
+}
+
+.icons-previous-active {
+  background-position: 0 -875px;
+  height: 49px;
+  width: 49px;
+}
+
+.icons-previous-unactive {
+  background-position: 0 -924px;
+  height: 49px;
+  width: 49px;
+}
+
+.icons-profile {
+  background-position: 0 -973px;
+  height: 53px;
+  width: 53px;
+}
+
+.icons-return {
+  background-position: 0 -1026px;
+  height: 27px;
+  width: 39px;
+}
+
+.icons-share {
+  background-position: 0 -1053px;
+  height: 38px;
+  width: 38px;
+}
+
+.icons-signup-facebook {
+  background-position: 0 -1091px;
+  height: 90px;
+  width: 90px;
+}
+
+.icons-signup-twitter {
+  background-position: 0 -1181px;
+  height: 90px;
+  width: 90px;
+}
+
+.icons-small-lock {
+  background-position: 0 -1271px;
+  height: 24px;
+  width: 20px;
+}
+
+.icons-star-active {
+  background-position: 0 -1295px;
+  height: 33px;
+  width: 33px;
+}
+
+.icons-star-unactive {
+  background-position: 0 -1328px;
+  height: 35px;
+  width: 35px;
+}
+
+.icons-trofeu {
+  background-position: 0 -1363px;
+  height: 18px;
+  width: 19px;
+}
+
+.icons-twitter {
+  background-position: 0 -1381px;
+  height: 57px;
+  width: 81px;
+}
+
+.icons-undone {
+  background-position: 0 -1438px;
+  height: 46px;
+  width: 46px;
+}
+
+.icons-youtube {
+  background-position: 0 -1484px;
+  height: 53px;
+  width: 71px;
+}

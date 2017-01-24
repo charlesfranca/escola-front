@@ -1,0 +1,217 @@
+@{
+    ViewData["Title"] = "Embaixadoras";
+}
+
+@await Component.InvokeAsync("Header")
+
+<section id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("_NavLogged")
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+         $(document).load(function(){
+             $(".panel-left").resizable({
+                handleSelector: ".splitter",
+                resizeHeight: false
+            });
+         });
+         
+         tinymce.init({
+            selector: '#newMessage',
+            menubar: false,
+            plugins: [
+                'emoticons'
+            ],
+            toolbar: [
+                'bold italic underline emoticons'
+            ],
+            mentions_fetch: function (query, success) {
+                // Fake a server call by using a setTimeout
+                alert("searching");
+                setTimeout(function() {
+                console.log('Search query:', query.term);
+
+                success([
+                    {id: 'johndoe', name: 'johndoe', fullName: 'John Doe'},
+                    {id: 'janedoe', name: 'janedoe', fullName: 'Jane Doe'}
+                ]);
+                }, 0);
+            }
+        });
+    </script>
+}
+
+<section id="mensagens">
+    <div class="panel-container">
+
+        <div class="panel-left">
+            
+            <div class="mensagem active">
+
+                <div class="mensagem-left-content">
+                    <img src="~/images/phot-papo.png" alt="">
+                </div>
+                <div class="mensagem-right-container">
+                    <p>
+                        Raquel Vieira<br>
+                        São Paulo/SP
+                    </p>
+                </div>
+
+            </div>
+
+        <div class="mensagem">
+
+                <div class="mensagem-left-content">
+                    <img src="~/images/phot-papo.png" alt="">
+                </div>
+                <div class="mensagem-right-container">
+                    <p>
+                        Raquel Vieira<br>
+                        São Paulo/SP
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mensagem">
+
+                <div class="mensagem-left-content">
+                    <img src="~/images/phot-papo.png" alt="">
+                </div>
+                <div class="mensagem-right-container">
+                    <p>
+                        Raquel Vieira<br>
+                        São Paulo/SP
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mensagem">
+
+                <div class="mensagem-left-content">
+                    <img src="~/images/phot-papo.png" alt="">
+                </div>
+                <div class="mensagem-right-container">
+                    <p>
+                        Raquel Vieira<br>
+                        São Paulo/SP
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="splitter">
+        </div>
+
+        <div class="panel-right">
+            <div class="messages-panel">
+                <div class="message-person">
+                    Raquel Vieira
+                </div>
+
+                <div class="messages">
+
+                    <div class="message left-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Olá Amiga. 
+                        </div>
+                    </div>  
+                    
+                    <div class="clearfix"></div>
+                    
+                    <div class="message left-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Como vão as coisas?
+                        </div>
+                    </div>  
+
+                    <div class="clearfix"></div>
+
+                    <div class="message right-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Oiiiii!!!
+                        </div>
+                    </div>  
+
+                    <div class="clearfix"></div>
+
+
+                    <div class="message right-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Eu vou muito bem e você?
+                        </div>
+                    </div>  
+
+                    <div class="clearfix"></div>
+
+
+                    <div class="message left-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Vou bem também. Queria te fazer uma pergunta. Posso?
+                        </div>
+                    </div>  
+
+                    <div class="clearfix"></div>
+
+
+                    <div class="message right-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Claro que pode.
+                        </div>
+                    </div>  
+
+                    <div class="clearfix"></div>
+
+                    <div class="message right-message">
+                        <div class="message-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="message-content">
+                            Como posso te ajudar?
+                        </div>
+                    </div>  
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="new-message-form">
+                    <form>
+                        <textarea name="newMessage" id="newMessage"></textarea>
+                        <div id="mytoolbar"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

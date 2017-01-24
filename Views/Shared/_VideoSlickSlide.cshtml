@@ -1,0 +1,43 @@
+@model List<EscolaDeVoce.Services.ViewModel.VideoViewModel>
+
+<section id="destak-courses" class="container">
+
+    <div class="course-content slick-slider-container">
+        <div class="courses-control slide-control">
+            <img class="prev-arrow" src="~/images/site/previous-active.png" />
+            <img class="next-arrow" src="~/images/site/next-active.png" />
+        </div>
+
+        <h2 class="sub-title">Você vai ver nesse curso:</h2>
+        
+        <div class="courses is-slick-slider" id="courses">
+
+            @foreach(EscolaDeVoce.Services.ViewModel.VideoViewModel c in Model){
+                <a href="/cursos/sala/@c.courseId">
+                    <div class="course">
+                        <div class="course-image">
+                            <img src="@c.thumb" />
+                        </div>
+                        <div class="course-info">
+                            <p class="course-title">
+                                @c.name
+                            </p> <!-- /course-title -->
+                            <div class="course-stars">
+                                <!--<img src="@c.thumb" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />-->
+                            </div><!-- /course-stars -->
+                        </div><!-- /course-info -->
+                    </div><!-- /course -->
+                </a>
+            }
+
+        </div><!-- /courses -->
+
+        <br/>
+        <br/>
+        
+        <p class="text-right">
+            <a class="escola-btn">veja mais cursos</a>
+        </p>
+    </div><!-- /course-content -->
+
+</section><!-- /#destak-courses -->

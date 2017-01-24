@@ -1,0 +1,116 @@
+@{ ViewData["Title"] = "Home Page"; } 
+
+@section modalContent {
+    
+}
+
+<section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="/images/header.jpg">
+	<div class="container">
+		@Html.Partial("_HomeUnLogged")
+	</div>
+</section><!-- /bannerSection -->
+
+<section id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("_NavLogged")
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="big-video-section" class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1">
+            <div id="player"></div>
+			<script samba-player-api="player" type="text/javascript" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>
+            <script>
+                var player = new SambaPlayer("player", { //player é o ID do elemento html que ele vai inserir o iframe
+                    height: 330,
+                    width: 550,
+                    ph: "3b8e50510d562d8d8b101c66f59bf625",//Player Hash do projeto
+                    m: "8b9be24b4e8b02667c34761231695865",//MidiaID
+                    playerParams: { //Veja a lista de Parâmetros suportados
+                        enableShare: true,
+                        wideScreen: true
+                    },
+                    events: { //Funcoes que escutam os eventos do player
+                        "onLoad": function(){}, //Sendo que eventListener deve ser uma função já presente na página
+                        "onStart": function(){},
+                        "onFinish": function(){}
+                    }
+                });
+            </script>
+		</div>
+
+		<div class="col-md-5">
+			<div class="description">
+				<h1 class="title">Vou te explicar em menos de 1 minuto.
+				</h1>
+
+
+				<p class="desc">
+					Lorem ipsum dolor sit amet, mel in labore aeterno euripidis, sed cu pericula inciderint referrentur, cum ut enim graeco. Solum causae ad vis, cum facilis civibus perfecto ei, usu et iudico soleat. Pro omittam quaestio abhorreant in, te nihil vulputate per. Quo unum tantas conceptam ei, ei quo solum adipiscing.  
+				</p>
+				<br />
+
+				<p>
+					<a class="escola-btn escola-btn-primary" onclick="escoladevoce.auth.openSignupForm()">TRANSFORME SUA VIDA AGORA MESMO</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</section><!-- /big-video-section -->
+
+<section id="features" class="container">
+    <h1 class="midium-title section-title text-center">
+        Uma rede de gente boa para ajudar você!
+    </h1>
+	<div class="row">
+		<div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">
+                    <img src="~/images/site/autoconhecimento.png" />
+                </div>
+                <h2 class="sub-title feature-title">
+                    Autoconhecimento
+                </h2>
+                <p class="feature-description">
+                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. 
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">
+                    <img src="~/images/site/empoderamento.png" />
+                </div>
+                <h2 class="sub-title feature-title">
+                    Empoderamento
+                </h2>
+                <p class="feature-description">
+                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. 
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature">
+                <div class="feature-icon">
+                    <img src="~/images/site/empreendedorismo.png" />
+                </div>
+                <h2 class="feature-title sub-title">
+                    Empreendedorismo
+                </h2>
+                <p class="feature-description">
+                    Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. 
+                </p>
+            </div>
+        </div>
+	</div>
+</section><!-- /features -->
+
+@await Component.InvokeAsync("Courseswithvideo", new {windowName = "Cursos em destaque", buttonName = "Veja Mais Cursos"})
+@await Component.InvokeAsync("Especialista")

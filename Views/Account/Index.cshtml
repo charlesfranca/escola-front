@@ -1,0 +1,142 @@
+@model EscolaDeVoce.Frontend.User
+
+@{ 
+    ViewData["Title"] = "Home Page";
+}
+
+@section scripts {
+    <script>
+        $('#bemvindaModal').modal("show");
+    </script> 
+}
+
+@section modalContent {
+    @Html.Partial("_BemVinda") 
+}
+
+@await Component.InvokeAsync("Header")
+
+<section id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("_NavLogged")
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="profile-section">
+    <div class="container">
+        <div class="row">
+            <h5>Meu Perfil</h5>
+        </div>
+    </div>
+
+    <div class="container page-content">
+        <div>
+            <h2 class="sub-title">Minhas Informações</h2>
+            <p>
+                Preencha todas as informações para ter um perfil completo. 
+                Somente os campos com * são obrigatórios para emitir o certificado, mas preenchendo todos podemos personalizar sua jornada
+            </p>
+            <br/>
+            <br/>
+        </div>
+
+        <style>
+
+        </style>
+        <form class="form-inline">
+            <div class="fields-line">
+                <div class="form-group">
+                    <label for="exampleInputName2">Nome*</label>
+                    <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">E-mail*</label>
+                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">
+                </div>
+            </div>
+
+            <div class="fields-line">
+                <div class="form-group">
+                    <label for="exampleInputName2">CPF</label>
+                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Gênero*</label>
+                    <select class="form-control small-size" id="exampleInputEmail2" placeholder=""></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Data de Nascimento*</label>
+                    <input type="text" class="form-control small-size" id="exampleInputEmail2" placeholder="">
+                </div>
+            </div>
+
+            <div class="fields-line">
+                <div class="form-group">
+                    <label for="exampleInputName2">Telefone/Cel</label>
+                    <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Possui Negócio</label>
+                    <input type="radio" class="form-control" id="exampleInputEmail2" placeholder=""> Sim 
+                    <input type="radio" class="form-control" id="exampleInputEmail2" placeholder=""> Não
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Filhos</label>
+                    <select class="form-control tiny-size" id="exampleInputEmail2" placeholder=""></select>
+                </div>
+            </div>
+
+            <div class="fields-line">
+                <div class="form-group">
+                    <label for="exampleInputName2">CEP*</label>
+                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Número*</label>
+                    <input type="text" class="form-control tiny-size" id="exampleInputEmail2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Endereço*</label>
+                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">
+                </div>
+            </div>
+
+
+            <div class="fields-line">
+                <div class="form-group">
+                    <label for="exampleInputName2">País</label>
+                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Estado*</label>
+                    <input type="text" class="form-control tiny-size" id="exampleInputEmail2" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Cidade*</label>
+                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">
+                </div>
+            </div>
+            
+            <input type="file" name="avatar" id="avatar" onchange="escoladevoce.uploadfile(this)">
+
+            <div>
+                <a href=""><span class="icon icons-small-lock"></span> Alterar Senha</a> <button id="btn-save" class="escola-btn escola-btn-primary right-item">Salvar</button>
+            </div>
+            
+        </form>
+    </div>
+
+</section>

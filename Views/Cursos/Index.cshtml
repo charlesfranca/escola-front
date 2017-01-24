@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Cursos";
+}
+
+@await Component.InvokeAsync("Header")
+
+<section id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("_NavLogged")
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+
+@await Component.InvokeAsync("Courses", new {windowName = "Cursos do meu <span class=\"icon icons-heart-gray-little\"></span>"})
+
+@await Component.InvokeAsync("Courses", new {windowName = "Cursos em destaque"})
+
+@await Component.InvokeAsync("Courses", new {windowName = "Dicas rápidas"})
+
+@await Component.InvokeAsync("Courses", new {windowName = "Maternidade"})

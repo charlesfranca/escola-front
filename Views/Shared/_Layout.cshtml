@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EscolaDeVoce.Frontend</title>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick.css" />
+        <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick-theme.css" />
+        <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        
+        <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick.css" />
+        <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick-theme.css" />
+        <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <link rel="stylesheet" href="~/css/icons.css" asp-append-version="true" />
+</head>
+
+<!--logged-->
+<body class="@(User.Identity.IsAuthenticated ? "logged" : "")">
+    
+@RenderSection("modalContent", required: false)
+
+<!--<div id="dialog-message" title="Download complete">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    Your files have downloaded successfully into the My Downloads folder.
+  </p>
+  <p>
+    Currently using <b>36% of your storage space</b>.
+  </p>
+</div>-->
+
+    <nav class="navbar navbar-default navbar-fixed-top" id="menu1">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img class="unlogged-brand" src="~/images/site/logo.png" />
+                <img class="logged-brand" src="~/images/site/logo-white.png" />
+            </a>
+            </div>
+            
+            @Html.Partial("_Menu")
+        </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div class="body-content">
+        @RenderBody()
+    </div>
+
+    <section id="section-partners">
+            <div class="container">
+                <h2 class="sub-title">Parceiros</h2>
+
+                <div class="partners-list">
+                    <div>
+                        <img src="~/images/site/parceiro1.png" />
+                    </div>
+                    <div>
+                        <img src="~/images/site/parceiro2.png" />
+                    </div>
+                    <div>
+                        <img src="~/images/site/parceiro3.png" />
+                    </div>
+                    <div>
+                        <img src="~/images/site/parceiro4.png" />
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div>
+                        <ul id="footer-menu">
+                            <li>QUEM SOMOS</li>
+                            <li>DÚVIDAS FREQUENTES</li>
+                            <li>FALE CONOSCO</li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <p id="copyright">Copyright ® Escola de Você - Todos os direitos reservados - Termos de uso e política de privacidade</p>
+                </div>
+                <div class="col-md-2">
+                    <ul id="footer-social">
+                        <li><a><img src="~/images/site/facebook.png" /></a></li>
+                        <li><a><img src="~/images/site/instagram.png" /></a></li>
+                        <li><a><img src="~/images/site/youtube.png" /></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 text-right">
+                    <img src="~/images/site/logo.png" style="height: 51px;" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="~/js/tinymce/js/tinymce/tinymce.min.js" asp-append-version="true"></script>
+        <script src="~/js/lib/blockui/blockui.lib.js"></script>
+        <script src="~/lib/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
+        <script src="~/lib/slick-carousel/slick/slick.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/parallax.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-ui/jquery-ui.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src='https://rawgit.com/RickStrahl/jquery-resizable/master/src/jquery-resizable.js'></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    <!--<environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/slick-carousel/slick/slick.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/parallax.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-ui/jquery-ui.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="~/lib/slick-carousel/slick/slick.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/parallax.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-ui/jquery-ui.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>-->
+
+    <script>
+      /*  $( function() {
+    $( "#dialog-message" ).dialog({
+      modal: true,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  } );*/
+
+        escoladevoce.facebook.init();
+        escoladevoce.auth.init();
+
+        // This is called with the results from from FB.getLoginStatus().
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                testAPI();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
+                FB.login();
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.';
+                FB.login();
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '182384378895729',
+                cookie: true, // enable cookies to allow the server to access 
+                // the session
+                xfbml: true, // parse social plugins on this page
+                version: 'v2.8' // use graph api version 2.8
+            });
+
+            // Now that we've initialized the JavaScript SDK, we call 
+            // FB.getLoginStatus().  This function gets the state of the
+            // person visiting this page and can return one of three states to
+            // the callback you provide.  They can be:
+            //
+            // 1. Logged into your app ('connected')
+            // 2. Logged into Facebook, but not your app ('not_authorized')
+            // 3. Not logged into Facebook and can't tell if they are logged into
+            //    your app or not.
+            //
+            // These three cases are handled in the callback function.
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+            // FB.logout(function(response) {
+            // // user is now logged out
+            // });
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', { fields: 'id,name,picture.type(large),email,birthday,last_name,cover,gender' }, function(response) {
+                console.log('Successful login for: ' + response.name);
+                console.log(response);
+                document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+            });
+        }
+    </script>
+
+    <script>
+        escoladevoce.initSliders();
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
