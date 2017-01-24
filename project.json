@@ -26,15 +26,9 @@
         "Microsoft.Extensions.Logging.Debug": "1.0.0",
         "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
         "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-        "EscolaDeVoce.Infrastructure": {
-            "target": "project"
-        },
-        "EscolaDeVoce.Model": {
-            "target": "project"
-        },
-        "EscolaDeVoce.Services": {
-            "target": "project"
-        }
+        "EscolaDeVoce.Infrastructure": "1.0.0",
+        "EscolaDeVoce.Model": "1.0.0",
+        "EscolaDeVoce.Services": "1.0.0"
     },
 
     "tools": {
