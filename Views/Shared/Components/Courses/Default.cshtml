@@ -20,7 +20,7 @@
         <div class="courses is-slick-slider" id="courses">
 
             @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
-                var courseImage = "/images/site/curso1.jpg";
+                var courseImage = "http://escola-back.azurewebsites.net/images/specialists/" + c.image;
                 if(c.videos != null && c.videos.Count > 0){
                     courseImage = c.videos.FirstOrDefault().thumb;
                 }
