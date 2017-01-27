@@ -53,6 +53,7 @@ escoladevoce.auth.init = function() {
                 alert("Para poder concluir seu cadastro você precisa informar que esta de acordo com os termos de privacidade.");
                 return false;
             }
+
             var options = {};
             options.username = $("form#signup-password-form input#email").val();
             options.email = $("form#signup-password-form input#email").val();

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EscolaDeVoce.Frontend.Controllers
 {
     [Authorize]
-    public class TvedvController : Controller
+    public class TvedvController : BaseController
     {
         public IActionResult Index()
         {   

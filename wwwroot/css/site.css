@@ -170,7 +170,7 @@ h2.subsection.sub-title {
 }
 
 .navbar-brand img {
-    width: 104px;
+    width: 130px;
     -webkit-transition: all 0.6s;
     -moz-transition: all 0.6s;
     transition: all 0.6s;
@@ -1319,6 +1319,7 @@ section#papo-de-escolete {
     width: 100% !important;
     position: relative !important;
     padding: 14px 0 14px 23px !important;
+    border: none !important;
 }
 
 .escola-btn.facebook-button i {

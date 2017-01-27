@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EscolaDeVoce.Frontend.Controllers
 {
     [Authorize]
-    public class EmbaixadorasController : Controller
+    public class EmbaixadorasController : BaseController
     {
         public IActionResult Index()
         {   

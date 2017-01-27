@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EscolaDeVoce.Frontend.Controllers
 {
+    [Authorize]
     public class BaseController : Controller
     {
         protected string getClaimValue(string name){
