@@ -12,6 +12,10 @@ body .blockUI.blockMsg.blockPage {
     z-index: 1049 !important;
 }
 
+.all-caps {
+    text-transform: uppercase !important;
+}
+
 p {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 16px;
