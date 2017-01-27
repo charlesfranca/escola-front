@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EscolaDeVoce.Frontend.ViewComponents
 {
-    public class EmbaixadorasViewComponent : ViewComponent
+    public class EmbaixadorasSearchViewComponent : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {

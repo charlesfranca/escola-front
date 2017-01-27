@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick.css" />
         <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick-theme.css" />
         <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
+        <!--<link rel="stylesheet" href="~/lib/jquery-modal/jquery.modal.min.css" />-->
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
@@ -121,6 +122,7 @@
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">
         </script>
+        <script src="~/lib/jquery-modal/jquery.modal.min.js"></script>
         <script src="~/js/tinymce/js/tinymce/tinymce.min.js" asp-append-version="true"></script>
         <script src="~/js/lib/blockui/blockui.lib.js"></script>
         <script src="~/lib/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
@@ -264,5 +266,6 @@
         escoladevoce.initSliders();
     </script>
     @RenderSection("scripts", required: false)
+    @RenderSection("modal", required: false)
 </body>
 </html>

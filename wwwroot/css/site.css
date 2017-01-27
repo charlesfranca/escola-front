@@ -8,6 +8,10 @@ body .blockUI.blockMsg.blockPage {
     z-index: 5011 !important;
 }
 
+.modal-backdrop.fade.in {
+    z-index: 1049 !important;
+}
+
 p {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 16px;

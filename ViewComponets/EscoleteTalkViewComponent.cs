@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EscolaDeVoce.Frontend.ViewComponents
 {
-    public class EmbaixadorasViewComponent : ViewComponent
+    public class EscoleteTalkViewComponent : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync()
-        {
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.PersonViewModel>>>(Helpers.EscolaDeVoceEndpoints.Person.getEmbaixadoras);
+        {   
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel>>>(Helpers.EscolaDeVoceEndpoints.EscoleTalk.get);
             return View(response.data);
         }
 

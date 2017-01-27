@@ -1,105 +1,42 @@
-@{
-    var windowName = ViewBag.windowName;
-    var buttonName = ViewBag.buttonName;
-}
+@model List<EscolaDeVoce.Services.ViewModel.PersonViewModel>
 
 <section id="embaixadoras-section" class="container">
-    <div class="embaixadora-content slick-slider-container slic-4-columns" data-slick-collumns="4">
+    <div class="embaixadora-content slick-slider-container">
         <div class="embaixadoras-control slide-control">
             <img class="prev-arrow" src="~/images/site/previous-active.png" />
             <img class="next-arrow" src="~/images/site/next-active.png" />
         </div>
         
-        @if(!string.IsNullOrEmpty(windowName)){
-            <h2 class="sub-title">@windowName</h2>
-        }
+        <h2 class="sub-title">Nossas especialistas</h2>
 
         <div class="embaixadoras is-slick-slider" id="embaixadoras">
 
-            
+            @foreach(EscolaDeVoce.Services.ViewModel.PersonViewModel e in Model){
                 <div class="embaixadora">
                     <div class="embaixadora-image">
-                        <img src="~/images/site/embaixadora1.jpg" />
-                    </div>
-                    <div class="embaixadora-slider-info">
-                        <div class="embaixadora-slider-desc">
-                            <h2 class="sub-title">Adriana Mara</h3>
-                            <p>São Paulo/SP</p>
-                            <p><span class="icon icons-mail"></span> <strong>Enviar Mensagem</strong></p>
-                        </div> <!-- /embaixadora-title -->
                         
+                    </div>
+                    <div class="embaixadora-info">
+                        <div class="embaixadora-desc">
+                            <h3 class="title">@e.name</h3>
+                        </div> <!-- /embaixadora-title -->
+                        <div class="embaixadora-social">
+                            <img src="~/images/site/facebook.png" /> <img src="~/images/site/instagram.png" /> <img src="~/images/site/youtube.png" />
+                        </div><!-- /embaixadora-stars -->
                     </div><!-- /embaixadora-info -->
                 </div><!-- /embaixadora -->
-
-                <div class="embaixadora">
-                    <div class="embaixadora-image">
-                        <img src="~/images/site/embaixadora1.jpg" />
-                    </div>
-                    <div class="embaixadora-slider-info">
-                        <div class="embaixadora-slider-desc">
-                            <h2 class="sub-title">Adriana Mara</h3>
-                            <p>São Paulo/SP</p>
-                            <p><span class="icon icons-mail"></span> <strong>Enviar Mensagem</strong></p>
-                        </div> <!-- /embaixadora-title -->
-                        
-                    </div><!-- /embaixadora-info -->
-                </div><!-- /embaixadora -->
-
-                <div class="embaixadora">
-                    <div class="embaixadora-image">
-                        <img src="~/images/site/embaixadora1.jpg" />
-                    </div>
-                    <div class="embaixadora-slider-info">
-                        <div class="embaixadora-slider-desc">
-                            <h2 class="sub-title">Adriana Mara</h3>
-                            <p>São Paulo/SP</p>
-                            <p><span class="icon icons-mail"></span> <strong>Enviar Mensagem</strong></p>
-                        </div> <!-- /embaixadora-title -->
-                        
-                    </div><!-- /embaixadora-info -->
-                </div><!-- /embaixadora -->
-
-                <div class="embaixadora">
-                    <div class="embaixadora-image">
-                        <img src="~/images/site/embaixadora1.jpg" />
-                    </div>
-                    <div class="embaixadora-slider-info">
-                        <div class="embaixadora-slider-desc">
-                            <h2 class="sub-title">Adriana Mara</h3>
-                            <p>São Paulo/SP</p>
-                            <p><span class="icon icons-mail"></span> <strong>Enviar Mensagem</strong></p>
-                        </div> <!-- /embaixadora-title -->
-                        
-                    </div><!-- /embaixadora-info -->
-                </div><!-- /embaixadora -->
-
-                                <div class="embaixadora">
-                    <div class="embaixadora-image">
-                        <img src="~/images/site/embaixadora1.jpg" />
-                    </div>
-                    <div class="embaixadora-slider-info">
-                        <div class="embaixadora-slider-desc">
-                            <h2 class="sub-title">Adriana Mara</h3>
-                            <p>São Paulo/SP</p>
-                            <p><span class="icon icons-mail"></span> <strong>Enviar Mensagem</strong></p>
-                        </div> <!-- /embaixadora-title -->
-                        
-                    </div><!-- /embaixadora-info -->
-                </div><!-- /embaixadora -->
-
+            }
         </div><!-- /embaixadoras -->
 
         <br/>
         <br/>
         
-        @if(!string.IsNullOrEmpty(buttonName)){
-            <p class="text-right">
-                @if(User.Identity.IsAuthenticated){
-                    <a class="escola-btn" href="/embaixadoras">@buttonName</a>
-                }else{
-                    <a class="escola-btn" href="/embaixadoras" onclick="escoladevoce.auth.openSignupForm()">@buttonName</a>
-                }
-            </p>
-        }
+        <p class="text-right">
+            @if(User.Identity.IsAuthenticated){
+                <a class="escola-btn" href="/embaixadoras">CONHEÇA NOSSAS EMBAIXADORAS</a>
+            }else{
+                <a class="escola-btn" onclick="escoladevoce.auth.openSignupForm()">CONHEÇA NOSSAS EMBAIXADORAS</a>
+            }
+        </p>
     </div><!-- /embaixadora-content -->
 </section><!-- /embaixadoras -->

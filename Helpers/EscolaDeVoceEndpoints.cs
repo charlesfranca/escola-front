@@ -37,6 +37,14 @@ namespace EscolaDeVoce.Frontend.Helpers
             public const string getEspecialists = EscolaDeVoceEndpoints.baseUrl + "especialists";
         }
 
+        public class EscoleTalk{
+            public const string get = EscolaDeVoceEndpoints.baseUrl + "escoletalk";
+        }
+
+        public class Person{
+            public const string getEmbaixadoras = EscolaDeVoceEndpoints.baseUrl + "person/embaixadoras";
+        }
+
         public class User{
             public const string info = EscolaDeVoceEndpoints.baseUrl + "user/info";
             public const string create = EscolaDeVoceEndpoints.baseUrl + "user";

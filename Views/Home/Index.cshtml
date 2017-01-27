@@ -1,7 +1,8 @@
 @{ ViewData["Title"] = "Home Page"; } 
 
 @section modalContent {
-    
+    @Html.Partial("_SignupForm")
+    @Html.Partial("_LoginForm")
 }
 
 <section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="/images/header.jpg">

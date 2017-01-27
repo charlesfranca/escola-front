@@ -1,0 +1,60 @@
+@model List<EscolaDeVoce.Services.ViewModel.CourseViewModel>
+
+@{
+    var windowName = ViewBag.windowName;
+    var buttonName = ViewBag.buttonName;
+}
+
+<section id="destak-courses" class="container">
+
+    <div class="course-content slick-slider-container">
+        <div class="courses-control slide-control">
+            <img class="prev-arrow" src="~/images/site/previous-active.png" />
+            <img class="next-arrow" src="~/images/site/next-active.png" />
+        </div>
+
+        @if(!string.IsNullOrEmpty(windowName)){
+            <h2 class="sub-title">@Html.Raw(windowName)</h2>
+        }
+        
+        <div class="courses is-slick-slider" id="courses">
+
+            @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
+                var courseImage = "http://escola-back.azurewebsites.net/images/specialists/" + c.image;
+                if(c.videos != null && c.videos.Count > 0){
+                    courseImage = c.videos.FirstOrDefault().thumb;
+                }
+                <a href="/cursos/detalhes/@c.Id">
+                    <div class="course">
+                        <div class="course-image">
+                            <img src="@courseImage" />
+                        </div>
+                        <div class="course-info">
+                            <p class="course-title">
+                                @c.name
+                            </p> <!-- /course-title -->
+                            <div class="course-stars">
+                                <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
+                            </div><!-- /course-stars -->
+                        </div><!-- /course-info -->
+                    </div><!-- /course -->
+                </a>
+            }
+
+        </div><!-- /courses -->
+
+        <br/>
+        <br/>
+        
+        @if(!string.IsNullOrEmpty(buttonName)){
+            <p class="text-right">
+                @if(User.Identity.IsAuthenticated){
+                    <a class="escola-btn" href="/cursos">@buttonName</a>
+                }else{
+                    <a class="escola-btn" onclick="escoladevoce.auth.openSignupForm()">@buttonName</a>
+                }
+            </p>
+        }
+    </div><!-- /course-content -->
+
+</section><!-- /#destak-courses -->

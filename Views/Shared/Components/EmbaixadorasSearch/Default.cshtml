@@ -1,0 +1,65 @@
+@model List<EscolaDeVoce.Services.ViewModel.PersonViewModel>
+@{
+    var lines = 0;
+    if(Model != null){
+        lines = 1;
+        if(Model.Count > 3) {
+            lines = Model.Count / 3;
+        }
+    }
+
+}
+<section id="search-embaixadoras">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="sub-title">Todas as Embaixadoras</h2>
+            </div><!-- /.col-lg-6 -->
+
+            <div class="col-lg-offset-2 col-lg-4">
+                <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" style="
+                        height: 42px;
+                        border-color: #484848;
+                        background: white;
+                        border-right: 0;
+                        background: transparent;
+                    "><span class="glyphicon glyphicon-search" aria-hidden="true" style="
+                        /* height: 27px; */
+                    "></span></button>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="PROCURAR CEP" style="
+                        height: 42px;
+                        border-color: #484848;
+                        border-left: none;
+                        background: transparent;
+                    ">
+                </div><!-- /input-group -->
+            </div>
+
+        </div><!-- /.row -->
+
+<br>
+<br>
+<br>
+    
+            <div class="embaixadoras">
+
+                <div class="search-embaixadora-item">
+                    <div class="photo">
+                        <div class="image">
+                            <img src="~/images/embaixadora.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <h2>Raquel Vieira</h2>
+                        <p>São Paulo/SP</p>
+                        <p><a href=""><span class="icon icons-mail"></span> Enviar Mensagem</a></p>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+</section>
