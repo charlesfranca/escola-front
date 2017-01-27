@@ -588,7 +588,11 @@ body.logged #home-logged-banner {}
     margin-right: 5px;
 }
 
-.profile-options a:last-child img {
+.profile-options a:first-child img {
+    margin-left: 0;
+}
+
+.profile-options a img {
     margin-left: 27px;
 }
 
