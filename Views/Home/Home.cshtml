@@ -11,7 +11,10 @@
 
 @section scripts {
     <script>
-        $( "#slider" ).slider({
+        $(document).ready(function(){
+            
+
+            $( "#slider" ).slider({
                 value:50,
                 min: 0,
                 max: 100,
@@ -20,6 +23,7 @@
                     //$( "#amount" ).val( "$" + ui.value );
                 }
             });
+        });
     </script>
 }
 

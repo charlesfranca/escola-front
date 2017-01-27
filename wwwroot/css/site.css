@@ -1329,3 +1329,11 @@ section#papo-de-escolete {
     position: absolute !important;
     left: 63px !important;
 }
+
+.backdrop-profile {
+    width: 100%;
+    height: 446px;
+    position: absolute;
+    background: black;
+    opacity: .2;
+}

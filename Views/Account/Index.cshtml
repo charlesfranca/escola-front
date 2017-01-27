@@ -6,8 +6,12 @@
 
 @section scripts {
     <script>
-        $('#bemvindaModal').modal("show");
-    </script> 
+        $(document).ready(function(){
+            if(location.href.indexOf("newcad") > -1){
+                $('#bemvindaModal').modal("show");
+            }
+        })
+    </script>
 }
 
 @section modalContent {
