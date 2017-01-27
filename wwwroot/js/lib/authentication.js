@@ -69,7 +69,7 @@ escoladevoce.auth.init = function() {
 
             options.success = function(data) {
                 if (data.status) {
-                    location.href = "/home/home?newcad=1";
+                    location.href = "/account?newcad";
                 } else {
                     alert("Ocorreu um erro ao efetuar seu login.");
                 }
