@@ -1,5 +1,5 @@
-.icons-sprite, .icons-back-arrow, .icons-camera-white, .icons-check-active, .icons-check-unactive, .icons-done, .icons-download-button, .icons-empoderamento, .icons-facebook, .icons-heart-gray-little, .icons-heart-gray, .icons-heart-pink, .icons-heart-white, .icons-instagram, .icons-little-facebook, .icons-little-share, .icons-little-star, .icons-lock-open, .icons-lock, .icons-logout-white, .icons-logout, .icons-mail, .icons-message-white, .icons-message, .icons-next-active, .icons-notification, .icons-previews-unactive, .icons-previous-active, .icons-previous-unactive, .icons-profile, .icons-return, .icons-share, .icons-signup-facebook, .icons-signup-twitter, .icons-small-lock, .icons-star-active, .icons-star-unactive, .icons-trofeu, .icons-twitter, .icons-undone, .icons-youtube {
-  background-image: url('../images/icons-sf35d12b2f5.png');
+.icons-sprite, .icons-back-arrow, .icons-camera-white, .icons-check-active, .icons-check-unactive, .icons-done, .icons-download-button, .icons-empoderamento, .icons-facebook, .icons-heart-filled-course, .icons-heart-gray-little, .icons-heart-gray, .icons-heart-pink, .icons-heart-white-course, .icons-heart-white, .icons-instagram, .icons-little-facebook, .icons-little-share, .icons-little-star, .icons-lock-open, .icons-lock, .icons-logout-white, .icons-logout, .icons-mail, .icons-message-white, .icons-message, .icons-next-active, .icons-notification, .icons-previews-unactive, .icons-previous-active, .icons-previous-unactive, .icons-profile, .icons-return, .icons-share, .icons-signup-facebook, .icons-signup-twitter, .icons-small-lock, .icons-star-active, .icons-star-unactive, .icons-trofeu, .icons-twitter, .icons-undone, .icons-youtube {
+  background-image: url('../images/icons-s3efc5be8da.png');
   background-repeat: no-repeat;
 }
 
@@ -51,194 +51,206 @@
   width: 25px;
 }
 
-.icons-heart-gray-little {
+.icons-heart-filled-course {
   background-position: 0 -289px;
+  height: 24px;
+  width: 26px;
+}
+
+.icons-heart-gray-little {
+  background-position: 0 -313px;
   height: 22px;
   width: 23px;
 }
 
 .icons-heart-gray {
-  background-position: 0 -311px;
+  background-position: 0 -335px;
   height: 43px;
   width: 46px;
 }
 
 .icons-heart-pink {
-  background-position: 0 -354px;
+  background-position: 0 -378px;
   height: 46px;
   width: 50px;
 }
 
+.icons-heart-white-course {
+  background-position: 0 -424px;
+  height: 23px;
+  width: 24px;
+}
+
 .icons-heart-white {
-  background-position: 0 -400px;
+  background-position: 0 -447px;
   height: 43px;
   width: 46px;
 }
 
 .icons-instagram {
-  background-position: 0 -443px;
+  background-position: 0 -490px;
   height: 53px;
   width: 53px;
 }
 
 .icons-little-facebook {
-  background-position: 0 -496px;
+  background-position: 0 -543px;
   height: 21px;
   width: 11px;
 }
 
 .icons-little-share {
-  background-position: 0 -517px;
+  background-position: 0 -564px;
   height: 20px;
   width: 20px;
 }
 
 .icons-little-star {
-  background-position: 0 -537px;
+  background-position: 0 -584px;
   height: 16px;
   width: 16px;
 }
 
 .icons-lock-open {
-  background-position: 0 -553px;
+  background-position: 0 -600px;
   height: 48px;
   width: 37px;
 }
 
 .icons-lock {
-  background-position: 0 -601px;
+  background-position: 0 -648px;
   height: 46px;
   width: 37px;
 }
 
 .icons-logout-white {
-  background-position: 0 -647px;
+  background-position: 0 -694px;
   height: 20px;
   width: 25px;
 }
 
 .icons-logout {
-  background-position: 0 -667px;
+  background-position: 0 -714px;
   height: 38px;
   width: 48px;
 }
 
 .icons-mail {
-  background-position: 0 -705px;
+  background-position: 0 -752px;
   height: 16px;
   width: 22px;
 }
 
 .icons-message-white {
-  background-position: 0 -721px;
+  background-position: 0 -768px;
   height: 18px;
   width: 22px;
 }
 
 .icons-message {
-  background-position: 0 -739px;
+  background-position: 0 -786px;
   height: 38px;
   width: 46px;
 }
 
 .icons-next-active {
-  background-position: 0 -777px;
+  background-position: 0 -824px;
   height: 49px;
   width: 49px;
 }
 
 .icons-notification {
-  background-position: 0 -826px;
+  background-position: 0 -873px;
   height: 20px;
   width: 18px;
 }
 
 .icons-previews-unactive {
-  background-position: 0 -846px;
+  background-position: 0 -893px;
   height: 49px;
   width: 49px;
 }
 
 .icons-previous-active {
-  background-position: 0 -895px;
+  background-position: 0 -942px;
   height: 49px;
   width: 49px;
 }
 
 .icons-previous-unactive {
-  background-position: 0 -944px;
+  background-position: 0 -991px;
   height: 49px;
   width: 49px;
 }
 
 .icons-profile {
-  background-position: 0 -993px;
+  background-position: 0 -1040px;
   height: 53px;
   width: 53px;
 }
 
 .icons-return {
-  background-position: 0 -1046px;
+  background-position: 0 -1093px;
   height: 27px;
   width: 39px;
 }
 
 .icons-share {
-  background-position: 0 -1073px;
+  background-position: 0 -1120px;
   height: 38px;
   width: 38px;
 }
 
 .icons-signup-facebook {
-  background-position: 0 -1111px;
+  background-position: 0 -1158px;
   height: 90px;
   width: 90px;
 }
 
 .icons-signup-twitter {
-  background-position: 0 -1201px;
+  background-position: 0 -1248px;
   height: 90px;
   width: 90px;
 }
 
 .icons-small-lock {
-  background-position: 0 -1291px;
+  background-position: 0 -1338px;
   height: 24px;
   width: 20px;
 }
 
 .icons-star-active {
-  background-position: 0 -1315px;
+  background-position: 0 -1362px;
   height: 33px;
   width: 33px;
 }
 
 .icons-star-unactive {
-  background-position: 0 -1348px;
+  background-position: 0 -1395px;
   height: 35px;
   width: 35px;
 }
 
 .icons-trofeu {
-  background-position: 0 -1383px;
+  background-position: 0 -1430px;
   height: 18px;
   width: 19px;
 }
 
 .icons-twitter {
-  background-position: 0 -1401px;
+  background-position: 0 -1448px;
   height: 57px;
   width: 81px;
 }
 
 .icons-undone {
-  background-position: 0 -1458px;
+  background-position: 0 -1505px;
   height: 46px;
   width: 46px;
 }
 
 .icons-youtube {
-  background-position: 0 -1504px;
+  background-position: 0 -1551px;
   height: 53px;
   width: 71px;
 }

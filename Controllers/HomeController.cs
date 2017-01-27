@@ -51,6 +51,7 @@ namespace EscolaDeVoce.Frontend.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public IActionResult Error()
         {
             return View();

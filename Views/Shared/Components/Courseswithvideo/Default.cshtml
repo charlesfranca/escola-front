@@ -20,8 +20,9 @@
         <div class="courses is-slick-slider" id="courses">
 
             @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
-                <a href="/cursos/detalhes/@c.Id">
+                <!--<a href="/cursos/detalhes/@c.Id">-->
                     <div class="course">
+                        <div class="course-icon"><span class="icon icons-heart-white-course @(User.Identity.IsAuthenticated ? "" : "hidden")" onclick="escoladevoce.courses.addToFavorites('@c.Id')"></span></div>
                         <div class="course-image">
                             <div id="@(c.Id)player"></div>
                             <script samba-player-api="player" type="text/javascript" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>
@@ -45,14 +46,18 @@
                         </div>
                         <div class="course-info">
                             <p class="course-title">
-                                @c.name
+                                @if(User.Identity.IsAuthenticated){
+                                    <a href="/cursos/detalhes/@c.Id">@c.name</a>
+                                }else{
+                                    <span onclick="escoladevoce.auth.openSignupForm()" style="cursor: pointer">@c.name</span>
+                                }
                             </p> <!-- /course-title -->
                             <div class="course-stars">
                                 
                             </div><!-- /course-stars -->
                         </div><!-- /course-info -->
                     </div><!-- /course -->
-                </a>
+                <!--</a>-->
             }
 
         </div><!-- /courses -->

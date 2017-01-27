@@ -1322,7 +1322,7 @@ section#papo-de-escolete {
 }
 
 .escola-btn.facebook-button {
-    background: blue !important;
+    background: #3B579D !important;
     color: white !important;
     width: 100% !important;
     position: relative !important;
@@ -1345,4 +1345,15 @@ section#papo-de-escolete {
     position: absolute;
     background: black;
     opacity: .2;
+}
+
+.course-icon {
+    position: relative;
+}
+
+.course-icon span {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    cursor: pointer;
 }

@@ -24,21 +24,24 @@
                 if(c.videos != null && c.videos.Count > 0){
                     courseImage = c.videos.FirstOrDefault().thumb;
                 }
-                <a href="/cursos/detalhes/@c.Id">
                     <div class="course">
+                        <div class="course-icon"><span onclick="escoladevoce.courses.addToFavorites('@c.Id')" class="icon icons-heart-white-course @(User.Identity.IsAuthenticated ? "" : "hiden")"></span></div>
                         <div class="course-image">
                             <img src="@courseImage" />
                         </div>
                         <div class="course-info">
                             <p class="course-title">
-                                @c.name
+                                @if(User.Identity.IsAuthenticated){
+                                    <a href="/cursos/detalhes/@c.Id">@c.name</a>
+                                }else{
+                                    <span onclick="escoladevoce.auth.openSignupForm()" style="cursor: pointer">@c.name</span>
+                                }
                             </p> <!-- /course-title -->
                             <div class="course-stars">
                                 
                             </div><!-- /course-stars -->
                         </div><!-- /course-info -->
                     </div><!-- /course -->
-                </a>
             }
 
         </div><!-- /courses -->
