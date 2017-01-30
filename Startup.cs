@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace EscolaDeVoce.Frontend
 {
@@ -31,11 +32,20 @@ namespace EscolaDeVoce.Frontend
         {
             // Add framework services.
             services.AddMvc();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.CookieHttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseSession();
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -55,13 +65,17 @@ namespace EscolaDeVoce.Frontend
             {
                 AuthenticationScheme = "Cookie",
                 LoginPath = new PathString("/Home/Index/"),
-                AccessDeniedPath = new PathString("/Account/Forbidden/"),
+                AccessDeniedPath = new PathString("/Home/Index/"),
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true
             });
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "partner",
+                    template: "{partner?}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

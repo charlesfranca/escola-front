@@ -23,14 +23,16 @@ namespace EscolaDeVoce.Frontend.Controllers
         }
         
         [Authorize]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var model = new User {
-                name = getClaimValue(ClaimTypes.Name),
-                //lastname = getClaimValue(ClaimTypes.Surname),
-                email = getClaimValue(ClaimTypes.Email)
-            };
-            return View(model);
+            var Id = Guid.Parse(getClaimValue("Id"));
+            var userresponse = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.UserViewModel>>(
+                Helpers.EscolaDeVoceEndpoints.User.create + "/" + Id,
+                null,
+                "token"
+            );
+
+            return View(userresponse.data.person);
         }
 
         [HttpPost]

@@ -12,14 +12,18 @@
     <!--<link rel="stylesheet" href="~/lib/jquery-modal/jquery.modal.min.css" />-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/site.min.css" />
+    @{
+        string partner = (string)this.ViewContext.RouteData.Values["partner"];
+    }
+
+    @if(!string.IsNullOrEmpty(partner)){
+        <link rel="stylesheet" href="~/css/@(partner).css">
+    }
     <!--<environment names="Development">
         
     </environment>-->
     <environment names="Staging,Production">
-        
-        
-        
         
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
@@ -57,8 +61,13 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img class="unlogged-brand" src="~/images/site/logo.png" />
-                <img class="logged-brand" src="~/images/site/logo-white.png" />
+                @if(!string.IsNullOrEmpty(partner)){
+                    <img class="unlogged-brand" src="~/images/site/@(partner)-logo.png" />
+                    <img class="logged-brand" src="~/images/site/@(partner)-logo-white.png" />
+                }else{
+                    <img class="unlogged-brand" src="~/images/site/logo.png" />
+                    <img class="logged-brand" src="~/images/site/logo-white.png" />
+                }
             </a>
             </div>
             
@@ -115,7 +124,11 @@
                     </ul>
                 </div>
                 <div class="col-md-2 text-right">
-                    <img src="~/images/site/logo.png" style="height: 51px;" />
+                    @if(!string.IsNullOrEmpty(partner)){
+                        <img src="~/images/site/@(partner)-logo.png" style="height: 51px;" />
+                    }else{
+                        <img src="~/images/site/logo.png" style="height: 51px;" />
+                    }
                 </div>
             </div>
         </div>

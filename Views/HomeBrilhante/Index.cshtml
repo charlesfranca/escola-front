@@ -71,11 +71,7 @@
 	</div>
 </section><!-- /big-video-section -->
 
-<section class="banner-home @(!string.IsNullOrEmpty(partner) ? "" : "hidden")" style="width: 100%; height: 300px;background: url('/images/@(partner)-banner-home.jpg'); background-size: cover;margin: 70px 0">
-    
-</section>
-
-<section id="features" class="container @(!string.IsNullOrEmpty(partner) ? "hidden" : "")">
+<section id="features" class="container">
     <h1 class="midium-title section-title text-center">
         Uma rede de gente boa para ajudar você!
     </h1>
@@ -126,62 +122,3 @@
 
 @await Component.InvokeAsync("Courseswithvideo", new {windowName = "Cursos em destaque", buttonName = "Veja Mais Cursos"})
 @await Component.InvokeAsync("Especialista")
-
-<section>
-    <div class="container-fluid">
-        <div class="row depoiment-row">
-            <div class="col-md-6 depoiment-section">
-                <div class="depoiments">
-
-                    <div class="depoiment-slider-controls">
-
-                    </div>
-
-                    <div class="depoiment-item">
-                        <div class="depoiment-message">
-                            <h2 class="subsection sub-title">“A Escola Brilhante mudou a minha vida e o meu negócio.”</h2>
-                        </div>
-                        <div class="depoiment-escolete">
-                            <div class="depoiment-photo">
-                                <div class="depoiment-image">
-                                    <img src="~/images/depoiment-photo.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="depoiment-escolete-info">
-                                <p>
-                                    Raquel Vieira<br>
-                                    São Paulo/SP
-                                </p>
-                            </div> <!-- /depoiment-escolete-info -->
-                        </div> <!-- /depoiment-escolete -->
-                    </div> <!-- /depoiment-item -->
-
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6">
-                <div id="player-depoiment" style="height: 390px; width: 100%"></div>
-                <script samba-player-api="player-depoiment" type="text/javascript" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>
-                <script>
-                    var player = new SambaPlayer("player-depoiment", { //player é o ID do elemento html que ele vai inserir o iframe
-                        ph: "3b8e50510d562d8d8b101c66f59bf625",//Player Hash do projeto
-                        m: "8b9be24b4e8b02667c34761231695865",//MidiaID
-                        height: 390,
-                        width: 720,
-                        playerParams: { //Veja a lista de Parâmetros suportados
-                            enableShare: true,
-                            wideScreen: true
-                        },
-                        events: { //Funcoes que escutam os eventos do player
-                            "onLoad": function(){}, //Sendo que eventListener deve ser uma função já presente na página
-                            "onStart": function(){},
-                            "onFinish": function(){}
-                        }
-                    });
-                </script>
-            </div>
-        </div>
-    </div>
-</section>

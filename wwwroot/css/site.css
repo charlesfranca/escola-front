@@ -1357,3 +1357,31 @@ section#papo-de-escolete {
     top: 10px;
     cursor: pointer;
 }
+
+.col-md-6.depoiment-section {
+    background: #F7F7F7;
+    height: 390px;
+}
+
+.row.depoiment-row .col-md-6 {
+    margin: 0;
+    padding: 0;
+}
+
+.depoiments {
+    padding: 90px 160px;
+}
+
+.depoiment-escolete>div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.depoiment-image {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.depoiment-message {
+    margin-bottom: 25px;
+}

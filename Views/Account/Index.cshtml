@@ -1,4 +1,4 @@
-@model EscolaDeVoce.Frontend.User
+@model EscolaDeVoce.Services.ViewModel.PersonViewModel
 
 @{ 
     ViewData["Title"] = "Home Page";
@@ -19,16 +19,6 @@
 }
 
 @await Component.InvokeAsync("Header")
-
-<section id="menu">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                @Html.Partial("_NavLogged")
-            </div>
-        </div>
-    </div>
-</section>
 
 <section id="profile-section">
     <div class="container">
@@ -54,20 +44,26 @@
         <form class="form-inline">
             <div class="fields-line">
                 <div class="form-group">
-                    <label for="exampleInputName2">Nome*</label>
-                    <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">
+                    @Html.LabelFor(m => m.name)
+                    @Html.TextBoxFor(m => m.name, new { @class = "form-control half-size" })
+                    <!--<label for="exampleInputName2">Nome*</label>
+                    <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">-->
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail2">E-mail*</label>
-                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">
+                    @Html.LabelFor(m => m.email)
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control half-size" })
+                    <!--<label for="exampleInputEmail2">E-mail*</label>
+                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">-->
                 </div>
             </div>
 
             <div class="fields-line">
                 <div class="form-group">
-                    <label for="exampleInputName2">CPF</label>
-                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">
+                    <!--<label for="exampleInputName2">CPF</label>
+                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">-->
+                    @Html.LabelFor(m => m.email)
+                    @Html.TextBoxFor(m => m.email, new { @class = "form-control small-size" })
                 </div>
 
                 <div class="form-group">
@@ -76,15 +72,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail2">Data de Nascimento*</label>
-                    <input type="text" class="form-control small-size" id="exampleInputEmail2" placeholder="">
+                    @Html.LabelFor(m => m.birthday)
+                    @Html.TextBoxFor(m => m.birthday, new { @class = "form-control small-size" })
+                    <!--<label for="exampleInputEmail2">Data de Nascimento*</label>
+                    <input type="text" class="form-control small-size" id="exampleInputEmail2" placeholder="">-->
                 </div>
             </div>
 
             <div class="fields-line">
                 <div class="form-group">
-                    <label for="exampleInputName2">Telefone/Cel</label>
-                    <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">
+                    @Html.LabelFor(m => m.phonenumber)
+                    @Html.TextBoxFor(m => m.phonenumber, new { @class = "form-control half-size" })
+                    <!--<label for="exampleInputName2">Telefone/Cel</label>
+                    <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">-->
                 </div>
 
                 <div class="form-group">

@@ -1,6 +1,7 @@
 // Write your Javascript code.
 var divHeight = 750;
-function setMainSize(){
+
+function setMainSize() {
     var documentHeight = $(window).height();
     if (documentHeight > divHeight) {
         divHeight = documentHeight;
@@ -8,14 +9,14 @@ function setMainSize(){
 }
 
 $.fn.extend({
-    animateCss: function (animationName, intervalToStart, callback) {
+    animateCss: function(animationName, intervalToStart, callback) {
         var $element = $(this);
         var interval = 0;
         if (intervalToStart) {
             interval = intervalToStart * 1000;
         }
-        
-        setTimeout(function (){
+
+        setTimeout(function() {
             $element.css('visibility', 'visible');
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
             $element.addClass('animated ' + animationName).one(animationEnd, function() {
@@ -28,33 +29,33 @@ $.fn.extend({
     }
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
     if ($(window).width() > 768) {
         setMainSize();
-        $(document).on("resize", function () {
+        $(document).on("resize", function() {
             setMainSize();
         });
     }
 });
 
-$(function () {
+$(function() {
     var shrinkHeader = 100;
     var documentHeight = $(window).height();
     if ($(window).width() > 768) {
 
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             var scroll = getCurrentScroll();
-            
-            if($("body.logged").length > 0){
+
+            if ($("body.logged").length > 0) {
                 divHeight = 446;
-            }else{
+            } else {
                 divHeight = 600;
             }
 
             if (scroll >= (divHeight - 70)) {
-                $('.navbar').css({display: "none"});
+                $('.navbar').css({ display: "none" });
             } else {
-                $('.navbar').css({display: "block"});
+                $('.navbar').css({ display: "block" });
             }
 
             if (scroll >= (divHeight)) {

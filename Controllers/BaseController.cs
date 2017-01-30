@@ -13,6 +13,11 @@ namespace EscolaDeVoce.Frontend.Controllers
     [Authorize]
     public class BaseController : Controller
     {
+        public BaseController()
+        {
+            
+        }
+        
         protected string getClaimValue(string name){
             var identity = (ClaimsIdentity) User.Identity;
             var value = identity.Claims.Where(c => c.Type == name)
