@@ -17,7 +17,7 @@ namespace EscolaDeVoce.Frontend.Filter
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            // ViewBag.Partner = context.RouteData.Values["partner"];
+            
         }
     }
 }

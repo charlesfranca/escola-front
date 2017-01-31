@@ -7,16 +7,16 @@
 
 @await Component.InvokeAsync("Header")
 
-<section>
+<section id="sala-video">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2 class="subsection sub-title">@video.name</h2>
                 <div class="status">
-                    <div>21% concluido</div>
+                    <div>0% concluido</div>
                     <div class="video-status">
                         <div class="video-status-indicator">
-                            <div class="video-status-color-filler"></div>
+                            <div class="video-status-color-filler" style="width: 0"></div>
                         </div>
                     </div>
                     <div>

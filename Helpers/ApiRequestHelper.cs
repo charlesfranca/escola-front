@@ -73,7 +73,7 @@ namespace EscolaDeVoce.Frontend
             return response;
         }
 
-        public async static Task<T> postPutEncodedRequest<T>(string url, string username, string password){
+        public async static Task<T> postPutEncodedRequest<T>(string url, string username, string password, bool isFacebook){
             T response; 
 
             using (var client = new HttpClient())
@@ -84,7 +84,8 @@ namespace EscolaDeVoce.Frontend
                 var content = new FormUrlEncodedContent(new[]
                 {
                     new KeyValuePair<string, string>("username", username),
-                    new KeyValuePair<string, string>("password", password)
+                    new KeyValuePair<string, string>("password", password),
+                    new KeyValuePair<string, string>("isFacebook", isFacebook.ToString())
                 });
                 req.Content = content;
 

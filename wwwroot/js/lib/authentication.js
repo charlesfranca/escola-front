@@ -72,12 +72,12 @@ escoladevoce.auth.init = function() {
                 if (data.status) {
                     location.href = "/account?newcad";
                 } else {
-                    alert("Ocorreu um erro ao efetuar seu login.");
+                    escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Amiga. Infelizmente não foi possível completar seu cadastro. Tente novamente.");
                 }
             }
 
             options.error = function(error) {
-                escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Nome de usuário ou senha inválido.");
+                escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Amiga. Infelizmente não foi possível completar seu cadastro. Tente novamente.");
             }
 
             escoladevoce.auth.signup(options);
@@ -118,7 +118,8 @@ escoladevoce.auth.init = function() {
                 if (data.status) {
                     location.href = "/home/home";
                 } else {
-                    alert("Ocorreu um erro ao efetuar seu login.");
+                    //alert("Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tenta mais uma vez vai ;).");
+                    escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Verifique se seus dados estão corretos ;).");
                 }
             }
 
@@ -179,7 +180,8 @@ escoladevoce.auth.signup = function(options) {
             password: options.password,
             name: options.name,
             email: options.email,
-            lastname: options.lastname
+            lastname: options.lastname,
+            isFacebook: options.isFacebook
         },
         beforeSend: function() {
             if (options.beforeSend) {

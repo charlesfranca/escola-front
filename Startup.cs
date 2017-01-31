@@ -72,9 +72,9 @@ namespace EscolaDeVoce.Frontend
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "partner",
-                    template: "{partner?}/{controller=Home}/{action=Index}/{id?}");
+                // routes.MapRoute(
+                //     name: "partner",
+                //     template: "{partner}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",

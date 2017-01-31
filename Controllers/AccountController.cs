@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Net;
 
 namespace EscolaDeVoce.Frontend.Controllers
 {
@@ -128,7 +129,7 @@ namespace EscolaDeVoce.Frontend.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Signup(string username, string password, string email, string name, string lastname)
+        public async Task<IActionResult> Signup(string username, string password, string email, string name, string lastname, bool isFacebook)
         {   
             var model = new EscolaDeVoce.Services.ViewModel.CreateUserViewModel();
             model.password = password;
@@ -147,7 +148,7 @@ namespace EscolaDeVoce.Frontend.Controllers
             );
 
             if(createuserresponse != null){
-                return await this.Login(username, password);
+                return await this.Login(username, password, isFacebook);
             }
 
             return Json(new {
@@ -157,16 +158,22 @@ namespace EscolaDeVoce.Frontend.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password, bool isFacebook)
         {   
             Frontend.AuthenticationModel response = null;
             response = await ApiRequestHelper.postPutEncodedRequest<AuthenticationModel>(
                 Helpers.EscolaDeVoceEndpoints.tokenUrl,
                 username,
-                password
+                password,
+                isFacebook
             );
 
             if(response != null){
+                if(response.StatusCode != HttpStatusCode.Created){
+                    return Json(new {
+                        status = false
+                    });
+                }
                 Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.UserViewModel> userresponse = null;
 
                 userresponse = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.UserViewModel>>(
