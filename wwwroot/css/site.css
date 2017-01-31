@@ -1608,3 +1608,7 @@ section#papo-de-escolete {
 .presente img {
     width: 150px;
 }
+
+section#question-section {
+    margin-top: 40px;
+}
