@@ -133,7 +133,7 @@
             </div>
         </div>
     </footer>
-    <div class="presente positioned">
+    <div class="presente">
         <img src="/images/presente.png" onclick="escoladevoce.openPresenteModal()" alt="">
     </div>
     @Html.Partial("_Presente")
@@ -286,20 +286,20 @@
         escoladevoce.initSliders();
         $(function(){
             
-            if(location.href.indexOf("escolabrilhante")){
+            if(location.href.indexOf("escolabrilhante") > -1){
                 setTimeout(function(){
                     $('.presente').addClass("positioned").css({
                         top: $(window).scrollTop() + ($(window).height() / 2) - 100 + "px"
                     });
-                }, 2000);
+                }, 6000);
             }
 
             $(window).scroll(function () {
-                
-                $('.presente').css({
-                    top: $(window).scrollTop() + ($(window).height() / 2) - 100 + "px"
-                });
-                
+                if(location.href.indexOf("escolabrilhante") > -1){
+                    $('.presente').css({
+                        top: $(window).scrollTop() + ($(window).height() / 2) - 100 + "px"
+                    });
+                }
             });
         });
     </script>

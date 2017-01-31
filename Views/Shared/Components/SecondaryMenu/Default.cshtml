@@ -1,8 +1,14 @@
 @model User
 
+@{
+    string partner = (string)this.ViewContext.RouteData.Values["partner"];
+}
+
 <ul class="nav nav-pills nav_logged" style="padding: 10px" >
-<li role="presentation"><a href="/cursos">CURSOS</a></li>
-<li role="presentation"><a href="/embaixadoras">EMBAIXADORAS</a></li>
-<li role="presentation"><a href="/papodeescolete">PAPO DE ESCOLETE</a></li>
-<li role="presentation"><a class="all-caps" href="/tvedv">TV @Model.name</a></li>
+    <li role="presentation"><a href="/cursos">CURSOS</a></li>
+    @if(string.IsNullOrEmpty(partner)){
+        <li role="presentation"><a href="/embaixadoras">EMBAIXADORAS</a></li>
+    }
+    <li role="presentation"><a href="/papodeescolete">PAPO DE ESCOLETE</a></li>
+    <li role="presentation"><a class="all-caps" href="/tvedv">TV @Model.name</a></li>
 </ul>

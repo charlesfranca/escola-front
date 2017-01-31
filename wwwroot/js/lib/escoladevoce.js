@@ -205,4 +205,5 @@ escoladevoce.uploadCover = function(inputFile) {
 
 escoladevoce.openPresenteModal = function() {
     $('#presenteModal').modal("show");
+    $('.presente').removeClass("positioned");
 }
