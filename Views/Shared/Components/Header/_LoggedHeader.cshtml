@@ -18,6 +18,8 @@
 
     ViewBag.name = name;
     ViewBag.fullname = fullname;
+
+    string partner = (string)this.ViewContext.RouteData.Values["partner"];
 }
 
 <section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="@cover">
@@ -52,14 +54,16 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            @if(string.IsNullOrEmpty(partner)){
+                <div class="col-md-6">
                 
-                <div class="profile-right-info">
-                    <a><img src="~/images/icons/camera-white.png"/> Alterar Capa</a>
-                    <input type="file" onchange="escoladevoce.uploadCover(this)" />
+                    <div class="profile-right-info">
+                        <a><img src="~/images/icons/camera-white.png"/> Alterar Capa</a>
+                        <input type="file" onchange="escoladevoce.uploadCover(this)" />
+                    </div>
+                    
                 </div>
-                
-            </div>
+            }
         </div>
 	</div>
 </section><!-- /bannerSection -->
