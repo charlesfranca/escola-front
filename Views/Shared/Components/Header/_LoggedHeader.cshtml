@@ -44,13 +44,15 @@
                         <a href="#"><label> <span class="icon icon-notification"><img src="~/images/icons/notification.png"/></span> <span class="profile-option-title"></span></label></a>
                         <a href="/Account/Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-white.png"/></span> <span class="profile-option-title"></span></label></a>
                     </div>
-                    <div class="embaixadora-info">
-                        <p>
-                            Embaixadora<br />
-                            
-                            <a href="" data-toggle="modal" data-target="#embaixadoraModal"><strong>Clique aqui</strong></a> para descobrir
-                        </p>
-                    </div>
+                    @if(string.IsNullOrEmpty(partner)){
+                        <div class="embaixadora-info">
+                            <p>
+                                Embaixadora<br />
+                                
+                                <a href="" data-toggle="modal" data-target="#embaixadoraModal"><strong>Clique aqui</strong></a> para descobrir
+                            </p>
+                        </div>
+                    }
                 </div>
             </div>
 
