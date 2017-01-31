@@ -1,60 +1,49 @@
-@model List<EscolaDeVoce.Services.ViewModel.CourseViewModel>
+@model List<EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel>
 
-@{
-    var windowName = ViewBag.windowName;
-    var buttonName = ViewBag.buttonName;
-}
+<section id="papo-de-escolete">
 
-<section id="destak-courses" class="container">
+    <div class="container">
+        <h5>Papo de Escolete</h5>
+        <p>
+            Essa é a nossa rede! As conversas sobre a essência, o DNA da Escola de Você, estão aqui. A gente espera você.
+        </p>
+        <br>
+        <br>
+    </div>
 
-    <div class="course-content slick-slider-container">
-        <div class="courses-control slide-control">
-            <img class="prev-arrow" src="~/images/site/previous-active.png" />
-            <img class="next-arrow" src="~/images/site/next-active.png" />
-        </div>
+    <div class="container">
+        <div class="papo">
 
-        @if(!string.IsNullOrEmpty(windowName)){
-            <h2 class="sub-title">@Html.Raw(windowName)</h2>
-        }
-        
-        <div class="courses is-slick-slider" id="courses">
-
-            @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
-                var courseImage = "http://escola-back.azurewebsites.net/images/specialists/" + c.image;
-                if(c.videos != null && c.videos.Count > 0){
-                    courseImage = c.videos.FirstOrDefault().thumb;
-                }
-                <a href="/cursos/detalhes/@c.Id">
-                    <div class="course">
-                        <div class="course-image">
-                            <img src="@courseImage" />
+            @foreach(EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel est in Model){
+                <div class="papo-item">
+                
+                    <div class="papo-item-left">
+                        <div class="papo-autor-photo">
+                            <img src="~/images/phot-papo.png" alt="">
                         </div>
-                        <div class="course-info">
-                            <p class="course-title">
-                                @c.name
-                            </p> <!-- /course-title -->
-                            <div class="course-stars">
-                                <img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" /><img src="~/images/site/star-active.png" />
-                            </div><!-- /course-stars -->
-                        </div><!-- /course-info -->
-                    </div><!-- /course -->
-                </a>
+                        <div class="papo-autor-info">
+                            <p>Raquel Vieira</p>
+                            <p>São Paulo/SP</p>
+                        </div>
+                    </div>
+
+                    <div class="papo-item-right">
+                        <div class="texto">
+                            <h2 class="sub-title">@est.title</h2>
+                            <p class="short-desc">
+                                @Html.Raw(est.message);
+                            </p>
+                        </div>
+
+                        <p class="text-right">
+                            <a href="/papodeescolete/detalhe/@est.Id" class="escola-btn escola-btn-primary">Entrar no papo</a>
+                        </p>
+                    </div>
+
+                </div>
             }
 
-        </div><!-- /courses -->
 
-        <br/>
-        <br/>
-        
-        @if(!string.IsNullOrEmpty(buttonName)){
-            <p class="text-right">
-                @if(User.Identity.IsAuthenticated){
-                    <a class="escola-btn" href="/cursos">@buttonName</a>
-                }else{
-                    <a class="escola-btn" onclick="escoladevoce.auth.openSignupForm()">@buttonName</a>
-                }
-            </p>
-        }
-    </div><!-- /course-content -->
-
-</section><!-- /#destak-courses -->
+        </div>
+    </div>
+</section>

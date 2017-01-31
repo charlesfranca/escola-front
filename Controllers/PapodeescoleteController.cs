@@ -16,9 +16,11 @@ namespace EscolaDeVoce.Frontend.Controllers
             return View();
         }
 
-        public IActionResult Detalhe(string id)
+        public async Task<IActionResult> Detalhe(string id)
         {   
-            return View();
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel>>(Helpers.EscolaDeVoceEndpoints.EscoleTalk.get+ "/" + id);
+            return View(response.data);
+            // return View();
         }
 
         public IActionResult Error()

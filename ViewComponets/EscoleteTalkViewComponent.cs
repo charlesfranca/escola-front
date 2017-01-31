@@ -15,6 +15,5 @@ namespace EscolaDeVoce.Frontend.ViewComponents
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel>>>(Helpers.EscolaDeVoceEndpoints.EscoleTalk.get);
             return View(response.data);
         }
-
     }
 }

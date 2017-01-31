@@ -1,3 +1,5 @@
+@model EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel
+
 @{
     ViewData["Title"] = "Embaixadoras";
 }
@@ -7,7 +9,7 @@
 <section id="papo-de-escolete">
 
     <div class="container">
-        <h5>Papo de Escolete > Encontre sua vocação e seja feliz</h5>
+        <h5>Papo de Escolete > @Model.title</h5>
         <p>
             Essa é a nossa rede! As conversas sobre a essência, o DNA da Escola de Você, estão aqui. A gente espera você.
         </p>
@@ -33,23 +35,8 @@
 
                 <div class="papo-item-right">
                     <div class="texto">
-                        <h2 class="sub-title">Encontre sua vocação e seja feliz</h2>
-                        <p class="short-desc">
-                            “O homem que tem talento para fazer tijolos é tão importante quanto o que define os rumos de uma nação. E cada um só será feliz, fiel ao seu dom”.
-                        </p>
-
-                        <p>
-                            Ontem fui almoçar com um amigo que adoro. Sabe aquelas pessoas que a gente fica anos sem ver e quando reencontra sente a mesma alegria? Pois é. Estou falando de um desses raros casos de afinidade que não se perde com o tempo.
-                        </p>
-
-                        <p>
-                            Ouvir pessoas queridas, mais experientes e mais inteligentes sempre me deixa feliz. Nessas horas, aproveito mesmo. Pergunto, pergunto, pergunto, sem parar. Estávamos conversando sobre realização pessoal – trabalho, família, metas. Aí quis saber por que, na opinião dele, algumas pessoas vivem tão bem enquanto outras (em situação até aparentemente melhor) sofrem tanto.  
-                            Meu amigo que é jornalista, mas tem bagagem suficiente para se arriscar no campo da sociologia, tem uma tese. Ele acredita que tudo se resume a encontrar a própria vocação. Quem encontra, vai bem. Quem segue um roteiro preestabelecido pela família, sociedade, amigos (seja lá por quem for) se frustra.
-                            Não vou lembrar tudo que ele disse, mas foi mais ou menos assim: cada ser humano nasce com uma vocação. Alguns se realizam cuidando de uma família, educando filhos. Outros precisam liderar grupos, empreender e superar desafios importantes para toda humanidade para encontrar sentido na própria existência.
-                            Segundo ele, não há vocação melhor que as demais. O homem que tem talento para fazer tijolos é tão importante quanto o que define os rumos de uma nação. E cada um só será feliz, fiel ao seu dom. O copo de café não é menos importante que o de vinho. São igualmente úteis em sua diferença. A frustração vem quando o grande insiste em ser pequeno. Ou o contrário.
-                            Por uma série de motivos, as vocações muitas vezes são sufocadas, esquecidas ou simplesmente ignoradas. A pessoa escolhe a carreira que o pai quer ou a profissão que acredita ser mais lucrativa. Casa não porque encontrou o amor, mas porque acha que “está na hora” ou porque não vai encontrar alguém melhor. Pouco a pouco, o indivíduo cheio de talentos para liderar se coloca em segundo plano. Da mesma forma, sem pensar, aquele que seria feliz numa vida simples, se agride para atender as expectativas impostas por outros.
-                            Diz o meu amigo que vocação não se aprende. Não adianta forçar a barra. Tem que encontrar a sua para ser feliz. E ninguém pode fazer isso por você. Ai, ai, ai, olha a responsabilidade...
-                        </p>
+                        <h2 class="sub-title">@Model.title</h2>
+                        @Html.Raw(Model.message);
                     </div>
                 </div>
             </div>
@@ -57,61 +44,34 @@
 
 
         <div class="qtd-comments">
-            29 Comentários
+            @Model.comments.Count @(@Model.comments.Count > 1 ? "Comentários": "Comentário")
         </div>
 
         <div class="papo">
-
-            <div class="papo-item">
+            @foreach(var c in Model.comments){
+                <div class="papo-item">
                 
-                <div class="papo-item-left">
-                    <div class="papo-autor-photo">
-                        <img src="~/images/phot-papo.png" alt="">
+                    <div class="papo-item-left">
+                        <div class="papo-autor-photo">
+                            <img src="~/images/phot-papo.png" alt="">
+                        </div>
+                        <div class="papo-autor-info">
+                            <p>Jessica Ferraz</p>
+                            <p>São Paulo/SP</p>
+                        </div>
                     </div>
-                    <div class="papo-autor-info">
-                        <p>Jessica Ferraz</p>
-                        <p>São Paulo/SP</p>
-                    </div>
-                </div>
 
-                <div class="papo-item-right">
-                    <div class="texto">
+                    <div class="papo-item-right">
+                        <div class="texto">
+                            
+                            <p>
+                                @c.message
+                            </p>
                         
-                        <p>
-                            Natália, bacana essa historia com o seu amigo, ela se encaixa perfeitamente com o encontro que tive ontem com um Sr, ele é um executivo experiente com uma bagagem imensa, há quase um ano eu o tinha visto pessoalmente e tinhamos conversado, e eu virei fã. Ontem, quando a gente se viu novamente perguntei como ele consegue fazer tudo tão bem, tão lindo e ainda consegue impactar 60 mil crianças em um projeto social. Ele disse que é simplesmente porque ama o que faz, as atitudes do dia a dia sempre o fazem sorrir e da prazer, nunca foi diferente. A intenção é ser feliz pela ação e não pelo extrato de uma conta bancaria.
-Esse é parte do 'segredo' que ele me contou, o resto se comunica exatamente como o seu amigo falou, até parece que estavamos no mesmo lugar haha 
-Gosto de conexões, gosto do que você escreveu aqui e que muito se comunica com a conversa que tive ontem. 
-Gosto de encontrar pessoas inspiradoras e que me agregam na busca e/ou aprimoramento do meu dom. E Gosto do que assisto na escola de voce justamente por isso, pois ela me leva a ir pra frente e a sorrir intensamente. Já sobre meu dom, não sei exatamente o seu nome, de outro lado, eu sei que minhas atitudes do dia fazem acontecer diversas ideias a serem reais e que me orgulho disso e me faz sorrir 3 . 
- Acredito que praticar a verdade traz entrelaçado esse 'dom'. Valeu Amigo da Natalia, valeu Natalia pelo repasse do aprendizado. Valeu Sr. inpirador do bem! Orgulho de todos voces, aprendendo com voces*-*
-                        </p>
-                    
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="papo-item">
-                
-                <div class="papo-item-left">
-                    <div class="papo-autor-photo">
-                        <img src="~/images/phot-papo.png" alt="">
-                    </div>
-                    <div class="papo-autor-info">
-                        <p>Andressa Gaques</p>
-                        <p>São Paulo/SP</p>
-                    </div>
-                </div>
-
-                <div class="papo-item-right">
-                    <div class="texto">
-                        
-                        <p>
-                            Eu acho tão difícil encontrar nossa vocação, mas é um exercício de autoconhecimento necessário e que sempre teremos que fazer.
-E existe uma vocação ou existem varias? Existe uma que rege as outras?
-                        </p>
-                    
-                    </div>
-                </div>
-            </div>  
+            } 
 
         </div>
 

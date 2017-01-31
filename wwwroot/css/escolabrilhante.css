@@ -18,3 +18,34 @@ body #bannerSection h1,
 body #bannerSection p {
     color: white;
 }
+
+@media (max-width: 768px) {
+    div#bs-example-navbar-collapse-1 {
+        border: none;
+        background: #595959 !important;
+    }
+    .navbar.navbar-default,
+    .navbar {
+        margin-top: 0;
+        background: #595959 !important;
+        height: 70px;
+        border-bottom: 1px solid #595959 !important;
+    }
+    form.navbar-form.navbar-right {
+        border: none !important;
+        margin-top: -1px !important;
+    }
+    nav#menu1 {
+        background: #595959 !important;
+        border-bottom: none !important;
+    }
+    div#bs-example-navbar-collapse-1 {
+        background: #595959 !important;
+    }
+    form.navbar-form.navbar-right {
+        margin-top: -1px !important;
+    }
+    .navbar-brand {
+        padding: 6px 15px !important;
+    }
+}
