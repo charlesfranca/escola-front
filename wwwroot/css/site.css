@@ -1612,3 +1612,7 @@ section#papo-de-escolete {
 section#question-section {
     margin-top: 40px;
 }
+
+.partners-list>div img {
+    max-width: 160px;
+}
