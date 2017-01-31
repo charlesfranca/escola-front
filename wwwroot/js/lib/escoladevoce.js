@@ -202,3 +202,7 @@ escoladevoce.uploadCover = function(inputFile) {
     var file = inputFile.files[0];
     fileReader.readAsDataURL(file);
 }
+
+escoladevoce.openPresenteModal = function() {
+    $('#presenteModal').modal("show");
+}

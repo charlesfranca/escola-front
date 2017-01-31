@@ -1344,7 +1344,7 @@ section#papo-de-escolete {
     height: 446px;
     position: absolute;
     background: black;
-    opacity: .2;
+    opacity: .5;
 }
 
 .course-icon {
@@ -1582,4 +1582,29 @@ section#papo-de-escolete {
         background: #f7f7f7;
         text-align: center;
     }
+}
+
+#presenteModal .modal-content {
+    width: 665px;
+    text-align: center;
+}
+
+#presenteModal .modal-body {
+    width: 665px;
+}
+
+.presente {
+    transition: all 0.5s;
+    position: absolute;
+    right: 0;
+    z-index: 3000;
+    display: none;
+}
+
+.presente.positioned {
+    display: block;
+}
+
+.presente img {
+    width: 150px;
 }
