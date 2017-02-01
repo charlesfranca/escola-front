@@ -215,6 +215,10 @@ namespace EscolaDeVoce.Frontend.Controllers
             });
         }
 
+        public IActionResult UpdateAccount([Bind("Id,name")]Services.ViewModel.PersonViewModel person){
+            return Json(new {});
+        }
+
         public void logUser(){
 
         }

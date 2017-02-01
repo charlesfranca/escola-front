@@ -20,10 +20,15 @@
     ViewBag.fullname = fullname;
 
     string partner = (string)this.ViewContext.RouteData.Values["partner"];
+    if(!string.IsNullOrEmpty(partner)){
+        cover = "/images/" + partner + "-capa.jpg";
+    }
 }
 
 <section class="animated parallax-window" id="bannerSection" data-parallax="scroll" data-image-src="@cover">
-    <div class="backdrop-profile"></div>
+    @if(string.IsNullOrEmpty(partner)){
+        <div class="backdrop-profile"></div>
+    }
 	<div class="container">
 		<div class="row parallax-content">
             <div class="col-md-6">
@@ -32,9 +37,11 @@
                         <img src="@profilePhoto" />
                         <input type="file" onchange="escoladevoce.uploadPhoto(this)">
                     </div>
-                    <div class="embaixadora-photo circled-div">
-                        <img src="~/images/no-embaixadora.png" />
-                    </div>
+                    @if(string.IsNullOrEmpty(partner)){
+                        <div class="embaixadora-photo circled-div">
+                            <img src="~/images/no-embaixadora.png" />
+                        </div>
+                    }
                 </div>
 
                 <div class="profile-info">

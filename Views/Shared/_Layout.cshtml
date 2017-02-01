@@ -133,10 +133,13 @@
             </div>
         </div>
     </footer>
-    <div class="presente">
-        <img src="/images/presente.png" onclick="escoladevoce.openPresenteModal()" alt="">
-    </div>
-    @Html.Partial("_Presente")
+
+    @if(User.Identity.IsAuthenticated){
+        <div class="presente">
+            <img src="/images/presente.png" onclick="escoladevoce.openPresenteModal()" alt="">
+        </div>
+    }
+    @await Component.InvokeAsync("Presente")
 
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
@@ -144,6 +147,31 @@
         </script>
         <script src="~/lib/jquery-modal/jquery.modal.min.js"></script>
         <script src="~/js/tinymce/js/tinymce/tinymce.min.js" asp-append-version="true"></script>
+        <script type="text/javascript">
+            tinymce.PluginManager.add('placeholder', function (editor) {
+                editor.on('init', function () {
+                    var label = new Label;
+                    onBlur();
+                    tinymce.DOM.bind(label.el, 'click', onFocus);
+                    editor.on('focus', onFocus);
+                    editor.on('blur', onBlur);
+                    editor.on('change', onBlur);
+                    editor.on('setContent', onBlur);
+                    function onFocus() { if (!editor.settings.readonly === true) { label.hide(); } editor.execCommand('mceFocus', false); }
+                    function onBlur() { if (editor.getContent() == '') { label.show(); } else { label.hide(); } }
+                });
+                var Label = function () {
+                    var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
+                    var placeholder_attrs = editor.settings.placeholder_attrs || { style: { position: 'absolute', top: '2px', left: 0, color: '#aaaaaa', padding: '.25%', margin: '5px', width: '80%', 'font-size': '17px !important;', overflow: 'hidden', 'white-space': 'pre-wrap' } };
+                    var contentAreaContainer = editor.getContentAreaContainer();
+                    tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
+                    this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
+                }
+                Label.prototype.hide = function () { tinymce.DOM.setStyle(this.el, 'display', 'none'); }
+                Label.prototype.show = function () { tinymce.DOM.setStyle(this.el, 'display', ''); }
+            });
+
+        </script>
         <script src="~/js/lib/blockui/blockui.lib.js"></script>
         <script src="~/lib/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
         <script src="~/lib/slick-carousel/slick/slick.js"></script>
@@ -231,7 +259,7 @@
 
         window.fbAsyncInit = function() {
             FB.init({
-                appId: '182384378895729',
+                appId: '182372232230277',
                 cookie: true, // enable cookies to allow the server to access 
                 // the session
                 xfbml: true, // parse social plugins on this page
@@ -283,8 +311,27 @@
     </script>
 
     <script>
+        window.onload = function() {
+            var myInput = document.getElementsByClassName('disableCopy');
+            myInput.onpaste = function(e) {
+                e.preventDefault();
+            }
+        }
         escoladevoce.initSliders();
         $(function(){
+            $("a").click(function(e){
+                e.preventDefault();
+                if(location.href.indexOf("escolabrilhante") > -1){
+                    var link = "/escolabrilhante/" + $(this).attr("href");
+                    link = link.replace("//", "/");
+                    location.href = link;
+                }else{
+                    location.href = $(this).attr("href");
+                }
+            });
+            $('.disableCopy').bind("cut copy paste",function(e) {
+                e.preventDefault();
+            });
             
             if(location.href.indexOf("escolabrilhante") > -1){
                 setTimeout(function(){

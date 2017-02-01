@@ -1616,3 +1616,11 @@ section#question-section {
 .partners-list>div img {
     max-width: 160px;
 }
+
+.message-box {
+    border-bottom: 1px solid;
+}
+
+section#embaixadoras-section {
+    margin-bottom: 40px;
+}

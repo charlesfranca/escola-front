@@ -6,16 +6,30 @@
 
 @section scripts {
     <script>
+        var accentMap = {
+            "á": "a",
+            "â": "a",
+            "ã": "a",
+            "ö": "o"
+        };
+        var normalize = function( term ) {
+            var ret = "";
+            for ( var i = 0; i < term.length; i++ ) {
+                ret += accentMap[ term.charAt(i) ] || term.charAt(i);
+            }
+            return ret;
+        };
+
         $(document).ready(function(){
             if(location.href.indexOf("newcad") > -1){
                 $('#bemvindaModal').modal("show");
             }
-        })
+        });
     </script>
 }
 
 @section modalContent {
-    @Html.Partial("_BemVinda") 
+    @await Component.InvokeAsync("BemVinda")
 }
 
 @await Component.InvokeAsync("Header")
@@ -44,14 +58,14 @@
         <form class="form-inline">
             <div class="fields-line">
                 <div class="form-group">
-                    @Html.LabelFor(m => m.name)
+                    <label for="exampleInputEmail2">Nome*</label>
                     @Html.TextBoxFor(m => m.name, new { @class = "form-control half-size" })
                     <!--<label for="exampleInputName2">Nome*</label>
                     <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">-->
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(m => m.email)
+                    <label for="exampleInputEmail2">Email*</label>
                     @Html.TextBoxFor(m => m.email, new { @class = "form-control half-size" })
                     <!--<label for="exampleInputEmail2">E-mail*</label>
                     <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">-->
@@ -62,17 +76,20 @@
                 <div class="form-group">
                     <!--<label for="exampleInputName2">CPF</label>
                     <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">-->
-                    @Html.LabelFor(m => m.email)
+                    <label for="exampleInputEmail2">Email*</label>
                     @Html.TextBoxFor(m => m.email, new { @class = "form-control small-size" })
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Gênero*</label>
-                    <select class="form-control small-size" id="exampleInputEmail2" placeholder=""></select>
+                    <select class="form-control small-size" name="genre" placeholder="">
+                        <option value="0">Masculino</option>
+                        <option value="1">Feminino</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(m => m.birthday)
+                    <label for="exampleInputEmail2">Nascimento*</label>
                     @Html.TextBoxFor(m => m.birthday, new { @class = "form-control small-size" })
                     <!--<label for="exampleInputEmail2">Data de Nascimento*</label>
                     <input type="text" class="form-control small-size" id="exampleInputEmail2" placeholder="">-->
@@ -81,7 +98,7 @@
 
             <div class="fields-line">
                 <div class="form-group">
-                    @Html.LabelFor(m => m.phonenumber)
+                    <label for="exampleInputEmail2">Telefone*</label>
                     @Html.TextBoxFor(m => m.phonenumber, new { @class = "form-control half-size" })
                     <!--<label for="exampleInputName2">Telefone/Cel</label>
                     <input type="text" class="form-control half-size" id="exampleInputName2" placeholder="">-->
@@ -89,30 +106,36 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Possui Negócio</label>
-                    <input type="radio" class="form-control" id="exampleInputEmail2" placeholder=""> Sim 
-                    <input type="radio" class="form-control" id="exampleInputEmail2" placeholder=""> Não
+                    <input type="radio" value="1" class="form-control" name="haveBusiness" placeholder=""> Sim 
+                    <input type="radio" value="2" class="form-control" checked name="haveBusiness" placeholder=""> Não
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Filhos</label>
-                    <select class="form-control tiny-size" id="exampleInputEmail2" placeholder=""></select>
+                    <select class="form-control tiny-size" name="children" placeholder="">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
                 </div>
             </div>
 
             <div class="fields-line">
                 <div class="form-group">
                     <label for="exampleInputName2">CEP*</label>
-                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">
+                    <input type="text" class="form-control small-size" name="postalcode" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Número*</label>
-                    <input type="text" class="form-control tiny-size" id="exampleInputEmail2" placeholder="">
+                    <input type="text" class="form-control tiny-size" name="number" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Endereço*</label>
-                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">
+                    <input type="text" class="form-control half-size" name="street" placeholder="">
                 </div>
             </div>
 
@@ -120,17 +143,46 @@
             <div class="fields-line">
                 <div class="form-group">
                     <label for="exampleInputName2">País</label>
-                    <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">
+                    <input type="text" class="form-control small-size" name="country" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Estado*</label>
-                    <input type="text" class="form-control tiny-size" id="exampleInputEmail2" placeholder="">
+                    <select class="form-control tiny-size" name="state" placeholder="">
+                        <option value="">Selecione</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AM">AM</option>
+                        <option value="AP">AP</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MG">MG</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="PR">PR</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Cidade*</label>
-                    <input type="text" class="form-control half-size" id="exampleInputEmail2" placeholder="">
+                    <input type="text" class="form-control half-size" name="city" placeholder="">
                 </div>
             </div>
 

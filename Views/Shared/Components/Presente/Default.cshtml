@@ -1,0 +1,66 @@
+@model EscolaDeVoce.Frontend.User
+
+@{
+    string fullname = Model.name + " " + Model.lastname;
+    string[] names = fullname.Split(' ');
+    string name = names[0];
+    string lastname = names[names.Count() - 1];
+
+    ViewBag.name = name;
+    ViewBag.fullname = fullname;
+
+    string partner = (string)this.ViewContext.RouteData.Values["partner"];
+}
+
+<!-- Modal -->
+<div class="modal fade form-modal step1" id="presenteModal" tabindex="-1" role="dialog" aria-labelledby="signupform">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body text-center">
+        
+        <p class="modal-greeting">
+          @name, temos um<br />
+          presente pra você: 
+        </p>
+          
+            <div id="player-presente"></div>
+            <script samba-player-api="player" type="text/javascript" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>
+            <script>
+                var player = new SambaPlayer("player-presente", { //player é o ID do elemento html que ele vai inserir o iframe
+                    height: 330,
+                    width: 550,
+                    ph: "3b8e50510d562d8d8b101c66f59bf625",//Player Hash do projeto
+                    m: "575c49cfcae0d35fde52157de6f2cc61",//MidiaID
+                    playerParams: { //Veja a lista de Parâmetros suportados
+                        enableShare: true,
+                        wideScreen: true
+                    },
+                    events: { //Funcoes que escutam os eventos do player
+                        "onLoad": function(){}, //Sendo que eventListener deve ser uma função já presente na página
+                        "onStart": function(){},
+                        "onFinish": function(){}
+                    }
+                });
+            </script>
+
+            <div class="text-right" style="position: relative">
+              <br>
+              <br>
+              <a href="/home" class="escola-btn left-item" style="top: 28px">continuar navegando</a>
+              <a href="/home" class="escola-btn escola-btn-primary">conheça a escola de você</a>
+              <br>
+              <br>
+            </div>
+      </div>
+
+      <!--<div class="modal-footer">
+        <div>
+          <div>Ou entre com: </div>
+          <div><img src="~/images/site/signup-facebook.png" /></div>
+          <div><img src="~/images/site/signup-twitter.png" /></div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>

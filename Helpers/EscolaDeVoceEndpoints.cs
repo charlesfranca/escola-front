@@ -39,6 +39,7 @@ namespace EscolaDeVoce.Frontend.Helpers
 
         public class EscoleTalk{
             public const string get = EscolaDeVoceEndpoints.baseUrl + "escoletalk";
+            public const string comment = EscolaDeVoceEndpoints.baseUrl + "escoletalk/comment";
         }
 
         public class Person{

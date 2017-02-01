@@ -4,6 +4,34 @@
     ViewData["Title"] = "Embaixadoras";
 }
 
+@section scripts{
+    <script>
+         tinymce.init({
+            selector: '#newMessage',
+            menubar: false,
+            plugins: [
+                'emoticons',
+                "placeholder"
+            ],
+            toolbar: [
+                'bold italic underline emoticons'
+            ],
+            mentions_fetch: function (query, success) {
+                // Fake a server call by using a setTimeout
+                alert("searching");
+                setTimeout(function() {
+                console.log('Search query:', query.term);
+
+                success([
+                    {id: 'johndoe', name: 'johndoe', fullName: 'John Doe'},
+                    {id: 'janedoe', name: 'janedoe', fullName: 'Jane Doe'}
+                ]);
+                }, 0);
+            }
+        });
+    </script>
+}
+
 @await Component.InvokeAsync("Header")
 
 <section id="papo-de-escolete">
@@ -48,6 +76,32 @@
         </div>
 
         <div class="papo">
+
+            <div class="papo-item">
+                
+                <div class="papo-item-left">
+                    <div class="papo-autor-photo">
+                        <img src="~/images/phot-papo.png" alt="">
+                    </div>
+                    <div class="papo-autor-info">
+                        <p>Raquel Vieira</p>
+                        <p>São Paulo/SP</p>
+                    </div>
+                </div>
+
+                <div class="papo-item-right">
+                    <div class="message-box">
+                        <textarea name="newMessage" placeholder="Escreva um comentário e participe do bate-papo :)" id="newMessage"></textarea>
+                    </div>
+                    <p class="text-right">
+                        <br>
+                        <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="papo">
             @foreach(var c in Model.comments){
                 <div class="papo-item">
                 
@@ -65,7 +119,7 @@
                         <div class="texto">
                             
                             <p>
-                                @c.message
+                                @Html.Raw(c.message)
                             </p>
                         
                         </div>

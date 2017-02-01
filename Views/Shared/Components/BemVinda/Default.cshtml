@@ -1,3 +1,17 @@
+@model EscolaDeVoce.Frontend.User
+
+@{
+    string fullname = Model.name + " " + Model.lastname;
+    string[] names = fullname.Split(' ');
+    string name = names[0];
+    string lastname = names[names.Count() - 1];
+
+    ViewBag.name = name;
+    ViewBag.fullname = fullname;
+
+    string partner = (string)this.ViewContext.RouteData.Values["partner"];
+}
+
 <!-- Modal -->
 <div class="modal fade form-modal step1" id="bemvindaModal" tabindex="-1" role="dialog" aria-labelledby="loginForm">
   <div class="modal-dialog" role="document">
@@ -5,7 +19,7 @@
       
       <div class="modal-body text-center">
         
-        <h1 class="title">Natália</h1>
+        <h1 class="title">@name</h1>
         <h2 class="sub-title">Bem vinda ao seu melhor!</h2
         <br />
 

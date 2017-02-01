@@ -14,16 +14,21 @@ escoladevoce.facebook.login = function() {
                 options.username = response.email;
                 options.isFacebook = true;
 
+                escoladevoce.ui.block("Estamos quase lá, aguenta só mais um pouquinho...");
                 options.success = function(data) {
                     if (data.status) {
-                        location.href = "/home/home";
+                        if (location.href.indexOf("escolabrilhante") > -1) {
+                            location.href = "/escolabrilhante/home/home";
+                        } else {
+                            location.href = "/home/home";
+                        }
                     } else {
-                        alert("Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tente novamente ;).");
+                        escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tente novamente ;).");
                     }
                 }
 
                 options.error = function(error) {
-                    escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Nome de usuário ou senha inválido.");
+                    escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tente novamente ;).");
                 }
 
                 escoladevoce.auth.dologin(options);
@@ -54,13 +59,13 @@ escoladevoce.facebook.cadastro = function() {
                     escoladevoce.ui.block("Estamos quase lá, aguenta só mais um pouquinho...");
                 }
 
-                options.complete = function() {
-                    escoladevoce.ui.unblock();
-                }
-
                 options.success = function(data) {
                     if (data.status) {
-                        location.href = "/account?newcad";
+                        if (location.href.indexOf("escolabrilhante") > -1) {
+                            location.href = "/escolabrilhante/account?newcad";
+                        } else {
+                            location.href = "/account?newcad";
+                        }
                     } else {
                         alert("Amiga. Não conseguimos encontrar seu cadastro :(. Confira seu e-mail e tente novamente ;).");
                     }

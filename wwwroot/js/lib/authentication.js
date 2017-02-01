@@ -64,13 +64,14 @@ escoladevoce.auth.init = function() {
                 escoladevoce.ui.block("Estamos quase lá, aguenta só mais um pouquinho...");
             }
 
-            options.complete = function() {
-                escoladevoce.ui.unblock();
-            }
-
             options.success = function(data) {
                 if (data.status) {
-                    location.href = "/account?newcad";
+                    if (location.href.indexOf("escolabrilhante") > -1) {
+                        location.href = "/escolabrilhante/account?newcad";
+                    } else {
+                        location.href = "/account?newcad";
+                    }
+
                 } else {
                     escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Amiga. Infelizmente não foi possível completar seu cadastro. Tente novamente.");
                 }
@@ -110,13 +111,13 @@ escoladevoce.auth.init = function() {
                 escoladevoce.ui.block("Estamos quase lá, aguenta só mais um pouquinho...");
             }
 
-            options.complete = function() {
-                escoladevoce.ui.unblock();
-            }
-
             options.success = function(data) {
                 if (data.status) {
-                    location.href = "/home/home";
+                    if (location.href.indexOf("escolabrilhante") > -1) {
+                        location.href = "/escolabrilhante/home/home";
+                    } else {
+                        location.href = "/home/home";
+                    }
                 } else {
                     //alert("Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tenta mais uma vez vai ;).");
                     escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Verifique se seus dados estão corretos ;).");

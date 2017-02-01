@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Cursos";
+    var courseImage = "http://escola-back.azurewebsites.net/images/specialists/" + Model.image;
 }
 
 @await Component.InvokeAsync("Header")
@@ -31,19 +32,19 @@
 
                 <div>
                     <p>
-                        <strong>1680 ESCOLETES JÁ FIZERAM</strong>
+                        <strong>0 ESCOLETES JÁ FIZERAM</strong>
                     </p>
                     <p>
                         Lorem ipsum dolor sit amet, mel in labore aeterno euripidis, sed cu pericula inciderint referrentur, cum ut enim graeco. Solum causae ad vis, cum facilis civibus perfecto ei, usu et iudico soleat. Pro omittam quaestio abhorreant in, te nihil vulputate per.
                     </p>
                 </div>
                 <div>
-                    <button class="escola-btn escola-btn-primary">Começar</button>
+                    <a href="/cursos/sala/@Model.Id" class="escola-btn escola-btn-primary">Começar</a>
                 </div>
             </div>
 
             <div class="col-md-7">
-                <div><img src="~/images/cursos/1.jpg" class="img-responsive"></div>
+                <div><img src="@courseImage" class="img-responsive"></div>
                 <p><strong>Duração: </strong><span style="color: #484848">1h30</span></p>
             </div>
         </div>
