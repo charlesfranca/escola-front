@@ -1624,3 +1624,9 @@ section#question-section {
 section#embaixadoras-section {
     margin-bottom: 40px;
 }
+
+@media (min-width: 992px) {
+    #bemvindaModal .modal-content {
+        width: 504px;
+    }
+}
