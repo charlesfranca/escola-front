@@ -207,3 +207,7 @@ escoladevoce.openPresenteModal = function() {
     $('#presenteModal').modal("show");
     $('.presente').removeClass("positioned");
 }
+
+escoladevoce.goToAddress = function(url) {
+    location.href = url;
+}
