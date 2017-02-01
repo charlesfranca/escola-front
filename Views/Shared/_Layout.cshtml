@@ -321,6 +321,10 @@
         $(function(){
             $("a").click(function(e){
                 e.preventDefault();
+                var url = $(this).attr("href");
+                if(url == "" || url == "#" || !url){
+                    return false;
+                }
                 if(location.href.indexOf("escolabrilhante") > -1){
                     var link = "/escolabrilhante/" + $(this).attr("href");
                     link = link.replace("//", "/");
@@ -329,6 +333,7 @@
                     location.href = $(this).attr("href");
                 }
             });
+
             $('.disableCopy').bind("cut copy paste",function(e) {
                 e.preventDefault();
             });
