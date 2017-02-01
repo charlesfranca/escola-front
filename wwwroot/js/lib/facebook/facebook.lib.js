@@ -15,6 +15,7 @@ escoladevoce.facebook.login = function() {
                 options.isFacebook = true;
 
                 escoladevoce.ui.block("Estamos quase lá, aguenta só mais um pouquinho...");
+
                 options.success = function(data) {
                     if (data.status) {
                         if (location.href.indexOf("escolabrilhante") > -1) {
@@ -24,11 +25,13 @@ escoladevoce.facebook.login = function() {
                         }
                     } else {
                         escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tente novamente ;).");
+                        escoladevoce.ui.unblock();
                     }
                 }
 
                 options.error = function(error) {
                     escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tente novamente ;).");
+                    escoladevoce.ui.unblock();
                 }
 
                 escoladevoce.auth.dologin(options);
@@ -68,11 +71,13 @@ escoladevoce.facebook.cadastro = function() {
                         }
                     } else {
                         alert("Amiga. Não conseguimos encontrar seu cadastro :(. Confira seu e-mail e tente novamente ;).");
+                        escoladevoce.ui.unblock();
                     }
                 }
 
                 options.error = function(error) {
                     escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Nome de usuário ou senha inválido.");
+                    escoladevoce.ui.unblock();
                 }
 
                 escoladevoce.auth.signup(options);
