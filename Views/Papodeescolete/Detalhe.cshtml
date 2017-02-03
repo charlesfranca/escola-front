@@ -103,14 +103,22 @@
 
         <div class="papo">
             @foreach(var c in Model.comments){
+                var profilePhoto = "/images/no-image.png";
+                if(!string.IsNullOrEmpty(c.user.image)) {
+                    profilePhoto = "/images/" + c.user.image;
+                }
+                var name = "";
+                if(!string.IsNullOrEmpty(c.user.person.name)){
+                    name = c.user.person.name;
+                }
                 <div class="papo-item">
                 
                     <div class="papo-item-left">
                         <div class="papo-autor-photo">
-                            <img src="~/images/phot-papo.png" alt="">
+                            <img src="@profilePhoto" style="width: 58px" alt="">
                         </div>
                         <div class="papo-autor-info">
-                            <p>Jessica Ferraz</p>
+                            <p>@name</p>
                             <p>São Paulo/SP</p>
                         </div>
                     </div>

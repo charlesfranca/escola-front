@@ -129,7 +129,7 @@ namespace EscolaDeVoce.Frontend.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Signup(string username, string password, string email, string name, string lastname, bool isFacebook)
+        public async Task<IActionResult> Signup(string username, string password, string email, string name, string lastname, string image, string cover, bool isFacebook)
         {   
             var model = new EscolaDeVoce.Services.ViewModel.CreateUserViewModel();
             model.password = password;

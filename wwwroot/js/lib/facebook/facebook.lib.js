@@ -6,7 +6,7 @@ escoladevoce.facebook.init = function() {}
 escoladevoce.facebook.login = function() {
     FB.login(function(response) {
         if (response.authResponse) {
-            FB.api('/me', { fields: 'id,name,email' }, function(response) {
+            FB.api('/me', { fields: 'id,name,email,picture.type(large),cover' }, function(response) {
                 console.log('Successful login for: ' + response.name);
                 console.log(response);
 
@@ -48,7 +48,7 @@ escoladevoce.facebook.login = function() {
 escoladevoce.facebook.cadastro = function() {
     FB.login(function(response) {
         if (response.authResponse) {
-            FB.api('/me', { fields: 'id,name,email' }, function(response) {
+            FB.api('/me', { fields: 'id,name,email,picture.type(large),cover' }, function(response) {
                 console.log('Successful login for: ' + response.name);
                 console.log(response);
 
@@ -56,6 +56,8 @@ escoladevoce.facebook.cadastro = function() {
                 options.username = response.email;
                 options.email = response.email;
                 options.name = response.name;
+                options.cover = response.cover.source;
+                options.image = response.picture.data.url;
                 options.isFacebook = true;
 
                 options.beforeSend = function() {

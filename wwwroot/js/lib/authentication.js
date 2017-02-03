@@ -181,6 +181,8 @@ escoladevoce.auth.signup = function(options) {
             password: options.password,
             name: options.name,
             email: options.email,
+            cover: options.cover,
+            image: options.image,
             lastname: options.lastname,
             isFacebook: options.isFacebook
         },

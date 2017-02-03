@@ -1629,3 +1629,14 @@ section#embaixadoras-section {
         width: 665px;
     }
 }
+
+.papo-autor-photo {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 58px;
+    height: 58px;
+}
+
+.papo-autor-info {
+    max-width: 142px;
+}
