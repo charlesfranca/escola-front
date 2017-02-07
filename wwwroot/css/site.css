@@ -616,7 +616,7 @@ body.logged #home-logged-banner {}
 
 .profile-info {
     height: 116px;
-    bottom: 32px;
+    bottom: 74px;
     left: 219px;
 }
 
@@ -672,17 +672,24 @@ body.logged #home-logged-banner {}
 }
 
 .question .answers {
-    height: 30px;
+    display: table;
+    width: 100%;
 }
 
 .question>.answers>div {
-    position: absolute;
-    width: 100px;
-    font-family: 'Open Sans', Arial, sans-serif;
+    width: 50%;
+    font-family: 'Open Sans',Arial,sans-serif;
+}
+
+.left-answer {
+    float: left;
+    padding: 0 20px 0 0;
 }
 
 .question>.answers>div.right-answer {
     right: 53px;
+    float: right;
+    padding: 0 0 0 20px;
 }
 
 .answer-slider {
@@ -1130,6 +1137,7 @@ section#papo-de-escolete {
 
 .mensagem {
     padding: 12px 0;
+    cursor: pointer;
 }
 
 .embaixadora-box-cep button.escola-btn.right-button {
@@ -1180,6 +1188,8 @@ section#papo-de-escolete {
     white-space: nowrap;
     background: #F7F7F7;
     color: white;
+    max-height: 700px;
+    overflow: scroll;
 }
 
 .splitter {
@@ -1241,7 +1251,7 @@ section#papo-de-escolete {
 }
 
 .messages {
-    height: calc(100% - 233px);
+    height: calc(100% - 279px);
     overflow-y: scroll;
 }
 
@@ -1356,6 +1366,7 @@ section#papo-de-escolete {
     right: 30px;
     top: 10px;
     cursor: pointer;
+    z-index: 10;
 }
 
 .col-md-6.depoiment-section {
@@ -1639,4 +1650,42 @@ section#embaixadoras-section {
 
 .papo-autor-info {
     max-width: 142px;
+}
+
+.course-overlay {
+    width: 360px;
+    height: 232px;
+    background: black;
+    position: absolute;
+    opacity: .3;
+}
+
+.dictionary-message {
+    border: 1px solid #f0f0f0;
+}
+
+.mensagem.active .mensagem-right-container {
+    color: white;
+}
+.mensagem .mensagem-right-container {
+    color: black;
+}
+.mensagem-left-content {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.new-message-form {
+    background: white;
+}
+
+.mensagem-right-container {
+    min-width: 228px;
+}
+
+.message-photo {
+    border-radius: 50%;
+    overflow: hidden;
 }

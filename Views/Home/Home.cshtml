@@ -43,25 +43,8 @@
                     Para responder é só clicar na bolinha e arrastar para a direita ou esquerda em direção à sua resposta. Quanto mais certeza você tiver, arraste a bolinha mais longe do centro.
                 </p>
             </div>
-            <div class="col-md-6 col-md-offset-2">
-                <div class="question">
-                    <h1 class="title">1 - Um apocalipse zumbi começou! O que você faz?</h2>
-                    <div class="answers">
-                        <div class="left-answer">
-                            Me escondo em um sótão
-                        </div>
-                        <div class="right-answer">
-                            Saio pelas ruas e vou à luta
-                        </div>
-                    </div>
-                    <div class="answer-slider">
-                        <div id="slider"></div>
-                    </div>
-                    <div class="question-buttons">
-                        <button class="escola-btn">fazer o quiz completo</button>
-                        <button class="escola-btn escola-btn-primary right-item right-button">enviar</button>
-                    </div>
-                </div>
+            <div class="col-md-6 col-md-offset-2" id="quiz-container">
+                @await Component.InvokeAsync("Quiz")
             </div>
         </div>
     </div>

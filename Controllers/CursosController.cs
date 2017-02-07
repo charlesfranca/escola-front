@@ -24,9 +24,10 @@ namespace EscolaDeVoce.Frontend.Controllers
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses + "/" + id);
             return View(response.data);
         }
-
-        public async Task<IActionResult> Sala(string id)
+        
+        public async Task<IActionResult> Sala(string id, string videoid)
         {
+            ViewBag.VideoId = Guid.Parse(videoid);
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses + "/" + id);
             return View(response.data);
         }

@@ -22,7 +22,8 @@
             @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
                 <!--<a href="/cursos/detalhes/@c.Id">-->
                     <div class="course">
-                        <div class="course-icon"><span class="icon icons-heart-white-course @(User.Identity.IsAuthenticated ? "" : "hidden")" onclick="escoladevoce.courses.addToFavorites('@c.Id')"></span></div>
+                        <div class="course-icon"><span class="icon icons-small-lock"></span></div>
+                        <!--<div class="course-overlay"></div>-->
                         <div class="course-image">
                             <div id="@(c.Id)player"></div>
                             <script samba-player-api="player" type="text/javascript" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>

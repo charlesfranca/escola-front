@@ -73,11 +73,13 @@ escoladevoce.auth.init = function() {
                     }
 
                 } else {
+                    escoladevoce.ui.unblock();
                     escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Amiga. Infelizmente não foi possível completar seu cadastro. Tente novamente.");
                 }
             }
 
             options.error = function(error) {
+                escoladevoce.ui.unblock();
                 escoladevoce.ui.notify.warning("Erro ao efetuar o cadastro", "Amiga. Infelizmente não foi possível completar seu cadastro. Tente novamente.");
             }
 
@@ -120,11 +122,13 @@ escoladevoce.auth.init = function() {
                     }
                 } else {
                     //alert("Amiga. Não conseguimos encontrar seu cadastro :(. Confira seus dados e tenta mais uma vez vai ;).");
+                    escoladevoce.ui.unblock();
                     escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Amiga. Não conseguimos encontrar seu cadastro :(. Verifique se seus dados estão corretos ;).");
                 }
             }
 
             options.error = function(error) {
+                escoladevoce.ui.unblock();
                 escoladevoce.ui.notify.warning("Erro ao efetuar o login", "Nome de usuário ou senha inválido.");
             }
 

@@ -2,10 +2,38 @@
 
 @{
     ViewData["Title"] = "Cursos";
-    var video = Model.videos[0];
+    var video = Model.videos.Where(v=>v.Id == ViewBag.VideoId).FirstOrDefault();
 }
 
 @await Component.InvokeAsync("Header")
+
+@section scripts{
+    <script>
+         tinymce.init({
+            selector: 'textarea',
+            menubar: false,
+            plugins: [
+                'emoticons',
+                "placeholder"
+            ],
+            toolbar: [
+                'bold italic underline emoticons'
+            ],
+            mentions_fetch: function (query, success) {
+                // Fake a server call by using a setTimeout
+                alert("searching");
+                setTimeout(function() {
+                console.log('Search query:', query.term);
+
+                success([
+                    {id: 'johndoe', name: 'johndoe', fullName: 'John Doe'},
+                    {id: 'janedoe', name: 'janedoe', fullName: 'Jane Doe'}
+                ]);
+                }, 0);
+            }
+        });
+    </script>
+}
 
 <section id="sala-video">
     <div class="container">
@@ -82,9 +110,33 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="home"></div>
-                        <div role="tabpanel" class="tab-pane" id="profile"></div>
-                        <div role="tabpanel" class="tab-pane" id="messages"></div>
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="dictionary-message">
+                                <textarea name="newMessage" placeholder="E aqui todo o resto :)" id="newMessage"></textarea>
+                            </div>
+                            <p class="text-right">
+                                <br>
+                                <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="dictionary-message">
+                                <textarea name="newMessage" placeholder="E aqui todo o resto :)" id="newMessage"></textarea>
+                            </div>
+                            <p class="text-right">
+                                <br>
+                                <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <div class="dictionary-message">
+                                <textarea name="newMessage" placeholder="E aqui todo o resto :)" id="newMessage"></textarea>
+                            </div>
+                            <p class="text-right">
+                                <br>
+                                <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                            </p>
+                        </div>
                     </div>
 
                 </div>
@@ -126,4 +178,4 @@
     </div>
 </section>
 
-@await Component.InvokeAsync("Courses")
+@Html.Partial("_CourseVideos", @Model)

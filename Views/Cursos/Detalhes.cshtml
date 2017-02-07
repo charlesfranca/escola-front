@@ -11,7 +11,7 @@
     <div class="container">
         <br>
         <br>
-        Cursos -> @Model.name  
+        Cursos -> @Model.name
         <br>
         <br>
     </div>
@@ -35,11 +35,15 @@
                         <strong>0 ESCOLETES JÁ FIZERAM</strong>
                     </p>
                     <p>
-                        Lorem ipsum dolor sit amet, mel in labore aeterno euripidis, sed cu pericula inciderint referrentur, cum ut enim graeco. Solum causae ad vis, cum facilis civibus perfecto ei, usu et iudico soleat. Pro omittam quaestio abhorreant in, te nihil vulputate per.
+                        @Model.description
                     </p>
                 </div>
                 <div>
-                    <a href="/cursos/sala/@Model.Id" class="escola-btn escola-btn-primary">Começar</a>
+                    @if(@Model.free){
+                        <a href="/cursos/sala/@Model.Id/video/@Model.videos.FirstOrDefault().Id" class="escola-btn escola-btn-primary">Começar</a>
+                    }else{
+                        <a class="escola-btn escola-btn-primary">Comprar</a>
+                    }
                 </div>
             </div>
 
@@ -51,4 +55,4 @@
     </div>
 </section>
 
-@Html.Partial("_VideoSlickSlide", Model.videos)
+@Html.Partial("_CourseVideos", @Model)

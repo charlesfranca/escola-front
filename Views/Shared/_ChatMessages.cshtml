@@ -1,0 +1,17 @@
+@model EscolaDeVoce.Frontend.UserMessages
+
+@foreach(var item in Model.mensagens){
+    var profilePhoto = "/images/no-image.png";
+    if(!string.IsNullOrEmpty(item.from.image)) {
+        profilePhoto = "/images/" + item.from.image;
+    }
+    <div class="message @(Model.userid == item.fromId ? "right-message": "left-message") ">
+        <div class="message-photo">
+            <img src="@profilePhoto" alt="">
+        </div>
+        <div class="message-content">
+            @Html.Raw(item.message)
+        </div>
+    </div>  
+    <div class="clearfix"></div>
+}

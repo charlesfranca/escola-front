@@ -13,6 +13,8 @@
             "wwwroot/js/lib/authentication.js",
             "wwwroot/js/lib/courses/courses.js",
             "wwwroot/js/lib/papodeescolete/papodeescolete.js",
+            "wwwroot/js/lib/mensagem/mensagem.js",
+            "wwwroot/js/lib/quiz/quiz.js",
             "wwwroot/js/site.js"
         ],
         "minify": {
