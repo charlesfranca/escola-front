@@ -40,7 +40,9 @@
                                     events: { //Funcoes que escutam os eventos do player
                                         "onLoad": function(){}, //Sendo que eventListener deve ser uma função já presente na página
                                         "onStart": function(){},
-                                        "onFinish": function(){}
+                                        "onFinish": function(){
+                                            escoladevoce.auth.openSignupForm()
+                                        }
                                     }
                                 });
                             </script>
@@ -68,7 +70,7 @@
         
         @if(!string.IsNullOrEmpty(buttonName)){
             <p class="text-right">
-                @if(User.Identity.IsAuthenticated){
+                @if(User.Identity.IsAuthenticated && Model != null && Model.Count > 3){
                     <a class="escola-btn" href="/cursos">@buttonName</a>
                 }else{
                     <a class="escola-btn" onclick="escoladevoce.auth.openSignupForm()">@buttonName</a>

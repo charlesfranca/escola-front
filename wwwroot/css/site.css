@@ -1689,3 +1689,11 @@ section#embaixadoras-section {
     border-radius: 50%;
     overflow: hidden;
 }
+
+p.banner-icons .icon {
+    margin-right: 24px;
+}
+
+section#big-video-section #player {
+    margin-top: 30px;
+}

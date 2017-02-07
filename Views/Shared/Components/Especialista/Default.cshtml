@@ -1,4 +1,7 @@
 @model List<EscolaDeVoce.Services.ViewModel.EspecialistViewModel>
+@{
+    var showEmbaixadorasButton = ViewBag.showEmbaixadorasButton;
+}
 
 <section id="embaixadoras-section" class="container">
     <div class="embaixadora-content slick-slider-container">
@@ -32,7 +35,7 @@
         <br/>
         <br/>
         
-        <p class="text-right">
+        <p class="text-right @(showEmbaixadorasButton ? "" : "hidden")">
             @if(User.Identity.IsAuthenticated){
                 <a class="escola-btn" href="/embaixadoras">CONHEÇA NOSSAS EMBAIXADORAS</a>
             }else{

@@ -10,11 +10,11 @@ namespace EscolaDeVoce.Frontend.ViewComponents
 {
     public class EspecialistaViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(bool showEmbaixadorasButton)
         {   
+            ViewBag.showEmbaixadorasButton = showEmbaixadorasButton;
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.EspecialistViewModel>>>(Helpers.EscolaDeVoceEndpoints.Especialist.getEspecialists);
             return View(response.data);
         }
-
     }
 }

@@ -3,10 +3,15 @@
 }
 
 <ul class="nav nav-pills nav_logged" style="padding: 10px" >
-<li role="presentation"><a href="/cursos">CURSOS</a></li>
+@if(User.Identity.IsAuthenticated){
+    <li role="presentation"><a href="/cursos">CURSOS</a></li>
+}else{
+    <li role="presentation"><a href="#" onclick="escoladevoce.auth.openSignupForm()">CURSOS</a></li>
+}
+
 @if(string.IsNullOrEmpty(partner)){
     <li role="presentation"><a href="/embaixadoras">EMBAIXADORAS</a></li>
     <li role="presentation"><a href="/papodeescolete">PAPO DE ESCOLETE</a></li>
+    <li role="presentation"><a href="/tvedv">TV EDV</a></li>
 }
-<li role="presentation"><a href="/tvedv">TV EDV</a></li>
 </ul>
