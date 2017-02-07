@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace EscolaDeVoce.Frontend.Controllers
 {
@@ -21,7 +22,7 @@ namespace EscolaDeVoce.Frontend.Controllers
 
         public async Task<IActionResult> Detalhes(string id)
         {   
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses + "/" + id);
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id);
             return View(response.data);
         }
         
@@ -30,6 +31,32 @@ namespace EscolaDeVoce.Frontend.Controllers
             ViewBag.VideoId = Guid.Parse(videoid);
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses + "/" + id);
             return View(response.data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToFavorite(string videoId)
+        {   
+            var model = new EscolaDeVoce.Services.ViewModel.AddVideoToFavoriteViewModel();
+            model.userId = Guid.Parse(getClaimValue("Id"));
+            model.videoId = Guid.Parse(videoId);
+
+            Infrastructure.ApiResponse<bool> favoriteresponse = null;
+            System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Post;
+            favoriteresponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
+                Helpers.EscolaDeVoceEndpoints.Videos.addToFavorites,
+                method,
+                JsonConvert.SerializeObject(model)
+            );
+
+            if(favoriteresponse != null){
+                return Json(new {
+                    success = true
+                });
+            }
+
+            return Json(new {
+                success = false
+            });
         }
 
         public IActionResult Error()

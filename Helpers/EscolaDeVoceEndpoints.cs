@@ -27,10 +27,12 @@ namespace EscolaDeVoce.Frontend.Helpers
 
         public class Courses{
             public const string getCourses = EscolaDeVoceEndpoints.baseUrl + "courses";
+            public const string getdetail = EscolaDeVoceEndpoints.baseUrl + "courses/details";
         }
 
         public class Videos{
             public const string get = EscolaDeVoceEndpoints.baseUrl + "video";
+            public const string addToFavorites = EscolaDeVoceEndpoints.baseUrl + "video/addVideoToFavorites";
         }
 
         public class Especialist{

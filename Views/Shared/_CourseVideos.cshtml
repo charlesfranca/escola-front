@@ -20,7 +20,14 @@
             @foreach(EscolaDeVoce.Services.ViewModel.VideoViewModel v in Model.videos){
                 
                     <div class="course">
-                        <div class="course-icon"><span class="icon @(Model.free || v.freeVideo ? "icons-heart-white-course" : "icons-small-lock") @(User.Identity.IsAuthenticated ? "" : "hidden")" onclick="escoladevoce.courses.addToFavorites('@v.Id')"></span></div>
+                        @if(Model.free || v.freeVideo){
+                            @if(v.isFavorite){
+                                <div class="course-icon"><span class="icon icons-heart-favorite"></span></div>
+                            }else{
+                                <div class="course-icon"><span class="icon icons-heart-white-course" onclick="escoladevoce.courses.addToFavorites('@v.Id')"></span></div>
+                            }
+                        }
+                        
                         <div class="course-image">
                             <img src="@v.thumb" />
                         </div>
