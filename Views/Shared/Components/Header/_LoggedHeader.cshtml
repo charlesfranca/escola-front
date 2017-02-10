@@ -47,9 +47,17 @@
                 <div class="profile-info">
                     <div class="profile-name"><a style="color: white" href="/Account">@fullname</a></div>
                     <div class="profile-options">
-                        <a href="/mensagens"><label> <span class="icon icon-message"><img src="~/images/icons/message-white.png"/></span> <span class="profile-option-title"></span></label></a>
-                        <a href="#"><label> <span class="icon icon-notification"><img src="~/images/icons/notification.png"/></span> <span class="profile-option-title"></span></label></a>
-                        <a href="/Account/Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-white.png"/></span> <span class="profile-option-title"></span></label></a>
+                        <div class="hidden-xs">
+                            <a href="/mensagens"><label> <span class="icon icon-message"><img src="~/images/icons/message-white.png"/></span> <span class="profile-option-title"></span></label></a>
+                            <a href="#"><label> <span class="icon icon-notification"><img src="~/images/icons/notification.png"/></span> <span class="profile-option-title"></span></label></a>
+                            <a href="/Account/Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-white.png"/></span> <span class="profile-option-title"></span></label></a>
+                        </div>
+
+                        <div class="hidden-md">
+                            <a href="/mensagens"><label> <span class="icon icon-message"><img src="~/images/icons/message-black.png"/></span> <span class="profile-option-title"></span></label></a>
+                            <a href="#"><label> <span class="icon icon-notification"><img src="~/images/icons/notification-black.png"/></span> <span class="profile-option-title"></span></label></a>
+                            <a href="/Account/Logout"><label> <span class="icon icon-logout"><img src="~/images/icons/logout-black.png"/></span> <span class="profile-option-title"></span></label></a>
+                        </div>
                     </div>
                     @if(string.IsNullOrEmpty(partner)){
                         <div class="embaixadora-info">
