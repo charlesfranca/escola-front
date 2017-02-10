@@ -8,6 +8,16 @@
     }
 }
 
+@section facebookMeta{
+    <meta property="og:locale" content="pt_BR">
+    <!--<meta property="og:url" content="http://www.meusite.com.br/ola-mundo">-->
+    <meta property="og:title" content="@Model.name">
+    <meta property="og:site_name" content="Escola de Você">
+    <meta property="og:description" content="@Html.Raw(Model.description)">
+    <meta property="og:image" content="@courseImage">
+    <meta property="og:image:type" content="image/jpeg">
+}
+
 @await Component.InvokeAsync("Header")
 
 <section id="course-info">
