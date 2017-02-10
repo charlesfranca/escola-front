@@ -1748,6 +1748,14 @@ footer .col-md-2.text-right {
         padding: 0 20px;
     }
 
+    #big-video-section {
+        margin-top: 0;
+    }
+
+    .depoiment-item {
+        text-align: center;
+    }
+
     .arrows .next-arrow {
          margin-right: 0px; 
     }
