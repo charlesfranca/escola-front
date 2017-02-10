@@ -1860,7 +1860,7 @@ footer .col-md-2.text-right {
     }
 }
 
-@media (min-width: 666px) and (orientation: landscape) { 
+@media (min-width: 666px) and (min-width: 990px) and (orientation: landscape) { 
     .modal-dialog {
         max-width: initial !important;
         width: 97%;
