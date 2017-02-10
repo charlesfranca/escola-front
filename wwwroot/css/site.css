@@ -1731,6 +1731,11 @@ footer .col-md-2.text-right {
     line-height: 2;
 }
 
+.embaixadora-image img {
+    width: 360px;
+    height: 232px;
+}
+
 @media (max-width: 768px) {
     body.logged .profile-photo {
         width: 157px;
