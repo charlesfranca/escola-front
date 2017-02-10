@@ -7,6 +7,11 @@
     }
 } 
 
+@section modalContent {
+    @Html.Partial("_SignupForm")
+    @Html.Partial("_LoginForm")
+}
+
 @if(!User.Identity.IsAuthenticated){
     
     @Html.Partial(partial);
