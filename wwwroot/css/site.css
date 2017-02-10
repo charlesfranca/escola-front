@@ -1735,7 +1735,7 @@ footer .col-md-2.text-right {
     body.logged .profile-photo {
         width: 157px;
         height: 157px;
-        margin-top: 366px;
+        margin-top: 195px;
         position: relative;
     }
 
@@ -1850,5 +1850,12 @@ footer .col-md-2.text-right {
     }
     .panel-left {
         width: 100%;
+    }
+
+    body.logged #bannerSection, body.logged .parallax-content .col-md-6 {
+        height: 260px;
+    }
+    body.logged{
+        margin-top: 70px!important;
     }
 }
