@@ -1768,7 +1768,7 @@ footer .col-md-2.text-right {
         position: static;
     }
     body.logged #menu {
-        margin-top: 190px;
+        margin-top: 243px;
     }
     body.logged .profile-info .profile-name a {
         color: black !important;
@@ -1802,5 +1802,53 @@ footer .col-md-2.text-right {
     }
     .question {
         text-align: center;
+    }
+
+    .messages {
+        height: calc(100% - 320px) !important;
+    }
+
+    .messages-panel {
+        height: 518px;
+    }
+
+    .panel-container {
+        display: initial;
+        border: none;
+    }
+    .splitter {
+        display: none;
+    }
+
+    #bemvindaModal a.escola-btn.escola-btn-primary {
+        margin-right: 0 !important;
+        margin-bottom: 20px !important;
+        display: inline-block;
+    }
+
+    .profile-name {
+        min-width: 340px;
+    }
+
+    .new-message-form button.escola-btn.escola-btn-primary {
+        margin-bottom: 20px;
+    }
+    .panel-left {
+        height: 112px;
+    }
+    .mensagem>div {
+        display: inline;
+    }
+    .mensagem {
+        padding: 30px 0 10px 0;
+        cursor: pointer;
+        width: 150px;
+        display: inline-block;
+    }
+    .mensagem object {
+        margin-left: 30px;
+    }
+    .panel-left {
+        width: 100%;
     }
 }
