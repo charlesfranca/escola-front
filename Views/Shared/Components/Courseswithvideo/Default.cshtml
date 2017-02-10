@@ -5,6 +5,7 @@
     var buttonName = ViewBag.buttonName;
 }
 
+@if(Model != null && Model.Count > 0){
 <section id="" class="container">
 
     <div class="course-content slick-slider-container">
@@ -20,7 +21,8 @@
         <div class="courses is-slick-slider" id="courses">
 
             @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
-                <!--<a href="/cursos/detalhes/@c.Id">-->
+                var firstVideo = c.videos.FirstOrDefault();
+
                     <div class="course">
                         <div class="course-icon"><span class="icon icons-small-lock"></span></div>
                         <!--<div class="course-overlay"></div>-->
@@ -32,7 +34,7 @@
                                     height: 232,
                                     width: 360,
                                     ph: "3b8e50510d562d8d8b101c66f59bf625",//Player Hash do projeto
-                                    m: "8b9be24b4e8b02667c34761231695865",//MidiaID
+                                    m: "@firstVideo.sambatech_id",//MidiaID
                                     playerParams: { //Veja a lista de Parâmetros suportados
                                         enableShare: true,
                                         wideScreen: true
@@ -80,3 +82,4 @@
     </div><!-- /course-content -->
 
 </section><!-- /#destak-courses -->
+}

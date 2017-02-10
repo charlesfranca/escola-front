@@ -138,6 +138,8 @@ namespace EscolaDeVoce.Frontend.Controllers
             model.person = new EscolaDeVoce.Services.ViewModel.PersonViewModel();
             model.person.name = name;
             model.person.lastname = lastname;
+            model.image = image;
+            model.cover = cover;
 
             Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.UserViewModel> createuserresponse = null;
             System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Post;

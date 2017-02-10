@@ -1697,3 +1697,36 @@ p.banner-icons .icon {
 section#big-video-section #player {
     margin-top: 30px;
 }
+
+footer .col-md-2.text-right {
+    margin-top: 22px;
+}
+
+#footer-social {
+    margin-top: 42px;
+    margin-left: 30%;
+}
+
+.arrows {
+    position: absolute;
+    top: 147px;
+    width: 100%;
+    padding: 0 70px;
+    z-index: 10;
+}
+
+.arrows > .slick-arrow {
+    width: 30px;
+}
+
+.arrows .prev-arrow {
+    float: left;
+}
+.arrows .next-arrow {
+    float: right;
+    margin-right: 40px;
+}
+
+.quem-somos p {
+    line-height: 2;
+}

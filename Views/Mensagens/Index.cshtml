@@ -3,6 +3,11 @@
 @{
     ViewData["Title"] = "Embaixadoras";
     var UserId = ViewBag.UserId;
+    var userlist = new List<EscolaDeVoce.Services.ViewModel.UserViewModel>();
+    if(Model != null){
+        Guid ID = Guid.Parse(UserId);
+        userlist = Model.Where(u=>u.Id != ID).ToList();
+    }
 }
 
 @await Component.InvokeAsync("Header")
@@ -51,7 +56,7 @@
 
         <div class="panel-left">
 
-            @foreach(var user in Model){
+            @foreach(var user in userlist){
                 var profilePhoto = "/images/no-image.png";
                 if(!string.IsNullOrEmpty(user.image)) {
                     profilePhoto = "/images/" + user.image;
@@ -86,8 +91,6 @@
                 </div>
 
                 <div class="messages">
-
-                    
 
                 </div>
 

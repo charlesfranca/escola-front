@@ -15,8 +15,16 @@ namespace EscolaDeVoce.Frontend.ViewComponents
             ViewBag.windowName = windowName;
             ViewBag.buttonName = buttonName;
             
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.CourseViewModel>>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses);
-            return View(response.data);
+            try
+            {
+                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.CourseViewModel>>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses);
+                return View(response.data);
+            }
+            catch (System.Exception)
+            {
+            }
+
+            return View(new List<EscolaDeVoce.Services.ViewModel.CourseViewModel>());
         }
     }
 }

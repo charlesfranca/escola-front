@@ -5,6 +5,7 @@
     var buttonName = ViewBag.buttonName;
 }
 
+@if(Model != null && Model.Count > 0){
 <section id="destak-courses" class="container">
 
     <div class="course-content slick-slider-container">
@@ -20,10 +21,17 @@
         <div class="courses is-slick-slider" id="courses">
 
             @foreach(EscolaDeVoce.Services.ViewModel.CourseViewModel c in Model){
-                var courseImage = "http://escola-back.azurewebsites.net/images/specialists/" + c.image;
+                var firstVideo = c.videos.FirstOrDefault();
+                var image = firstVideo.thumb;
+                if(!string.IsNullOrEmpty(c.image)){
+                    image = "http://escola-back.azurewebsites.net/images/specialists/" + c.image;
+                }
+                var courseImage = image;
                     <div class="course">
-                        <div class="course-icon"><span onclick="escoladevoce.courses.addToFavorites('@c.Id')" class="icon icons-small-lock @(User.Identity.IsAuthenticated ? "" : "hiden")"></span></div>
-                        <div class="course-overlay"></div>
+                        @if(!c.free){
+                            <div class="course-icon"><span class="icon icons-small-lock @(User.Identity.IsAuthenticated ? "" : "hiden")"></span></div>
+                        }
+                        <!--<div class="course-overlay"></div>-->
                         <div class="course-image">
                             <img src="@courseImage" />
                         </div>
@@ -59,3 +67,4 @@
     </div><!-- /course-content -->
 
 </section><!-- /#destak-courses -->
+}

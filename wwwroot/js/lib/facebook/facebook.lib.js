@@ -92,3 +92,11 @@ escoladevoce.facebook.cadastro = function() {
         return_scopes: true
     });
 }
+
+escoladevoce.facebook.shareLink = function(link){
+    FB.ui({
+        method: 'share',
+        mobile_iframe: true,
+        href: link,
+    }, function(response){});
+}

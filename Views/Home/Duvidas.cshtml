@@ -1,0 +1,63 @@
+@{ 
+    ViewData["Title"] = "Home Page"; 
+    string partner = (string)this.ViewContext.RouteData.Values["partner"];
+    var partial = "_BannerEscoaDeVoce";
+    if(!string.IsNullOrEmpty(partner)){
+        partial = "_BannerBrilhante";
+    }
+} 
+
+@if(!User.Identity.IsAuthenticated){
+    
+    @Html.Partial(partial);
+
+    <section id="menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_NavLogged")
+                </div>
+            </div>
+        </div>
+    </section>
+}else{
+    await Component.InvokeAsync("Header");
+}   
+
+<section>
+    <div class="container">
+        <br>
+        <h5>Home - Dúvidas Frequentes</h5>
+        <br>
+    </div>
+</section>
+
+<section id="papo-de-escolete">
+
+    <div class="container">
+        <div class="papo quem-somos">
+            <p>
+            <div id="accordion">
+                <h3>Não tenho um negócio ainda. Posso participar?</h3>
+                <div>
+                    <p>Sim! O melhor modo de começar é preparada. Faça os cursos e participe dos encontros com outras empreendedoras.</p>
+                </div>
+                
+                <br>
+                
+                <h3>Posso começar de qualquer curso?</h3>
+                <div>
+                    <p>Pode. Mas não é o indicado. O conteúdo da Escola Brilhante foi pensado por especialistas dentro de uma curva de aprendizado que dá os melhores resultados. Sugerimos fortemente que você comece do curso Empreendedorismo I e siga até o Empreendedorismo 4.</p>
+                </div>
+                
+                <br>
+
+                <h3>O que é o Prazer de Casa? Preciso mesmo fazer?</h3>
+                <div>
+                    <p>Chamamos de Prazer de Casa a área de reúne as atividades complementares aos vídeos. A experiência com milhares de mulheres comprova que faz toda diferença: usar o Dicionário de Você para escrever sobre seu aprendizado e estudar o material que colocamos na área Saiba Mais</p>
+                </div>
+            </div>
+            </p>
+        </div>
+    </div>
+</section>

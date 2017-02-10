@@ -12,8 +12,15 @@ namespace EscolaDeVoce.Frontend.ViewComponents
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {   
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.PersonalityQuestionViewModel>>(Helpers.EscolaDeVoceEndpoints.Questions.getNextQuestion + "/" + getClaimValue("Id").ToString());
-            return View(response.data);
+            try
+            {
+                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.PersonalityQuestionViewModel>>(Helpers.EscolaDeVoceEndpoints.Questions.getNextQuestion + "/" + getClaimValue("Id").ToString());
+                return View(response.data);
+            }
+            catch (System.Exception)
+            {
+            }
+            return View(new EscolaDeVoce.Services.ViewModel.PersonalityQuestionViewModel());
         }
     }
 }

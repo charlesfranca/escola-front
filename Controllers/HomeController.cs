@@ -22,6 +22,18 @@ namespace EscolaDeVoce.Frontend.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public IActionResult QuemSomos()
+        {   
+            return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult Duvidas()
+        {   
+            return View();
+        }
+
         public IActionResult Home()
         {
             var model = new User {

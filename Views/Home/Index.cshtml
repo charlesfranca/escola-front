@@ -8,6 +8,64 @@
 
 } 
 
+@section scripts{
+    <script>
+        
+    $(".depoiments").slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        prevArrow: $(".depoiment-section").find(".prev-arrow"),
+        nextArrow: $(".depoiment-section").find(".next-arrow"),
+        adaptiveHeight: true,
+        asNavFor: ".depoiment-video",
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ],
+        arrows: true
+    });
+
+    $(".depoiment-video").slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        prevArrow: $(".depoiment-section").find(".prev-arrow"),
+        nextArrow: $(".depoiment-section").find(".next-arrow"),
+        adaptiveHeight: true,
+        asNavFor: ".depoiments",
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ],
+        arrows: true
+    });
+            
+    </script>
+}
+
 @section modalContent {
     @Html.Partial("_SignupForm")
     @Html.Partial("_LoginForm")

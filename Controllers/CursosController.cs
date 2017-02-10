@@ -15,21 +15,21 @@ namespace EscolaDeVoce.Frontend.Controllers
     {
         public async Task<IActionResult> Index()
         {   
-            HttpContext.Session.SetString("", "Rick");
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.CourseViewModel>>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses);
+            //HttpContext.Session.SetString("", "Rick");
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.CourseViewModel>>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses + "/" + getClaimValue("Id"));
             return View(response.data);
         }
 
         public async Task<IActionResult> Detalhes(string id)
         {   
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id);
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id + "/" + getClaimValue("Id"));
             return View(response.data);
         }
         
         public async Task<IActionResult> Sala(string id, string videoid)
         {
             ViewBag.VideoId = Guid.Parse(videoid);
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getCourses + "/" + id);
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id);
             return View(response.data);
         }
 

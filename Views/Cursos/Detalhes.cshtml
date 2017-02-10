@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Cursos";
     var courseImage = "http://escola-back.azurewebsites.net/images/specialists/" + Model.image;
+    if(string.IsNullOrEmpty(Model.image)){
+        courseImage = Model.videos.FirstOrDefault().thumb;
+    }
 }
 
 @await Component.InvokeAsync("Header")
@@ -18,7 +21,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-1">
+            <div class="col-md-5">
                 <h2 class="subsection sub-title">@Model.name</h2>
                 <div class="course-hate">
                     <span class="icon icons-little-star"></span>
@@ -26,18 +29,19 @@
                     <span class="icon icons-little-star"></span>
                     <span class="icon icons-little-star"></span>
                     <span class="icon icons-little-star"></span>
-                    <span class="icon icons-little-facebook"></span>
+                    <span class="icon icons-little-facebook" onclick="escoladevoce.facebook.shareLink(location.href)"></span>
                     <span class="icon icons-little-share"></span>
                 </div>
 
                 <div>
                     <p>
-                        <strong>0 ESCOLETES JÁ FIZERAM</strong>
+                        <strong>@Model.views ESCOLETES JÁ FIZERAM</strong>
                     </p>
                     <p>
-                        @Model.description
+                        @Html.Raw(Model.description)
                     </p>
                 </div>
+                <br>
                 <div>
                     @if(@Model.free){
                         <a href="/cursos/sala/@Model.Id/video/@Model.videos.FirstOrDefault().Id" class="escola-btn escola-btn-primary">Começar</a>
@@ -47,6 +51,9 @@
                 </div>
             </div>
 
+            <br>
+            <br>
+
             <div class="col-md-7">
                 <div><img src="@courseImage" class="img-responsive"></div>
                 <p><strong>Duração: </strong><span style="color: #484848">1h30</span></p>
@@ -54,5 +61,8 @@
         </div>
     </div>
 </section>
+
+<br>
+<br>
 
 @Html.Partial("_CourseVideos", @Model)

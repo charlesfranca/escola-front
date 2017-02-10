@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
     <!--<link rel="stylesheet" href="~/lib/jquery-modal/jquery.modal.min.css" />-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link  href="~/lib/cropper/dist/cropper.css" rel="stylesheet">
     <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/site.min.css" />
     @{
@@ -29,7 +30,6 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <!--<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />-->
-        
     </environment>
 
     <link rel="stylesheet" href="~/css/icons.css" asp-append-version="true" />
@@ -110,11 +110,14 @@
                         <ul id="footer-menu">
                             <li>QUEM SOMOS</li>
                             <li>DÚVIDAS FREQUENTES</li>
-                            <li>FALE CONOSCO</li>
                         </ul>
                     </div>
                     <div class="clearfix"></div>
-                    <p id="copyright">Copyright ® Escola de Você - Todos os direitos reservados - Termos de uso e política de privacidade</p>
+                    <p id="copyright">
+                        Você tem alguma dúvida ou sugestão? Escreva para nós! <a href="mailto:contato@escoladevoce.com.br" target="_top">contato@escoladevoce.com.br</a>
+                        <br>
+                        <br>
+                        Copyright ® Escola de Você - Todos os direitos reservados - Termos de uso e política de privacidade</p>
                 </div>
                 <div class="col-md-2">
                     <ul id="footer-social">
@@ -175,6 +178,7 @@
         <script src="~/js/lib/blockui/blockui.lib.js"></script>
         <script src="~/lib/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
         <script src="~/lib/slick-carousel/slick/slick.js"></script>
+        <script src="~/lib/cropper/dist/cropper.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
@@ -320,17 +324,19 @@
         escoladevoce.initSliders();
         $(function(){
             $("a").click(function(e){
-                e.preventDefault();
                 var url = $(this).attr("href");
-                if(url == "" || url == "#" || !url){
-                    return false;
-                }
-                if(location.href.indexOf("escolabrilhante") > -1){
-                    var link = "/escolabrilhante/" + $(this).attr("href");
-                    link = link.replace("//", "/");
-                    location.href = link;
-                }else{
-                    location.href = $(this).attr("href");
+                if(url.indexOf("mailto") < 0){
+                    e.preventDefault();
+                    if(url == "" || url == "#" || !url){
+                        return false;
+                    }
+                    if(location.href.indexOf("escolabrilhante") > -1){
+                        var link = "/escolabrilhante/" + $(this).attr("href");
+                        link = link.replace("//", "/");
+                        location.href = link;
+                    }else{
+                        location.href = $(this).attr("href");
+                    }
                 }
             });
 

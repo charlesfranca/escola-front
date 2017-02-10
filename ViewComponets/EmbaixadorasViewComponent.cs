@@ -12,8 +12,16 @@ namespace EscolaDeVoce.Frontend.ViewComponents
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.PersonViewModel>>>(Helpers.EscolaDeVoceEndpoints.Person.getEmbaixadoras);
-            return View(response.data);
+            try
+            {
+                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.PersonViewModel>>>(Helpers.EscolaDeVoceEndpoints.Person.getEmbaixadoras);
+                return View(response.data);
+            }
+            catch (System.Exception)
+            {
+            }
+
+            return View(new List<EscolaDeVoce.Services.ViewModel.PersonViewModel>());
         }
 
     }

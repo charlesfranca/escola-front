@@ -36,7 +36,7 @@
                                 @if(User.Identity.IsAuthenticated){
                                     string link = "#";
                                     if(Model.free || v.freeVideo){
-                                        link = "/cursos/sala/@v.courseId/video/" + @v.Id;
+                                        link = "/cursos/sala/"+ v.courseId + "/video/" + @v.Id;
                                     }
                                     <a href="@link">@v.name</a>
                                 }else{

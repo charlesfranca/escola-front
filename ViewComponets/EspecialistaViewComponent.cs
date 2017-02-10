@@ -13,8 +13,15 @@ namespace EscolaDeVoce.Frontend.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(bool showEmbaixadorasButton)
         {   
             ViewBag.showEmbaixadorasButton = showEmbaixadorasButton;
-            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.EspecialistViewModel>>>(Helpers.EscolaDeVoceEndpoints.Especialist.getEspecialists);
-            return View(response.data);
+            try
+            {
+                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.EspecialistViewModel>>>(Helpers.EscolaDeVoceEndpoints.Especialist.getEspecialists);
+                return View(response.data);   
+            }
+            catch (System.Exception)
+            {
+            }
+            return View(new List<EscolaDeVoce.Services.ViewModel.EspecialistViewModel>());
         }
     }
 }
