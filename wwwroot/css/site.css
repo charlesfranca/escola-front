@@ -1744,6 +1744,14 @@ footer .col-md-2.text-right {
         margin-top: 26px;
     }
 
+    .arrows {
+        padding: 0 20px;
+    }
+
+    .arrows .next-arrow {
+         margin-right: 0px; 
+    }
+
     body.logged #profile-photos, .profile-info {
         position: static;
         color: #fff;
