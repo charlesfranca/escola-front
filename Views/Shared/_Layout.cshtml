@@ -124,9 +124,9 @@
                 </div>
                 <div class="col-md-2">
                     <ul id="footer-social">
-                        <li><a><img src="~/images/site/facebook.png" /></a></li>
-                        <li><a><img src="~/images/site/instagram.png" /></a></li>
-                        <li><a><img src="~/images/site/youtube.png" /></a></li>
+                        <li><a href="https://www.facebook.com/EscolaDeVoce"><img src="~/images/site/facebook.png" /></a></li>
+                        <li><a href="https://www.instagram.com/escoladevoceoficial/"><img src="~/images/site/instagram.png" /></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCukGCAd1zDgLqZ9QLdSqBgg"><img src="~/images/site/youtube.png" /></a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 text-right">
@@ -328,7 +328,7 @@
         $(function(){
             $("a").click(function(e){
                 var url = $(this).attr("href");
-                if(url.indexOf("mailto") < 0){
+                if(url.indexOf("mailto") < 0 && url.indexOf("://") < 0){
                     e.preventDefault();
                     if(url == "" || url == "#" || !url){
                         return false;

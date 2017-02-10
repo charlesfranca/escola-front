@@ -1731,7 +1731,7 @@ footer .col-md-2.text-right {
     line-height: 2;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     body.logged .profile-photo {
         width: 157px;
         height: 157px;
@@ -1857,5 +1857,70 @@ footer .col-md-2.text-right {
     }
     body.logged{
         margin-top: 70px!important;
+    }
+}
+
+@media (min-width: 666px) and (orientation: landscape) { 
+    .modal-dialog {
+        max-width: initial !important;
+        width: 97%;
+    }
+    .partners-list>div {
+        display: block;
+    }
+    #footer-social li {
+        display: inline-block;
+        margin-right: 16px;
+    }
+    -social {
+        margin-top: 42px;
+        margin-left: 0;
+    }
+    ul#footer-social {
+        text-align: center;
+        margin-left: 0;
+    }
+    #footer-social li {
+        display: inline-block;
+        float: none;
+        margin-right: 16px;
+    }
+    footer .col-md-2.text-right{
+        text-align: center;
+    }
+
+    footer .col-md-2.text-right {
+        text-align: center;
+        margin-top: 30px;
+    }
+    .profile-name {
+        min-width: 540px;
+    }
+
+    .img-responsive{
+        display: initial !important;
+    }
+    .question-buttons button.right-item {
+        margin-left: 76px;
+    }
+    .course-image img {
+        margin-left: calc(50% - 360px/2);
+    }
+    #news .course-content .courses .course .course-info>div, .course-content .courses .course .course-info .course-stars img {
+        float: none;
+    }
+
+    #news .slic-4-columns .slick-slide img {
+        width: 360px;
+    }
+
+    .message-person {
+        text-align: center;
+    }
+}
+
+@media (min-width: 667px) and (max-width: 765px) and (orientation: landscape) { 
+    .profile-name {
+        min-width: 640px;
     }
 }
