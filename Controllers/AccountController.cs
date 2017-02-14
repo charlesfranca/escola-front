@@ -249,5 +249,6 @@ namespace EscolaDeVoce.Frontend.Controllers
         {
             return View();
         }
+        
     }
 }
