@@ -244,6 +244,7 @@ namespace EscolaDeVoce.Frontend.Controllers
         public void logUser(){
 
         }
+        
 
         public IActionResult Error()
         {
