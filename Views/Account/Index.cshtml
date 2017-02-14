@@ -6,6 +6,8 @@
 
 @section scripts {
     <script>
+        escoladevoce.account.init();
+
         var accentMap = {
             "á": "a",
             "â": "a",
@@ -55,7 +57,8 @@
         <style>
 
         </style>
-        <form class="form-inline">
+        <form class="form-inline" name="personalData" id="personalData">
+            <input type="hidden" value="@Model.Id" name="Id" id="Id">
             <div class="fields-line">
                 <div class="form-group">
                     <label for="exampleInputEmail2">Nome*</label>
@@ -76,8 +79,8 @@
                 <div class="form-group">
                     <!--<label for="exampleInputName2">CPF</label>
                     <input type="text" class="form-control small-size" id="exampleInputName2" placeholder="">-->
-                    <label for="exampleInputEmail2">Email*</label>
-                    @Html.TextBoxFor(m => m.email, new { @class = "form-control small-size" })
+                    <label for="exampleInputEmail2">CPF*</label>
+                    @Html.TextBoxFor(m => m.cpf, new { @class = "form-control small-size" })
                 </div>
 
                 <div class="form-group">

@@ -32,6 +32,18 @@ namespace EscolaDeVoce.Frontend.Controllers
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id);
             return View(response.data);
         }
+        public async Task<IActionResult> AddDictionaryItem([Bind("title,content,dictionaryType")]Services.ViewModel.DictionaryViewModel model){
+            Infrastructure.ApiResponse<bool> favoriteresponse = null;
+            model.userId = Guid.Parse(getClaimValue("Id"));
+            System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Post;
+            favoriteresponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
+                Helpers.EscolaDeVoceEndpoints.Dictionary.get,
+                method,
+                JsonConvert.SerializeObject(model)
+            );
+            
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddToFavorite(string videoId)

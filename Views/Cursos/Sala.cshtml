@@ -112,29 +112,32 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home">
                             <div class="dictionary-message">
-                                <textarea name="newMessage" placeholder="E aqui todo o resto :)" id="newMessage"></textarea>
+                                <input type="text" name="class-dictionary-title" id="class-dictionary-title" class="dictionary-title" placeholder="Digite aqui o titulo">
+                                <textarea name="classDictionaryContent" placeholder="E aqui todo o resto :)" id="classDictionaryContent"></textarea>
                             </div>
                             <p class="text-right">
                                 <br>
-                                <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                                <button onclick="escoladevoce.dictionary.addDictionaryClassItem()" class="escola-btn escola-btn-primary">enviar</button>
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
                             <div class="dictionary-message">
-                                <textarea name="newMessage" placeholder="E aqui todo o resto :)" id="newMessage"></textarea>
+                                <input type="text" id="dreams-dictionary-title" name="" class="dictionary-title" placeholder="Digite aqui o titulo">
+                                <textarea name="dreamsDictionaryContent" placeholder="E aqui todo o resto :)" id="dreamsDictionaryContent"></textarea>
                             </div>
                             <p class="text-right">
                                 <br>
-                                <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                                <button onclick="escoladevoce.dictionary.addDictionaryDreamItem()" class="escola-btn escola-btn-primary">enviar</button>
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="messages">
                             <div class="dictionary-message">
-                                <textarea name="newMessage" placeholder="E aqui todo o resto :)" id="newMessage"></textarea>
+                                <input type="text" name="challenges-dictionary-title" id="challenges-dictionary-title" class="dictionary-title" placeholder="Digite aqui o titulo">
+                                <textarea name="challengesDictionaryContent" placeholder="E aqui todo o resto :)" id="challengesDictionaryContent"></textarea>
                             </div>
                             <p class="text-right">
                                 <br>
-                                <button onclick="escoladevoce.papodeescolete.saveComment('@Model.Id')" class="escola-btn escola-btn-primary">enviar</button>
+                                <button onclick="escoladevoce.dictionary.addDictionaryChallengeItem()" class="escola-btn escola-btn-primary">enviar</button>
                             </p>
                         </div>
                     </div>

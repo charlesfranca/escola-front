@@ -7,11 +7,11 @@ namespace EscolaDeVoce.Frontend.Helpers
 {
     public class EscolaDeVoceEndpoints
     {
-        public const string baseUrl = "http://escola-api.azurewebsites.net/api/";
-        public const string tokenUrl = "http://escola-api.azurewebsites.net/token";
+        // public const string baseUrl = "http://escola-api.azurewebsites.net/api/";
+        // public const string tokenUrl = "http://escola-api.azurewebsites.net/token";
 
-        // public const string baseUrl = "http://localhost:5000/api/";
-        // public const string tokenUrl = "http://localhost:5000/token";
+        public const string baseUrl = "http://localhost:5000/api/";
+        public const string tokenUrl = "http://localhost:5000/token";
 
         public class Category{
             public const string getCategories = EscolaDeVoceEndpoints.baseUrl + "categorias";
@@ -30,6 +30,10 @@ namespace EscolaDeVoce.Frontend.Helpers
             public const string getdetail = EscolaDeVoceEndpoints.baseUrl + "courses/details";
         }
 
+        public class Dictionary{
+            public const string get = EscolaDeVoceEndpoints.baseUrl + "dictionary";
+        }
+
         public class Videos{
             public const string get = EscolaDeVoceEndpoints.baseUrl + "video";
             public const string addToFavorites = EscolaDeVoceEndpoints.baseUrl + "video/addVideoToFavorites";
@@ -46,6 +50,7 @@ namespace EscolaDeVoce.Frontend.Helpers
 
         public class Person{
             public const string getEmbaixadoras = EscolaDeVoceEndpoints.baseUrl + "person/embaixadoras";
+            public const string get = EscolaDeVoceEndpoints.baseUrl + "person";
         }
 
         public class Questions{

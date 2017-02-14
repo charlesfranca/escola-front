@@ -217,7 +217,27 @@ namespace EscolaDeVoce.Frontend.Controllers
             });
         }
 
-        public IActionResult UpdateAccount([Bind("Id,name")]Services.ViewModel.PersonViewModel person){
+        public async Task<IActionResult> AddDictionaryItem([Bind("title,content,dictionaryType")]Services.ViewModel.DictionaryViewModel model){
+            Infrastructure.ApiResponse<bool> favoriteresponse = null;
+            model.userId = Guid.Parse(getClaimValue("Id"));
+            // System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Post;
+            // favoriteresponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
+            //     Helpers.EscolaDeVoceEndpoints.Videos.addToFavorites,
+            //     method,
+            //     JsonConvert.SerializeObject(model)
+            // );
+            
+            return View();
+        }
+
+        public async Task<IActionResult> UpdateAccount([Bind("Id,name,lastname,cpf,haveBusiness,children,genre,birthday,phonenumber,email")]Services.ViewModel.PersonViewModel model){
+            Infrastructure.ApiResponse<bool> favoriteresponse = null;
+            System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Put;
+            favoriteresponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
+                Helpers.EscolaDeVoceEndpoints.Person.get + "/" + model.Id,
+                method,
+                JsonConvert.SerializeObject(model)
+            );
             return Json(new {});
         }
 
