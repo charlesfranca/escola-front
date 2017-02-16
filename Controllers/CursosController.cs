@@ -45,6 +45,19 @@ namespace EscolaDeVoce.Frontend.Controllers
             return View();
         }
 
+        public async Task<IActionResult> updateVideoStatus([Bind("progress,videoId")]Services.ViewModel.UpdateVideoStatusViewModel model){
+            Infrastructure.ApiResponse<bool> favoriteresponse = null;
+            model.userId = Guid.Parse(getClaimValue("Id"));
+            System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Post;
+            favoriteresponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
+                Helpers.EscolaDeVoceEndpoints.Videos.updateStatus,
+                method,
+                JsonConvert.SerializeObject(model)
+            );
+            
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddToFavorite(string videoId)
         {   

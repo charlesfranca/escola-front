@@ -10,9 +10,18 @@ namespace EscolaDeVoce.Frontend.ViewComponents
 {
     public class VideoViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync(Guid categoryid)
         {   
-            return View();
+            try
+            {
+                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.VideoViewModel>>>(Helpers.EscolaDeVoceEndpoints.Videos.getByCategory + categoryid.ToString());
+                return View(response.data);
+            }
+            catch (System.Exception)
+            {
+            }
+
+            return View(new List<EscolaDeVoce.Services.ViewModel.VideoViewModel>());
         }
 
     }
