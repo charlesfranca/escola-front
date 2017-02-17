@@ -9,11 +9,21 @@
     var cover = "/images/header.jpg";
     var profilePhoto = "/images/no-image.png";
     if(!string.IsNullOrEmpty(Model.cover)) {
-        cover = "/images/" + Model.cover;
+        if(Model.cover.Contains("//")){
+            cover = Model.cover;
+        }else{
+            cover = "/images/" + Model.cover;
+        }
+        
     }
 
     if(!string.IsNullOrEmpty(Model.image)) {
-        profilePhoto = "/images/" + Model.image;
+        if(Model.image.Contains("//")){
+            profilePhoto = Model.image;
+        }else{
+            profilePhoto = "/images/" + Model.image;
+        }
+        
     }
 
     ViewBag.name = name;
@@ -45,7 +55,7 @@
                 </div>
 
                 <div class="profile-info">
-                    <div class="profile-name"><a style="color: white" href="/Account">@fullname</a></div>
+                    <div class="profile-name"><a style="color: white;text-transform: capitalize" href="/Account">@fullname.ToLower()</a></div>
                     <div class="profile-options">
                         <div class="hidden-xs">
                             <a href="/mensagens"><label> <span class="icon icon-message"><img src="~/images/icons/message-white.png"/></span> <span class="profile-option-title"></span></label></a>

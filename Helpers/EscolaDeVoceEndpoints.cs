@@ -39,6 +39,7 @@ namespace EscolaDeVoce.Frontend.Helpers
             public const string addToFavorites = EscolaDeVoceEndpoints.baseUrl + "video/addVideoToFavorites";
             public const string updateStatus = EscolaDeVoceEndpoints.baseUrl + "video/updateVideoStatus";
             public const string getByCategory = EscolaDeVoceEndpoints.baseUrl + "video?categoriesId=";
+            public const string getStatus = EscolaDeVoceEndpoints.baseUrl + "video/getStatus";
         }
 
         public class Especialist{

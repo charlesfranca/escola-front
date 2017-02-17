@@ -30,6 +30,9 @@ namespace EscolaDeVoce.Frontend.Controllers
         {
             ViewBag.VideoId = Guid.Parse(videoid);
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id);
+            var statusresponse = await ApiRequestHelper.Get<Infrastructure.ApiResponse<int>>(Helpers.EscolaDeVoceEndpoints.Videos.getStatus + "/" + getClaimValue("Id") + "/" + videoid);
+            ViewBag.status = statusresponse.data;
+            ViewBag.name = getClaimValue(ClaimTypes.Name);
             return View(response.data);
         }
         public async Task<IActionResult> AddDictionaryItem([Bind("title,content,dictionaryType")]Services.ViewModel.DictionaryViewModel model){

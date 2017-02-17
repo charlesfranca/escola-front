@@ -41,10 +41,10 @@
             <div class="col-md-12">
                 <h2 class="subsection sub-title">@video.name</h2>
                 <div class="status">
-                    <div>0% concluido</div>
+                    <div>@(ViewBag.status)% concluido</div>
                     <div class="video-status">
                         <div class="video-status-indicator">
-                            <div class="video-status-color-filler" style="width: 0"></div>
+                            <div class="video-status-color-filler" style="width: @(ViewBag.status)%"></div>
                         </div>
                     </div>
                     <div>
@@ -57,12 +57,17 @@
                 <script type="text/javascript" samba-player-api="player" src="http://player.sambatech.com.br/v3/samba.player.api.js"></script>
                 <script type="text/javascript">
                     var lastPercente = 0;
-                    var player = new SambaPlayer("player", {
+                    var player_sala = new SambaPlayer("player", {
                         "width": "100%",
                         "height": "600",
                         "ph": "3b8e50510d562d8d8b101c66f59bf625",
                         "m": "@video.sambatech_id",
                         "events": {
+                            "onLoad": function(e){
+                                
+                            },"onStart": function(e){
+                                
+                            },
                             "onMediaView": function(e){
                                 console.log(e);
                             },
@@ -99,7 +104,16 @@
                             "resume": false
                         }
                     });
-                    player.play();
+                    setTimeout(function(){
+                            var percent = '@ViewBag.status';
+                            var duration = @video.duration / 1000;
+                            if(percent > 0){
+                                var minutes = (duration * 100) / percent;
+                                player_sala.seek(minutes);
+                                player_sala.play();
+                                console.log(minutes);
+                            }
+                        }, 2000)
                 </script>
                 <script>
                     $(document).ready(function(){
@@ -119,7 +133,10 @@
             <div class="closed-div">
                 <div class="col-md-7 col-md-offset-1">
                     <h2>
-                        <span class="text-colored">Dicionário da Natalia</span><br />
+                        @{
+                            var names = ViewBag.name.Split(" ");
+                        }
+                        <span class="text-colored">Dicionário da @(names[0])</span><br />
                         Esse é o seu cantinho
                     </h2>
                     <p>
