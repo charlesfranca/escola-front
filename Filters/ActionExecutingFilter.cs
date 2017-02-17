@@ -17,7 +17,9 @@ namespace EscolaDeVoce.Frontend.Filter
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            
+            if(!context.HttpContext.User.Identity.IsAuthenticated){
+                
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 var escoladevoce = escoladevoce || {};
 escoladevoce.quiz = {};
 
-escoladevoce.quiz.answerQuestion = function(rightanswerId, leftanswerId){
-    if($( "#slider" ).slider( "value" ) == 50){
+escoladevoce.quiz.answerQuestion = function(rightanswerId, leftanswerId, quizId){
+    if($( quizId ).slider( "value" ) == 50){
         alert("Movimente a bolinha para a esquerda ou para a direita para escolher o valor de sua resposta.");
         return false;
     }
@@ -10,10 +10,13 @@ escoladevoce.quiz.answerQuestion = function(rightanswerId, leftanswerId){
         url: "/quiz/answerQuestion",
         type: "post",
         data: {
-            answerId: $( "#slider" ).slider( "value" ) > 50 ? rightanswerId : leftanswerId,
-            score: $( "#slider" ).slider( "value" )
+            answerId: $( quizId ).slider( "value" ) > 50 ? rightanswerId : leftanswerId,
+            score: $( quizId ).slider( "value" )
         },beforeSend: function(){
             escoladevoce.ui.block("Muito bom amiga. Estamos começando a nos conhecer melhor ;).");
+            if($(".quiz-slider").length > 1){
+                $(quizId).parent().parent().parent().remove();
+            }
         }, success: function(data){
             escoladevoce.quiz.getNextQuestion();
         }, error: function(error){

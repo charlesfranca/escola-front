@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Quiz";
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function(){
+            $( ".quiz-slider" ).slider({
+                value:50,
+                min: 0,
+                max: 100,
+                step: 10,
+                slide: function( event, ui ) {
+                    //$( "#amount" ).val( "$" + ui.value );
+                }
+            });
+        });
+    </script>
+}
+
+@await Component.InvokeAsync("Header")
+@await Component.InvokeAsync("MultipleQuiz")

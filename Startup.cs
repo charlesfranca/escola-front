@@ -64,11 +64,12 @@ namespace EscolaDeVoce.Frontend
             app.UseCookieAuthentication(new CookieAuthenticationOptions()
             {
                 AuthenticationScheme = "Cookie",
-                LoginPath = new PathString("/Home/Index/"),
-                AccessDeniedPath = new PathString("/Home/Index/"),
-                AutomaticAuthenticate = true,
+                LoginPath = new PathString("/Home"),
                 AutomaticChallenge = true
             });
+
+            // AccessDeniedPath = new PathString("/Home"),
+            // AutomaticAuthenticate = true,
 
             app.UseMvc(routes =>
             {

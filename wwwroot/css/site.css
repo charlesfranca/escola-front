@@ -697,7 +697,7 @@ body.logged #home-logged-banner {}
     margin: 20px 0;
 }
 
-.question #slider {
+.question .quiz-slider {
     border-radius: 100px;
     background: #C9CBC9;
     border: none;

@@ -15,6 +15,10 @@ namespace EscolaDeVoce.Frontend.Controllers
         {
         }
 
+        public IActionResult Index(){
+            return View();
+        }
+
         [HttpGet]
         public async Task<IActionResult> getNextQuestion(string from){
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<Services.ViewModel.PersonalityQuestionViewModel>>(Helpers.EscolaDeVoceEndpoints.User.nextQuestion + "/" + getClaimValue("Id").ToString());

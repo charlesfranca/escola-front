@@ -81,28 +81,12 @@
     <div class="body-content">
         @RenderBody()
     </div>
-
-    <section id="section-partners">
-            <div class="container">
-                <h2 class="sub-title">Parceiros</h2>
-
-                <div class="partners-list">
-                    <div>
-                        <img src="~/images/site/parceiro1.png" />
-                    </div>
-                    <div>
-                        <img src="~/images/site/parceiro2.png" />
-                    </div>
-                    <div>
-                        <img src="~/images/site/parceiro3.png" />
-                    </div>
-                    <div>
-                        <img src="~/images/redemulher.jpg" />
-                    </div>
-                </div>
-            </div>
-            
-        </section>
+    
+    @if(!String.IsNullOrEmpty(partner)){
+        @Html.Partial("_BrilhantePartners")
+    }else{
+        @Html.Partial("_EdvPartners")
+    }
 
     <footer>
 

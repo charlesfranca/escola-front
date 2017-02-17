@@ -3,21 +3,7 @@
 @if(Model != null){
     var right_answer = @Model.answers.Where(a=>a.answerSide == EscolaDeVoce.Services.ViewModel.AnswerSideViewModel.Left).FirstOrDefault();
     var left_answer = @Model.answers.Where(a=>a.answerSide == EscolaDeVoce.Services.ViewModel.AnswerSideViewModel.Right).FirstOrDefault();
-    <script>
-        $(document).ready(function(){
-            
 
-            $( "#slider" ).slider({
-                value:50,
-                min: 0,
-                max: 100,
-                step: 10,
-                slide: function( event, ui ) {
-                    //$( "#amount" ).val( "$" + ui.value );
-                }
-            });
-        });
-    </script>
     <div class="question">
         <h2 class="title">@Model.title</h2>
         <div class="answers">
@@ -29,11 +15,11 @@
             </div>
         </div>
         <div class="answer-slider">
-            <div id="slider"></div>
+            <div id="slide@(Model.Id)" class="quiz-slider"></div>
         </div>
         <div class="question-buttons">
             <button class="escola-btn">fazer o quiz completo</button>
-            <button class="escola-btn escola-btn-primary right-item right-button" onclick="escoladevoce.quiz.answerQuestion('@right_answer.Id', '@left_answer.Id')">enviar</button>
+            <button class="escola-btn escola-btn-primary right-item right-button" onclick="escoladevoce.quiz.answerQuestion('@right_answer.Id', '@left_answer.Id', '#slide@(Model.Id)')">enviar</button>
         </div>
     </div>
 
