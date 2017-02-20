@@ -174,6 +174,7 @@ escoladevoce.uploadPhoto = function(inputFile) {
     fileReader.readAsDataURL(file);
 }
 
+
 escoladevoce.uploadCover = function(inputFile) {
     escoladevoce.ui.block("Estamos atualizando seu cadastro tá. Aguenta só um pouquinho que jaja termina :).");
     var fileReader = new FileReader();
