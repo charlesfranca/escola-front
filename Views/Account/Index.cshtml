@@ -2,6 +2,10 @@
 
 @{ 
     ViewData["Title"] = "Home Page";
+    List<SelectListItem> children = new List<SelectListItem>();
+    for(var i = 0; i < 5;i++){
+        children.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
+    }
 }
 
 @section scripts {
@@ -109,49 +113,50 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Possui Negócio</label>
-                    <input type="radio" value="1" class="form-control" name="haveBusiness" placeholder=""> Sim 
-                    <input type="radio" value="2" class="form-control" checked name="haveBusiness" placeholder=""> Não
+
+                    <input asp-for="haveBusiness" />
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Filhos</label>
-                    <select class="form-control tiny-size" name="children" placeholder="">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+
+                    <select asp-for="children" class="form-control small-size" asp-items="children"></select>
                 </div>
             </div>
 
             <div class="fields-line">
                 <div class="form-group">
                     <label for="exampleInputName2">CEP*</label>
-                    <input type="text" class="form-control small-size" name="postalcode" placeholder="">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleInputEmail2">Número*</label>
-                    <input type="text" class="form-control tiny-size" name="number" placeholder="">
+                    <input type="text" onkeyup="escoladevoce.account.getAddressData(this.value)" autocomplete="false" class="form-control small-size" asp-for="addressPostalcode" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Endereço*</label>
-                    <input type="text" class="form-control half-size" name="street" placeholder="">
+                    <input type="text" class="form-control half-size" asp-for="addressStreet" placeholder="">
                 </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Número*</label>
+                    <input type="text" class="form-control tiny-size" asp-for="addressNumber" placeholder="">
+                </div>
+
+                
             </div>
 
 
             <div class="fields-line">
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="exampleInputName2">País</label>
-                    <input type="text" class="form-control small-size" name="country" placeholder="">
+                    <input type="text" class="form-control small-size" asp-for="addressCountry" placeholder="">
+                </div>-->
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Bairro*</label>
+                    <input type="text" class="form-control small-size" asp-for="addressNeighborhood" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Estado*</label>
-                    <select class="form-control tiny-size" name="state" placeholder="">
+                    <select class="form-control tiny-size" asp-for="addressState" placeholder="">
                         <option value="">Selecione</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -185,7 +190,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail2">Cidade*</label>
-                    <input type="text" class="form-control half-size" name="city" placeholder="">
+                    <input type="text" class="form-control half-size" asp-for="addressCity" placeholder="">
                 </div>
             </div>
 

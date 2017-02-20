@@ -3,6 +3,14 @@
 @{
     ViewData["Title"] = "Cursos";
     var video = Model.videos.Where(v=>v.Id == ViewBag.VideoId).FirstOrDefault();
+
+    var index = Model.videos.FindIndex(v=>v.Id == video.Id);
+    EscolaDeVoce.Services.ViewModel.VideoViewModel nextVideo = null; 
+    var nextVideoIndex = index + 1;
+    if(Model.videos.Count > nextVideoIndex){
+        nextVideo = Model.videos[nextVideoIndex];
+    }
+
 }
 
 @await Component.InvokeAsync("Header")
@@ -68,11 +76,16 @@
                             },"onStart": function(e){
                                 
                             },
+                            "onFinish": function(){
+                                @if(nextVideo != null){
+                                    @Html.Raw("location.href = \"/cursos/sala/" + Model.Id + "/video/" + nextVideo.Id + "\";");
+                                }
+                            },
                             "onMediaView": function(e){
-                                console.log(e);
+
                             },
                             "onProgress": function(e){
-                                console.log(e);
+                                
                             },"onListen": function(e){
                                 var percent = 0;
                                 percent = (e.eventParam * 100) / e.duration;

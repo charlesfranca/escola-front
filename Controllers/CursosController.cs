@@ -25,6 +25,17 @@ namespace EscolaDeVoce.Frontend.Controllers
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id + "/" + getClaimValue("Id"));
             return View(response.data);
         }
+
+        public async Task<IActionResult> Detalhe(string id)
+        {   
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.CourseViewModel>>(Helpers.EscolaDeVoceEndpoints.Courses.getdetail + "/" + id + "/" + getClaimValue("Id"));
+            if(response.data.userStarted){
+                var video = response.data.videos.FirstOrDefault();
+                return RedirectToAction("Sala", new {id=response.data.Id, videoid=video.Id});
+            }else{
+                return View(response.data);
+            }
+        }
         
         public async Task<IActionResult> Sala(string id, string videoid)
         {
@@ -46,6 +57,16 @@ namespace EscolaDeVoce.Frontend.Controllers
             );
             
             return View();
+        }
+
+        public async Task<IActionResult> startCourse(string courseId){
+            Infrastructure.ApiResponse<bool> courseResponse = null;
+            System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Post;
+            courseResponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
+                Helpers.EscolaDeVoceEndpoints.User.startCourse + "/" + getClaimValue("Id") + "/" + courseId,
+                method
+            );
+            return Json(new { success = true });
         }
 
         public async Task<IActionResult> updateVideoStatus([Bind("progress,videoId")]Services.ViewModel.UpdateVideoStatusViewModel model){

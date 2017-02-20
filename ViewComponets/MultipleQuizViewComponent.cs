@@ -14,7 +14,7 @@ namespace EscolaDeVoce.Frontend.ViewComponents
         {   
             try
             {
-                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.PersonalityQuestionViewModel>>>(Helpers.EscolaDeVoceEndpoints.Questions.get);
+                var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<EscolaDeVoce.Services.ViewModel.PersonalityQuestionViewModel>>>(Helpers.EscolaDeVoceEndpoints.Questions.notAnsweredQuestions + "/" + getClaimValue("Id"));
                 return View(response.data);
             }
             catch (System.Exception)

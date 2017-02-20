@@ -2,6 +2,15 @@
 
 @{
     ViewData["Title"] = "Embaixadoras";
+    var portifolioimage = "/images/no-image.png";
+    if(!string.IsNullOrEmpty(ViewBag.image)) {
+        if(ViewBag.image.Contains("//")){
+            portifolioimage = ViewBag.image;
+        }else{
+            portifolioimage = "/images/" + ViewBag.image;
+        }
+        
+    }
 }
 
 @section scripts{
@@ -81,10 +90,10 @@
                 
                 <div class="papo-item-left">
                     <div class="papo-autor-photo">
-                        <img src="~/images/phot-papo.png" alt="">
+                        <img src="@portifolioimage" width="58px" height="58px" alt="">
                     </div>
                     <div class="papo-autor-info">
-                        <p>Raquel Vieira</p>
+                        <p>@ViewBag.name</p>
                         <p>São Paulo/SP</p>
                     </div>
                 </div>
@@ -105,7 +114,11 @@
             @foreach(var c in Model.comments){
                 var profilePhoto = "/images/no-image.png";
                 if(!string.IsNullOrEmpty(c.user.image)) {
-                    profilePhoto = "/images/" + c.user.image;
+                    if(c.user.image.Contains("//")){
+                        profilePhoto = c.user.image;
+                    }else{
+                        profilePhoto = "/images/" + c.user.image;
+                    }
                 }
                 var name = "";
                 if(!string.IsNullOrEmpty(c.user.person.name)){

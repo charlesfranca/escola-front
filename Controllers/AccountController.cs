@@ -28,7 +28,7 @@ namespace EscolaDeVoce.Frontend.Controllers
         {
             var Id = Guid.Parse(getClaimValue("Id"));
             var userresponse = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.UserViewModel>>(
-                Helpers.EscolaDeVoceEndpoints.User.create + "/" + Id,
+                Helpers.EscolaDeVoceEndpoints.User.create + "/detail/" + Id,
                 null,
                 "token"
             );
@@ -230,7 +230,7 @@ namespace EscolaDeVoce.Frontend.Controllers
             return View();
         }
 
-        public async Task<IActionResult> UpdateAccount([Bind("Id,name,lastname,cpf,haveBusiness,children,genre,birthday,phonenumber,email")]Services.ViewModel.PersonViewModel model){
+        public async Task<IActionResult> UpdateAccount([Bind("Id,name,lastname,cpf,haveBusiness,children,genre,birthday,phonenumber,email,addressTitle,addressStreet,addressPostalcode,addressCity,addressState,addressNumber,addressNeighborhood")]Services.ViewModel.PersonViewModel model){
             Infrastructure.ApiResponse<bool> favoriteresponse = null;
             System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Put;
             favoriteresponse = await ApiRequestHelper.postPutRequest<Infrastructure.ApiResponse<bool>>(
@@ -239,6 +239,17 @@ namespace EscolaDeVoce.Frontend.Controllers
                 JsonConvert.SerializeObject(model)
             );
             return Json(new {});
+        }
+
+        public async Task<IActionResult> consultaCep(string cep){
+            //
+            Frontend.Address addressresponse = null;
+            System.Net.Http.HttpMethod method = System.Net.Http.HttpMethod.Put;
+            addressresponse = await ApiRequestHelper.Get<Frontend.Address>(
+                "https://viacep.com.br/ws/"+ cep +"/json/",
+                null
+            );
+            return Json(addressresponse);
         }
 
         public void logUser(){

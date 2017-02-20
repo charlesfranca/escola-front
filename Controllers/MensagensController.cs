@@ -34,6 +34,12 @@ namespace EscolaDeVoce.Frontend.Controllers
             return PartialView("_ChatMessages", retorno);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> getUsers(string search){
+            var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<List<Services.ViewModel.UserViewModel>>>(Helpers.EscolaDeVoceEndpoints.User.create + "?search=" + search);
+            return PartialView("_UserChat", response.data);
+        }
+
         [HttpPost]
         public async Task<IActionResult> sendMessage(string message, string to)
         {   

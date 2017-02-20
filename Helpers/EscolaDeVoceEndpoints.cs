@@ -7,14 +7,14 @@ namespace EscolaDeVoce.Frontend.Helpers
 {
     public class EscolaDeVoceEndpoints
     {
-        public const string baseUrl = "http://escola-api.azurewebsites.net/api/";
-        public const string tokenUrl = "http://escola-api.azurewebsites.net/token";
+        // public const string baseUrl = "http://escola-api.azurewebsites.net/api/";
+        // public const string tokenUrl = "http://escola-api.azurewebsites.net/token";
 
         // public const string baseUrl = "http://edv-api.azurewebsites.net/";
         // public const string tokenUrl = "http://edv-api.azurewebsites.net/token";
 
-        // public const string baseUrl = "http://localhost:5000/api/";
-        // public const string tokenUrl = "http://localhost:5000/token";
+        public const string baseUrl = "http://localhost:5000/api/";
+        public const string tokenUrl = "http://localhost:5000/token";
 
         public class Category{
             public const string getCategories = EscolaDeVoceEndpoints.baseUrl + "categorias";
@@ -62,6 +62,8 @@ namespace EscolaDeVoce.Frontend.Helpers
         public class Questions{
             public const string get = EscolaDeVoceEndpoints.baseUrl + "question";
             public const string getNextQuestion = EscolaDeVoceEndpoints.baseUrl + "question/nextQuestion";
+            public const string notAnsweredQuestions = EscolaDeVoceEndpoints.baseUrl + "question/notAnsweredQuestions";
+            
         }
 
         public class User{
@@ -72,6 +74,7 @@ namespace EscolaDeVoce.Frontend.Helpers
             public const string changeCover = EscolaDeVoceEndpoints.baseUrl + "user/saveProfileCover";
             public const string answerQuestion = EscolaDeVoceEndpoints.baseUrl + "answers/userAnswer";
             public const string nextQuestion = EscolaDeVoceEndpoints.baseUrl + "question/nextQuestion";
+            public const string startCourse = EscolaDeVoceEndpoints.baseUrl + "user/startCourse";
             
         }
 

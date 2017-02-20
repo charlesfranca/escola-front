@@ -204,8 +204,14 @@ escoladevoce.uploadCover = function(inputFile) {
 }
 
 escoladevoce.openPresenteModal = function() {
-    $('#presenteModal').modal("show");
+    $('#presenteModal').modal("show").on('hidden.bs.modal', function () {
+        $('#presenteModal').remove();
+    });
     $('.presente').removeClass("positioned");
+}
+
+escoladevoce.closePresenteModal = function() {
+    $('#presenteModal').modal("hide");
 }
 
 escoladevoce.goToAddress = function(url) {

@@ -1,0 +1,32 @@
+@model List<EscolaDeVoce.Services.ViewModel.UserViewModel>
+
+@if(Model != null && Model.Count > 0){
+    foreach(var user in Model){
+        var profilePhoto = "/images/no-image.png";
+        if(!string.IsNullOrEmpty(user.image)) {
+            profilePhoto = "/images/" + user.image;
+        }
+        <div class="mensagem" data-user-id="@user.Id" data-user-name="@user.person.name">
+
+            <div class="mensagem-left-content">
+                <object data="@profilePhoto" width="58px" height="58px" type="image/png">
+                    <img width="58px" height="58px"src="/images/no-image.png" />
+                </object>
+            </div>
+            <div class="mensagem-right-container">
+                <p>
+                    @user.person.name<br>
+                    São Paulo/SP
+                </p>
+            </div>
+
+        </div>
+        <script>
+            escoladevoce.mensagem.initMessagePlugin();
+        </script>
+    }
+}else{
+    <div class="text-center">
+        Amiga, não encontramos nenhum usuário com esse nome.
+    </div>
+}

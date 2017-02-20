@@ -63,7 +63,10 @@ namespace EscolaDeVoce.Frontend
                 HttpRequestMessage req = new HttpRequestMessage();
                 req.Method = method;
                 req.RequestUri = new Uri(url + _urlParameters);
-                req.Content = new StringContent(jsonParameters, Encoding.UTF8, contentType);
+                
+                if(!string.IsNullOrEmpty(jsonParameters)){
+                    req.Content = new StringContent(jsonParameters, Encoding.UTF8, contentType);
+                }
 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "");
                 var resp = await client.SendAsync(req);

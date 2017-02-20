@@ -53,30 +53,33 @@
 <section id="mensagens">
     
     <div class="panel-container">
-
+        
         <div class="panel-left">
-
-            @foreach(var user in userlist){
-                var profilePhoto = "/images/no-image.png";
-                if(!string.IsNullOrEmpty(user.image)) {
-                    profilePhoto = "/images/" + user.image;
-                }
-                <div class="mensagem" data-user-id="@user.Id" data-user-name="@user.person.name">
-
-                    <div class="mensagem-left-content">
-                        <object data="@profilePhoto" width="58px" height="58px" type="image/png">
-                            <img width="58px" height="58px"src="/images/no-image.png" />
-                        </object>
-                    </div>
-                    <div class="mensagem-right-container">
-                        <p>
-                            @user.person.name<br>
-                            São Paulo/SP
-                        </p>
-                    </div>
-
-                </div>
-            }
+            <div class="message-search">
+                <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" style="
+                        height: 42px;
+                        border-color: #484848;
+                        background: white;
+                        border-right: 0;
+                        background: transparent;
+                    "><span class="glyphicon glyphicon-search" aria-hidden="true" style="
+                        /* height: 27px; */
+                    "></span></button>
+                                    </span>
+                                    <input onkeyup="escoladevoce.mensagem.getUsers(this.value)" type="text" class="form-control" placeholder="Digite o nome da pessoa com quem quer conversar..." style="
+                        height: 42px;
+                        border-color: #484848;
+                        border-left: none;
+                        background: transparent;
+                    ">
+                </div><!-- /input-group -->
+            </div>
+            <div class="message-users">
+            
+            </div>
+            
             
 
         </div>

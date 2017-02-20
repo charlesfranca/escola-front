@@ -18,9 +18,9 @@ namespace EscolaDeVoce.Frontend.Controllers
         }
 
         public async Task<IActionResult> Detalhe(string id)
-        {   
-            ViewBag.image = "";
-            ViewBag.name = "";
+        {
+            ViewBag.image = getClaimValue("image");
+            ViewBag.name = getClaimValue(ClaimTypes.Name);
             var response = await ApiRequestHelper.Get<Infrastructure.ApiResponse<EscolaDeVoce.Services.ViewModel.EscoleteTalkViewModel>>(Helpers.EscolaDeVoceEndpoints.EscoleTalk.get+ "/" + id);
             return View(response.data);
         }

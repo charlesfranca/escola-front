@@ -1301,6 +1301,7 @@ section#papo-de-escolete {
     margin-bottom: 30px;
     width: 100%;
     font-size: 20px;
+    min-height: 68px;
 }
 
 .mce-widget.mce-btn {
@@ -1942,4 +1943,15 @@ input.dictionary-title {
 
 .nav-tabs li[role=presentation] a {
     background: white;
+}
+
+#all-quizes{
+    background: #f7f7f7;
+    margin: 40px 0;
+}
+
+.message-users {
+    max-height: 600px;
+    overflow: scroll;
+    margin-top: 20px;
 }

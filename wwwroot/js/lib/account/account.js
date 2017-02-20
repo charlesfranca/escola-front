@@ -52,6 +52,31 @@ escoladevoce.account.init = function() {
     });
 }
 
+escoladevoce.account.getAddressData = function(cep){
+    var onlynumberCep = cep.replace(/\D/, "");
+    
+    if(onlynumberCep.length == 8){
+        $.ajax({
+            url: "/account/consultaCep",
+            data: {
+                cep: cep
+            }, beforeSend: function(){
+                escoladevoce.ui.block("Estamos buscando as informações do seu CEP...");
+            }, complete: function(){
+                escoladevoce.ui.unblock();
+            }, success: function(response){
+                $("#addressStreet").val(response.logradouro);
+                $("#addressCity").val(response.localidade);
+                $("#addressState").val(response.uf);
+                $("#addressNeighborhood").val(response.bairro);
+                console.log(response);
+            }, error: function(error){
+                console.log(error);
+            }
+        });
+    }
+}
+
 escoladevoce.account.updateData = function(options) {
     $.ajax({
         url: "/",

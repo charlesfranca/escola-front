@@ -28,6 +28,25 @@ escoladevoce.mensagem.getMessages = function(from){
     })
 }
 
+escoladevoce.mensagem.getUsers = function(search){
+    if(search.length > 2){
+        $.ajax({
+            url: "/mensagens/getUsers",
+            data: {
+                search: search
+            }, beforeSend: function(){
+                escoladevoce.ui.block("Estamos carregando os usuários compativeis com sua busca...");
+            }, complete: function(){
+                escoladevoce.ui.unblock();
+            }, success: function(response){
+                $(".panel-left .message-users").html(response);
+            }, error: function(error){
+                console.log(error);
+            }
+        })
+    }
+}
+
 escoladevoce.mensagem.sendMessage = function(){
     var message = tinymce.get("newChatMessage").getContent();
     var id = $(".mensagem.active").data("user-id");

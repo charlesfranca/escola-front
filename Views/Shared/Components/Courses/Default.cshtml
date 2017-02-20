@@ -38,7 +38,7 @@
                         <div class="course-info">
                             <p class="course-title">
                                 @if(User.Identity.IsAuthenticated){
-                                    <a href="/cursos/detalhes/@c.Id">@c.name</a>
+                                    <a href="/cursos/detalhe/@c.Id">@c.name</a>
                                 }else{
                                     <span onclick="escoladevoce.auth.openSignupForm()" style="cursor: pointer">@c.name</span>
                                 }

@@ -18,7 +18,7 @@
             <div id="slide@(Model.Id)" class="quiz-slider"></div>
         </div>
         <div class="question-buttons">
-            <button class="escola-btn">fazer o quiz completo</button>
+            <a class="escola-btn" href="/quiz">fazer o quiz completo</a>
             <button class="escola-btn escola-btn-primary right-item right-button" onclick="escoladevoce.quiz.answerQuestion('@right_answer.Id', '@left_answer.Id', '#slide@(Model.Id)')">enviar</button>
         </div>
     </div>

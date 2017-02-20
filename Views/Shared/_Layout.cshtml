@@ -313,7 +313,8 @@
             $("a").click(function(e){
                 var url = $(this).attr("href");
                 var role = $(this).attr("role");
-                if(url.indexOf("mailto") < 0 && url.indexOf("://") < 0 && !role){
+                var toggle = $(this).attr("toggle");
+                if(url.indexOf("mailto") < 0 && url.indexOf("://") < 0 && !role && !toggle){
                     e.preventDefault();
                     if(url == "" || url == "#" || !url){
                         return false;
