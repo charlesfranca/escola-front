@@ -1392,6 +1392,13 @@ section#papo-de-escolete {
 .depoiment-image {
     border-radius: 50%;
     overflow: hidden;
+    width: 53px;
+    height: 53px;
+}
+
+.depoiment-image img{
+    width: 53px;
+    height: 53px;
 }
 
 .depoiment-message {
@@ -1954,4 +1961,8 @@ input.dictionary-title {
     max-height: 600px;
     overflow: scroll;
     margin-top: 20px;
+}
+
+#tv-edv-content p.course-title {
+    height: 80px !important;
 }

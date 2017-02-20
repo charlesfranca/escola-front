@@ -1,5 +1,6 @@
 @{
     ViewData["Title"] = "Cursos";
+    string partner = (string)this.ViewContext.RouteData.Values["partner"];
 }
 
 @await Component.InvokeAsync("Header")
@@ -7,4 +8,8 @@
 <br>
 <br>
 
-@await Component.InvokeAsync("Video", new { categoryid = Guid.Parse("fb80c642-b531-4140-aee7-ecf5b4818446") })
+@if(!string.IsNullOrEmpty(partner)){
+    <div id="tv-edv-content">
+        @await Component.InvokeAsync("Video", new { categoryid = Guid.Parse("185fd6f6-eee6-481d-b5b5-97cca4a59f82") })
+    </div>
+}
