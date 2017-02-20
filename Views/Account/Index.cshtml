@@ -131,12 +131,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail2">Endereço*</label>
-                    <input type="text" class="form-control half-size" asp-for="addressStreet" placeholder="">
+                    <label for="exampleInputEmail2">Endereço Completo*</label>
+                     @Html.TextBoxFor(m => m.street, new { @class = "form-control small-size" })
+                   <!-- <input type="text" class="form-control half-size" asp-for="addressStreet" placeholder=""> -->
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail2">Número*</label>
+                    <label for="exampleInputEmail2">Complemento*</label>
                     <input type="text" class="form-control tiny-size" asp-for="addressNumber" placeholder="">
                 </div>
 
